@@ -1,0 +1,184 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { projects } from '../../data/projects';
+
+const breadcrumbItems = [
+  { label: 'Portofolio Proyek', href: '/proyek/' }
+];
+
+const projectCategories = [
+  { label: 'Semua Proyek', filter: 'all' },
+  { label: 'Plafon PVC', filter: 'pvc' },
+  { label: 'Gypsum', filter: 'gypsum' },
+  { label: 'Baja Ringan', filter: 'baja-ringan' },
+  { label: 'Wall Moulding', filter: 'wall-moulding' },
+  { label: 'Rumah Tinggal', filter: 'rumah' },
+  { label: 'Komersial', filter: 'komersial' }
+];
+---
+
+<BaseLayout
+  title="Portofolio Proyek Pemasangan Plafon & Interior — Plafon PVC Solo by Griya Alfath"
+  description="Galeri dokumentasi proyek riil pemasangan plafon PVC, drop ceiling, gypsum, baja ringan, dan wall moulding di Surakarta, Sukoharjo, Klaten, dan sekitarnya."
+  currentPath="/proyek/"
+>
+  <!-- Page Banner -->
+  <section class="page-banner">
+  <video autoplay muted loop playsinline poster="/images/hero/hero-plafon-main.webp" class="banner-video-bg" aria-hidden="true">
+    <source src="/videos/banner-bg.mp4" type="video/mp4" />
+  </video>
+  <div class="banner-overlay" aria-hidden="true"></div>
+
+    <div class="container">
+      <span class="badge-sub" style="background-color: rgba(255,255,255,0.15); color: #fed7aa; margin-bottom: 0.75rem;">Galeri Portofolio</span>
+      <h1 class="page-banner-title">Dokumentasi Hasil Proyek Pemasangan</h1>
+      <p class="page-banner-desc">Dokumentasi riil hasil pengerjaan tim aplikator Griya Alfath pada berbagai jenis bangunan di wilayah Solo Raya.</p>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <Breadcrumb items={breadcrumbItems} />
+
+  <!-- Portfolio Gallery Section -->
+  <section class="section-py bg-white">
+    <div class="container">
+      <!-- Filter Bar -->
+      <div class="filter-bar">
+        <span class="filter-label">Filter Kategori Proyek:</span>
+        <div class="filter-buttons">
+          {projectCategories.map((c, index) => (
+            <button
+              type="button"
+              class={`filter-btn ${index === 0 ? 'active' : ''}`}
+              data-filter={c.filter}
+            >
+              {c.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Notice Bar -->
+      <div class="project-notice-box">
+        <svg class="notice-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+        <span>
+          <strong>Catatan Dokumentasi:</strong> Seluruh foto di bawah ini merupakan dokumentasi pengerjaan asli tim aplikator Griya Alfath. Klik pada foto untuk memperbesar tampilan (lightbox).
+        </span>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="portfolio-grid" id="projectsContainer">
+        {projects.map((proj) => (
+          <ProjectCard project={proj} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="section-py bg-alt">
+    <div class="container">
+      <div class="cta-banner">
+        <div class="cta-banner-content">
+          <span class="badge-sub" style="background-color: rgba(255,255,255,0.12); color: #fed7aa; margin-bottom: 1rem;">Konsultasi Proyek</span>
+          <h3>Tertarik dengan Salah Satu Konsep Plafon di Atas?</h3>
+          <p>Kirimkan foto denah ruangan atau konsultasikan motif yang Anda sukai kepada tim kami untuk mendapatkan estimasi kebutuhan dan biaya.</p>
+          <div class="cta-banner-buttons">
+            <a href="https://wa.me/6282157249454?text=Halo%20Griya%20Alfath,%20saya%20tertarik%20dengan%20proyek%20plafon%20di%20portofolio%20website" class="btn btn-accent" target="_blank" rel="noopener">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9 7.41 8.74 7.69C8.47 7.96 7.74 8.64 7.74 10.05C7.74 11.45 8.77 12.81 8.91 13C9.05 13.2 10.92 16.08 13.8 17.32C14.49 17.61 15.02 17.79 15.44 17.93C16.13 18.15 16.76 18.12 17.26 18.04C17.81 17.96 18.96 17.35 19.2 16.67C19.44 16 19.44 15.41 19.37 15.3C19.3 15.19 19.11 15.12 18.82 14.98C18.53 14.84 17.11 14.14 16.85 14.05C16.59 13.95 16.4 13.91 16.21 14.2C16.02 14.5 15.48 15.12 15.31 15.3C15.15 15.5 14.99 15.52 14.7 15.37C14.41 15.23 13.49 14.93 12.4 13.96C11.55 13.2 10.98 12.27 10.82 11.98C10.65 11.7 10.8 11.54 10.95 11.4C11.08 11.27 11.24 11.06 11.39 10.89C11.53 10.72 11.58 10.6 11.68 10.4C11.77 10.2 11.72 10.03 11.65 9.89C11.58 9.74 11 8.33 10.76 7.76C10.53 7.21 10.3 7.28 10.13 7.27L9.53 7.33Z"/></svg>
+              Konsultasi Model Proyek via WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .filter-label {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  .filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    padding: 0.45rem 1rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-alt);
+    color: var(--text-main);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .filter-btn:hover {
+    background-color: var(--border-color);
+    color: var(--primary);
+  }
+
+  .filter-btn.active {
+    background-color: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+  }
+
+  .project-notice-box {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    padding: 0.85rem 1.25rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 2.5rem;
+    font-size: 0.875rem;
+    color: #166534;
+  }
+
+  .notice-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    flex-shrink: 0;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 1100px) {
+    .portfolio-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .portfolio-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+

@@ -1,0 +1,712 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+
+const breadcrumbItems = [
+  { label: 'Kontak', href: '/kontak/' }
+];
+
+const otelloMsg = encodeURIComponent(
+  'Halo Mas Otello Griya Alfath, saya ingin konsultasi kebutuhan material dan penawaran proyek konstruksi interior di Solo Raya.'
+);
+const evitaMsg = encodeURIComponent(
+  'Halo Mbak Evita Griya Alfath, saya ingin menanyakan informasi harga material, stok barang, atau jadwal survei lokasi.'
+);
+
+const otelloUrl = `https://wa.me/6282157249454?text=${otelloMsg}`;
+const evitaUrl = `https://wa.me/6282134516288?text=${evitaMsg}`;
+---
+
+<BaseLayout
+  title="Hubungi Kami — Plafon PVC Solo by Griya Alfath"
+  description="Kontak resmi Plafon PVC Solo by Griya Alfath: Mas Otello 082157249454, Mbak Evita 082134516288, alamat toko di Delanggu Klaten, Kartasura Sukoharjo, Bulusulur Wonogiri."
+  currentPath="/kontak/"
+>
+  <!-- Page Banner -->
+  <section class="page-banner">
+  <video autoplay muted loop playsinline poster="/images/hero/hero-plafon-main.webp" class="banner-video-bg" aria-hidden="true">
+    <source src="/videos/banner-bg.mp4" type="video/mp4" />
+  </video>
+  <div class="banner-overlay" aria-hidden="true"></div>
+
+    <div class="container">
+      <span class="badge-sub" style="background-color: rgba(255,255,255,0.15); color: #fed7aa; margin-bottom: 0.75rem;">Hubungi Kami</span>
+      <h1 class="page-banner-title">Kontak &amp; Informasi Layanan</h1>
+      <p class="page-banner-desc">Kami siap melayani konsultasi kebutuhan material plafon, estimasi RAB, dan jadwal survei lapangan gratis untuk proyek Anda di Solo Raya.</p>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <Breadcrumb items={breadcrumbItems} />
+
+  <!-- Contact Section -->
+  <section class="section-py bg-white">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Contact Info Cards -->
+        <div class="contact-info-col">
+          <span class="badge-sub">Saluran Komunikasi Resmi</span>
+          <h2 class="section-title">Mari Terhubung dengan Tim Griya Alfath</h2>
+          <p class="contact-intro">
+            Dapatkan respon cepat langsung dari staf teknis dan administrasi kami melalui saluran WhatsApp atau kunjungi langsung toko fisik terdekat kami di Solo Raya.
+          </p>
+
+          <div class="contact-cards-stack">
+            <!-- Admin 1: Mas Otello -->
+            <div class="contact-channel-card">
+              <div class="channel-icon-box">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9 7.41 8.74 7.69C8.47 7.96 7.74 8.64 7.74 10.05C7.74 11.45 8.77 12.81 8.91 13C9.05 13.2 10.92 16.08 13.8 17.32C14.49 17.61 15.02 17.79 15.44 17.93C16.13 18.15 16.76 18.12 17.26 18.04C17.81 17.96 18.96 17.35 19.2 16.67C19.44 16 19.44 15.41 19.37 15.3C19.3 15.19 19.11 15.12 18.82 14.98C18.53 14.84 17.11 14.14 16.85 14.05C16.59 13.95 16.4 13.91 16.21 14.2C16.02 14.5 15.48 15.12 15.31 15.3C15.15 15.5 14.99 15.52 14.7 15.37C14.41 15.23 13.49 14.93 12.4 13.96C11.55 13.2 10.98 12.27 10.82 11.98C10.65 11.7 10.8 11.54 10.95 11.4C11.08 11.27 11.24 11.06 11.39 10.89C11.53 10.72 11.58 10.6 11.68 10.4C11.77 10.2 11.72 10.03 11.65 9.89C11.58 9.74 11 8.33 10.76 7.76C10.53 7.21 10.3 7.28 10.13 7.27L9.53 7.33Z"/></svg>
+              </div>
+              <div class="channel-info">
+                <h4>Mas Otello — Konsultasi Proyek &amp; B2B</h4>
+                <p>Konsultasi teknis pemasangan, spesifikasi material, dan kerja sama pengadaan kontraktor.</p>
+                <a href={otelloUrl} class="channel-link" target="_blank" rel="noopener">
+                  0821-5724-9454 (Chat WhatsApp) &rarr;
+                </a>
+              </div>
+            </div>
+
+            <!-- Admin 2: Mbak Evita -->
+            <div class="contact-channel-card">
+              <div class="channel-icon-box" style="background-color: #dcfce7; color: #16a34a;">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9 7.41 8.74 7.69C8.47 7.96 7.74 8.64 7.74 10.05C7.74 11.45 8.77 12.81 8.91 13C9.05 13.2 10.92 16.08 13.8 17.32C14.49 17.61 15.02 17.79 15.44 17.93C16.13 18.15 16.76 18.12 17.26 18.04C17.81 17.96 18.96 17.35 19.2 16.67C19.44 16 19.44 15.41 19.37 15.3C19.3 15.19 19.11 15.12 18.82 14.98C18.53 14.84 17.11 14.14 16.85 14.05C16.59 13.95 16.4 13.91 16.21 14.2C16.02 14.5 15.48 15.12 15.31 15.3C15.15 15.5 14.99 15.52 14.7 15.37C14.41 15.23 13.49 14.93 12.4 13.96C11.55 13.2 10.98 12.27 10.82 11.98C10.65 11.7 10.8 11.54 10.95 11.4C11.08 11.27 11.24 11.06 11.39 10.89C11.53 10.72 11.58 10.6 11.68 10.4C11.77 10.2 11.72 10.03 11.65 9.89C11.58 9.74 11 8.33 10.76 7.76C10.53 7.21 10.3 7.28 10.13 7.27L9.53 7.33Z"/></svg>
+              </div>
+              <div class="channel-info">
+                <h4>Mbak Evita — Layanan Pelanggan &amp; Administrasi</h4>
+                <p>Cek ketersediaan stok, pertanyaan harga eceran toko, serta penjadwalan survei lokasi.</p>
+                <a href={evitaUrl} class="channel-link" target="_blank" rel="noopener">
+                  0821-3451-6288 (Chat WhatsApp) &rarr;
+                </a>
+              </div>
+            </div>
+
+            <!-- Social Media Official -->
+            <div class="contact-channel-card">
+              <div class="channel-icon-box" style="background-color: #ede9fe; color: #7c3aed;">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/></svg>
+              </div>
+              <div class="channel-info">
+                <h4>Media Sosial Resmi</h4>
+                <p>Ikuti dokumentasi proyek &amp; tips interior terkini:</p>
+                <div class="social-tags-list">
+                  <a href="https://www.instagram.com/plafonpvcsolo/" target="_blank" rel="noopener" class="social-tag">Instagram</a>
+                  <a href="https://www.facebook.com/plafonpvcsolo/" target="_blank" rel="noopener" class="social-tag">Facebook</a>
+                  <a href="https://www.threads.net/@plafonpvcsolo" target="_blank" rel="noopener" class="social-tag">Threads</a>
+                  <a href="https://www.tiktok.com/@plafonpvcsolo" target="_blank" rel="noopener" class="social-tag">TikTok</a>
+                  <a href="https://www.youtube.com/@PlafonPVCAlfath" target="_blank" rel="noopener" class="social-tag">YouTube</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Simulation Quotation Form -->
+        <div class="contact-form-col">
+          <div class="form-container-card">
+            <h3>Konsultasi &amp; Penawaran Cepat</h3>
+            <p class="form-subtext">Isi formulir singkat di bawah ini. Anda akan langsung diarahkan ke WhatsApp Mas Otello untuk konfirmasi teknis &amp; jadwal survei.</p>
+
+            <form id="contactForm" class="contact-form">
+              <div class="form-group">
+                <label for="name">Nama Lengkap *</label>
+                <input type="text" id="name" name="name" placeholder="Contoh: Budi Santoso" required />
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Nomor WhatsApp Aktif *</label>
+                <input type="tel" id="phone" name="phone" placeholder="Contoh: 081234567890" required />
+              </div>
+
+              <div class="form-group">
+                <label for="service">Kategori Kebutuhan</label>
+                <select id="service" name="service">
+                  <option value="Pemasangan Plafon PVC">Pemasangan Plafon PVC</option>
+                  <option value="Pemasangan Plafon Gypsum">Pemasangan Plafon Gypsum</option>
+                  <option value="Pemasangan Baja Ringan">Pemasangan Rangka Baja Ringan</option>
+                  <option value="Pemasangan Wall Moulding">Pemasangan Wall Moulding &amp; WPC</option>
+                  <option value="Pembelian Material Grosir / Proyek">Pembelian Material Skala Proyek (B2B)</option>
+                  <option value="Pembelian Material Eceran">Pembelian Material Eceran Toko</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Perkiraan Ukuran / Catatan Tambahan</label>
+                <textarea id="message" name="message" rows="4" placeholder="Contoh: Luas ruangan sekitar 4x6 meter, drop ceiling trap bertingkat..."></textarea>
+              </div>
+
+              <div id="formStatus" class="form-status" aria-live="polite"></div>
+
+              <button type="submit" class="btn btn-accent" style="width: 100%;">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9 7.41 8.74 7.69C8.47 7.96 7.74 8.64 7.74 10.05C7.74 11.45 8.77 12.81 8.91 13C9.05 13.2 10.92 16.08 13.8 17.32C14.49 17.61 15.02 17.79 15.44 17.93C16.13 18.15 16.76 18.12 17.26 18.04C17.81 17.96 18.96 17.35 19.2 16.67C19.44 16 19.44 15.41 19.37 15.3C19.3 15.19 19.11 15.12 18.82 14.98C18.53 14.84 17.11 14.14 16.85 14.05C16.59 13.95 16.4 13.91 16.21 14.2C16.02 14.5 15.48 15.12 15.31 15.3C15.15 15.5 14.99 15.52 14.7 15.37C14.41 15.23 13.49 14.93 12.4 13.96C11.55 13.2 10.98 12.27 10.82 11.98C10.65 11.7 10.8 11.54 10.95 11.4C11.08 11.27 11.24 11.06 11.39 10.89C11.53 10.72 11.58 10.6 11.68 10.4C11.77 10.2 11.72 10.03 11.65 9.89C11.58 9.74 11 8.33 10.76 7.76C10.53 7.21 10.3 7.28 10.13 7.27L9.53 7.33Z"/></svg>
+                Kirim Permintaan via WhatsApp
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Physical Stores & Google Maps -->
+  <section class="section-py bg-alt">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge-sub">Jaringan Fisik Terverifikasi</span>
+        <h2 class="section-title">Kunjungi Toko, Showroom &amp; Gudang Griya Alfath</h2>
+        <p class="section-desc">Pilihan alamat showroom fisik dan gudang stok yang dapat Anda kunjungi langsung di Solo Raya untuk melihat ratusan sampel motif plafon PVC asli.</p>
+      </div>
+
+      <div class="stores-contact-grid">
+        <!-- Store 1: Delanggu -->
+        <div class="store-item-card">
+          <span class="store-tag">Kantor Pusat &amp; Showroom</span>
+          <h4>Plafon PVC Solo (Griya Alfath) — Delanggu</h4>
+          <p class="store-address">Jl. Raya Delanggu Utara, Jl. Mondokaki No. 330, Dusun Kendon, Desa Karang, Kec. Delanggu, Kabupaten Klaten, Jawa Tengah 57471 (Sebelah Koramil Delanggu).</p>
+          <div class="store-meta">
+            <span class="store-hours">🕒 Senin – Sabtu: 08.00 – 17.00 WIB</span>
+          </div>
+          <div class="store-actions">
+            <a href="https://maps.app.goo.gl/uRkv4X3MwrDUag7W8" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              Buka Google Maps &rarr;
+            </a>
+            <button type="button" class="btn btn-outline btn-sm map-tab-btn active" data-map="map-delanggu">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+              Lihat Peta
+            </button>
+          </div>
+        </div>
+
+        <!-- Store 2: Kartasura -->
+        <div class="store-item-card">
+          <span class="store-tag">Toko Cabang Sukoharjo</span>
+          <h4>PLAFON PVC SOLO ALFATH — Kartasura</h4>
+          <p class="store-address">Jl. A. Yani No. 158, Dusun III, Kartasura, Kec. Kartasura, Kabupaten Sukoharjo, Jawa Tengah 57169.</p>
+          <div class="store-meta">
+            <span class="store-hours">🕒 Senin – Sabtu: 08.00 – 17.00 WIB</span>
+          </div>
+          <div class="store-actions">
+            <a href="https://maps.app.goo.gl/v3GVgPaTmMLbCjaV7" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              Buka Google Maps &rarr;
+            </a>
+            <button type="button" class="btn btn-outline btn-sm map-tab-btn" data-map="map-kartasura">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+              Lihat Peta
+            </button>
+          </div>
+        </div>
+
+        <!-- Store 3: Wonogiri -->
+        <div class="store-item-card">
+          <span class="store-tag">Toko Cabang Wonogiri</span>
+          <h4>Plafon Wonogiri AL FATEH PVC &amp; Gypsum</h4>
+          <p class="store-address">Jl. Raya Wonogiri – Ponorogo, Bulusulur, Kec. Wonogiri, Kabupaten Wonogiri, Jawa Tengah 57615.</p>
+          <div class="store-meta">
+            <span class="store-hours">🕒 Senin – Sabtu: 08.00 – 16.30 WIB</span>
+          </div>
+          <div class="store-actions">
+            <a href="https://maps.app.goo.gl/BLHNnbD1sd66i9PY8" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              Buka Google Maps &rarr;
+            </a>
+            <button type="button" class="btn btn-outline btn-sm map-tab-btn" data-map="map-wonogiri">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+              Lihat Peta
+            </button>
+          </div>
+        </div>
+
+        <!-- Store 4: Gudang Tlobong -->
+        <div class="store-item-card">
+          <span class="store-tag">Gudang Distribusi Utama</span>
+          <h4>PLAFON PVC SOLO GRIYA ALFATH 88 — Tlobong</h4>
+          <p class="store-address">Dusun 1, Tlobong, Kec. Delanggu, Kabupaten Klaten, Jawa Tengah (Pusat Stok &amp; Logistik).</p>
+          <div class="store-meta">
+            <span class="store-hours">🕒 Senin – Sabtu: 08.00 – 17.00 WIB</span>
+          </div>
+          <div class="store-actions">
+            <a href="https://maps.app.goo.gl/CfB2fCVS16XmKAmm9" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              Buka Google Maps &rarr;
+            </a>
+            <button type="button" class="btn btn-outline btn-sm map-tab-btn" data-map="map-tlobong">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+              Lihat Peta
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Google Maps Embed Section with Switcher -->
+      <div class="maps-section-container">
+        <div class="maps-switcher-nav" role="tablist" aria-label="Pilih Peta Lokasi">
+          <button class="map-nav-btn active" data-map="map-delanggu" role="tab" aria-selected="true">
+            📍 Pusat Delanggu (Klaten)
+          </button>
+          <button class="map-nav-btn" data-map="map-kartasura" role="tab" aria-selected="false">
+            📍 Cabang Kartasura (Sukoharjo)
+          </button>
+          <button class="map-nav-btn" data-map="map-wonogiri" role="tab" aria-selected="false">
+            📍 Cabang Bulusulur (Wonogiri)
+          </button>
+          <button class="map-nav-btn" data-map="map-tlobong" role="tab" aria-selected="false">
+            📍 Gudang Distribusi Tlobong
+          </button>
+        </div>
+
+        <div class="maps-embed-wrapper">
+          <!-- Delanggu Map -->
+          <div id="map-delanggu" class="map-panel active">
+            <iframe
+              title="Peta Lokasi Kantor Pusat Delanggu — Griya Alfath"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3954.509682148554!2d110.695482!3d-7.6282049999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a412efe0376ef%3A0x386a533c26cafd51!2sPlafon%20PVC%20Solo%20(%20Griya%20Alfath%20)!5e0!3m2!1sid!2sid!4v1767137843877!5m2!1sid!2sid"
+              width="100%"
+              height="400"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+
+          <!-- Kartasura Map -->
+          <div id="map-kartasura" class="map-panel">
+            <iframe
+              title="Peta Lokasi Cabang Kartasura — Griya Alfath"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31641.509403299737!2d110.7464768!3d-7.5543954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a15e92dcb1ee5%3A0x3aaa37deda8000ce!2sPLAFON%20PVC%20SOLO%20ALFATH!5e0!3m2!1sid!2sid!4v1767137642121!5m2!1sid!2sid"
+              width="100%"
+              height="400"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+
+          <!-- Wonogiri Map -->
+          <div id="map-wonogiri" class="map-panel">
+            <iframe
+              title="Peta Lokasi Cabang Wonogiri — Griya Alfath"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.7968635287107!2d110.9541297!3d-7.8113161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a2ff0719d678b%3A0x493ddf08785e5f57!2sPlafon%20Wonogiri%20AL%20FATEH%20pvc%20%26%20gypsum!5e0!3m2!1sid!2sid!4v1767137235625!5m2!1sid!2sid"
+              width="100%"
+              height="400"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+
+          <!-- Tlobong Map -->
+          <div id="map-tlobong" class="map-panel">
+            <iframe
+              title="Peta Lokasi Gudang Tlobong — Griya Alfath"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3954.5389296935577!2d110.7095408!3d-7.6250403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a413a4cdc6e21%3A0x1a7eb481ca3a0d85!2sPLAFON%20PVC%20SOLO%20GRIYA%20ALFATH%2088!5e0!3m2!1sid!2sid!4v1767137755092!5m2!1sid!2sid"
+              width="100%"
+              height="400"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Client Script for Form and Map Tabs -->
+  <script is:inline>
+    // Map Switcher Tabs
+    const mapBtns = document.querySelectorAll('.map-nav-btn, .map-tab-btn');
+    const mapPanels = document.querySelectorAll('.map-panel');
+
+    mapBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetMapId = btn.getAttribute('data-map');
+        if (!targetMapId) return;
+
+        // Update active class on nav buttons
+        document.querySelectorAll('.map-nav-btn').forEach(nb => {
+          if (nb.getAttribute('data-map') === targetMapId) {
+            nb.classList.add('active');
+            nb.setAttribute('aria-selected', 'true');
+          } else {
+            nb.classList.remove('active');
+            nb.setAttribute('aria-selected', 'false');
+          }
+        });
+
+        // Show matching panel
+        mapPanels.forEach(panel => {
+          if (panel.id === targetMapId) {
+            panel.classList.add('active');
+          } else {
+            panel.classList.remove('active');
+          }
+        });
+
+        // Scroll to map section smoothly on mobile if clicked from store card
+        if (btn.classList.contains('map-tab-btn')) {
+          const mapSection = document.querySelector('.maps-section-container');
+          if (mapSection) {
+            mapSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    });
+
+    // Contact Form Handler -> WhatsApp
+    const form = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name')?.value || '';
+        const phone = document.getElementById('phone')?.value || '';
+        const service = document.getElementById('service')?.value || '';
+        const message = document.getElementById('message')?.value || '';
+
+        const text = `Halo Mas Otello Griya Alfath,\n\nSaya ingin konsultasi melalui formulir website:\n• Nama: ${name}\n• No WA: ${phone}\n• Kebutuhan: ${service}\n• Catatan/Ukuran: ${message || '-'}\n\nMohon info dan penawaran harganya. Terima kasih!`;
+        const waUrl = `https://wa.me/6282157249454?text=${encodeURIComponent(text)}`;
+
+        if (formStatus) {
+          formStatus.textContent = 'Mengarahkan ke WhatsApp Mas Otello...';
+          formStatus.className = 'form-status success';
+          formStatus.style.display = 'block';
+        }
+
+        setTimeout(() => {
+          window.open(waUrl, '_blank');
+        }, 500);
+      });
+    }
+  </script>
+</BaseLayout>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+    align-items: flex-start;
+  }
+
+  .contact-intro {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 2rem;
+  }
+
+  .contact-cards-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .contact-channel-card {
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    transition: var(--transition);
+  }
+
+  .contact-channel-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .channel-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    background-color: var(--accent-soft);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .channel-info h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .channel-info p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+    margin-bottom: 0.5rem;
+  }
+
+  .channel-link {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .channel-link:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+  }
+
+  .social-tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 0.4rem;
+  }
+
+  .social-tag {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--primary);
+    background-color: var(--bg-alt);
+    border: 1px solid var(--border-color);
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+    transition: var(--transition);
+  }
+
+  .social-tag:hover {
+    background-color: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
+  }
+
+  /* Form Container */
+  .form-container-card {
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem 2rem;
+    box-shadow: var(--shadow-md);
+  }
+
+  .form-container-card h3 {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .form-subtext {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 1.75rem;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-group label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.75rem 1rem;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background-color: var(--bg-alt);
+    color: var(--text-main);
+    transition: var(--transition);
+    font-size: 0.95rem;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+
+  .form-status {
+    font-size: 0.875rem;
+    border-radius: var(--radius-sm);
+    display: none;
+    padding: 0.6rem 0.85rem;
+  }
+
+  :global(.form-status.success) {
+    display: block;
+    background-color: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+  }
+
+  :global(.form-status.error) {
+    display: block;
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+  }
+
+  /* Stores Contact Grid */
+  .stores-contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+    margin-bottom: 3rem;
+  }
+
+  .store-item-card {
+    background-color: #ffffff;
+    padding: 2rem 1.75rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+  }
+
+  .store-item-card:hover {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-md);
+  }
+
+  .store-item-card h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    line-height: 1.35;
+  }
+
+  .store-address {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+    margin-bottom: 0.75rem;
+    flex-grow: 1;
+  }
+
+  .store-meta {
+    margin-bottom: 1.25rem;
+  }
+
+  .store-hours {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    background-color: var(--bg-alt);
+    padding: 0.3rem 0.6rem;
+    border-radius: var(--radius-sm);
+    display: inline-block;
+  }
+
+  .store-tag {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--accent);
+    background-color: var(--accent-soft);
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 0.75rem;
+  }
+
+  .store-actions {
+    margin-top: auto;
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  /* Maps Section & Switcher */
+  .maps-section-container {
+    background-color: #ffffff;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+  }
+
+  .maps-switcher-nav {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--bg-alt);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .map-nav-btn {
+    flex: 1 1 200px;
+    padding: 1rem 1.25rem;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+  }
+
+  .map-nav-btn:hover {
+    color: var(--primary);
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .map-nav-btn.active {
+    color: var(--accent);
+    background-color: #ffffff;
+    border-bottom-color: var(--accent);
+  }
+
+  .maps-embed-wrapper {
+    position: relative;
+    background-color: #e2e8f0;
+  }
+
+  .map-panel {
+    display: none;
+  }
+
+  .map-panel.active {
+    display: block;
+  }
+
+  .map-panel iframe {
+    display: block;
+    width: 100%;
+  }
+
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .stores-contact-grid { grid-template-columns: 1fr; }
+    .map-nav-btn { flex: 1 1 100%; text-align: left; padding: 0.85rem 1rem; }
+  }
+</style>

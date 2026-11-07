@@ -1,0 +1,517 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import ProductCard from "../../components/ProductCard.astro";
+import { brands } from "../../data/brands";
+import { products } from "../../data/products";
+
+const breadcrumbItems = [{ label: "Katalog Produk", href: "/produk/" }];
+
+const bestSellerProduct = products.find((p) => p.isBestSeller) || products[0];
+
+const pageTitle =
+  "Katalog Produk Material Plafon & Konstruksi Berdasarkan Merek — Griya Alfath";
+const pageDesc =
+  "Katalog resmi produk plafon UPVC Lamiwood (Best Seller), plafon PVC Alfafon, Sakura, gypsum Jayaboard, baja ringan Kencana SNI, hollow Honor Decoration, Motto, dan lis Janur di Solo Raya.";
+---
+
+<BaseLayout title={pageTitle} description={pageDesc} currentPath="/produk/">
+  <!-- Page Banner -->
+  <section class="page-banner">
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="/images/hero/hero-plafon-main.webp"
+      class="banner-video-bg"
+      aria-hidden="true"
+    >
+      <source src="/videos/banner-bg.mp4" type="video/mp4" />
+    </video>
+    <div class="banner-overlay" aria-hidden="true"></div>
+
+    <div class="container">
+      <span
+        class="badge-sub"
+        style="background-color: rgba(255,255,255,0.15); color: #fed7aa; margin-bottom: 0.75rem;"
+        >Distributor Resmi Merek Unggulan</span
+      >
+      <h1 class="page-banner-title">Katalog Produk &amp; Merek Resmi</h1>
+      <p class="page-banner-desc">
+        Koleksi material plafon, gypsum, baja ringan SNI, wall panel, dan lis
+        profil dikelompokkan berdasarkan merek resmi dari pabrik prinsipal.
+      </p>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <Breadcrumb items={breadcrumbItems} />
+
+  <!-- Lamiwood Best Seller Spotlight Banner -->
+  {
+    bestSellerProduct && (
+      <section class="section-py bg-white best-seller-spotlight-section">
+        <div class="container">
+          <div class="best-seller-banner">
+            <div class="bs-badge-wrap">
+              <span class="bs-star-badge">
+                ★ PRODUK UNGGULAN &bull; BEST SELLER
+              </span>
+              <span class="bs-brand-pill">Merek: LAMIWOOD</span>
+            </div>
+
+            <div class="bs-grid">
+              <div class="bs-content">
+                <h2 class="bs-title">{bestSellerProduct.name}</h2>
+                <p class="bs-desc">{bestSellerProduct.fullDescription}</p>
+
+                <div class="bs-specs-mini">
+                  <div class="bs-spec-item">
+                    <span class="bs-spec-label">Ketebalan:</span>
+                    <strong>8.0 mm (Ekstra Kaku)</strong>
+                  </div>
+                  <div class="bs-spec-item">
+                    <span class="bs-spec-label">Lebar Efektif:</span>
+                    <strong>20 cm</strong>
+                  </div>
+                  <div class="bs-spec-item">
+                    <span class="bs-spec-label">Ketahanan Air:</span>
+                    <strong>Waterproof 100%</strong>
+                  </div>
+                  <div class="bs-spec-item">
+                    <span class="bs-spec-label">Varian:</span>
+                    <strong>50+ Motif Kayu &amp; Marmer</strong>
+                  </div>
+                </div>
+
+                <div class="bs-actions">
+                  <a
+                    href={`/produk/${bestSellerProduct.slug}/`}
+                    class="btn btn-accent"
+                  >
+                    <svg class="icon-svg" viewBox="0 0 24 24">
+                      <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                    </svg>
+                    Lihat Spesifikasi Lengkap &rarr;
+                  </a>
+                  {bestSellerProduct.pdfCatalog && (
+                    <a
+                      href={bestSellerProduct.pdfCatalog}
+                      class="btn btn-outline"
+                      download
+                    >
+                      <svg class="icon-svg" viewBox="0 0 24 24">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+                      </svg>
+                      Unduh E-Katalog (PDF)
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              <div class="bs-media-preview">
+                <a href={`/produk/${bestSellerProduct.slug}/`}>
+                  <img
+                    src={bestSellerProduct.image}
+                    alt={bestSellerProduct.name}
+                    width="500"
+                    height="340"
+                    loading="eager"
+                    class="bs-img"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- Brand Filter & Brand-Grouped Catalog Section -->
+  <section class="section-py bg-alt">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2 class="section-title">Eksplorasi Produk Sesuai Kebutuhan Anda</h2>
+        <p class="section-desc">
+          Pilih filter merek di bawah ini untuk melihat rangkaian produk,
+          spesifikasi teknis, serta dokumen PDF.
+        </p>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="brand-filter-bar">
+        <span class="filter-label">Filter Merek:</span>
+        <div class="filter-buttons" role="tablist">
+          <button
+            type="button"
+            class="brand-filter-btn active"
+            data-filter="all"
+          >
+            Semua Merek ({products.length})
+          </button>
+          {
+            brands.map((b) => (
+              <button
+                type="button"
+                class="brand-filter-btn"
+                data-filter={b.slug}
+              >
+                {b.name} {b.isBestSeller ? "★" : ""}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Unified Products Grid -->
+      <div class="products-grid" id="productsCatalogGrid">
+        {products.map((prod) => <ProductCard product={prod} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Procurement Information for B2B & B2C -->
+  <section class="section-py bg-white">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge-sub">Kemudahan Transaksi</span>
+        <h2 class="section-title">
+          Layanan Pengadaan Material Eceran &amp; Grosir
+        </h2>
+        <p class="section-desc">
+          Kemudahan pemesanan material untuk tukang, kontraktor, pemilik rumah,
+          hingga toko bangunan di Solo Raya.
+        </p>
+      </div>
+
+      <div class="order-features-grid">
+        <div class="order-card">
+          <div class="order-number">01</div>
+          <h3>Pemesanan Retail / Eceran</h3>
+          <p>
+            Tanpa minimal order tertentu untuk renovasi satu ruangan atau hunian
+            pribadi. Pengiriman cepat langsung ke alamat rumah Anda.
+          </p>
+        </div>
+
+        <div class="order-card">
+          <div class="order-number">02</div>
+          <h3>Pengadaan Proyek Kontraktor</h3>
+          <p>
+            Dukungan surat penawaran harga (SPH), spesifikasi teknis material
+            SNI, dan penjadwalan pengiriman bertahap sesuai progres lapangan.
+          </p>
+        </div>
+
+        <div class="order-card">
+          <div class="order-number">03</div>
+          <h3>Sampel Fisik &amp; Konsultasi</h3>
+          <p>
+            Disediakan katalog sampel fisik motif plafon PVC dan wallboard
+            gratis bagi kontraktor dan arsitek untuk presentasi ke klien.
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top: 3rem;">
+        <a
+          href="https://wa.me/6282157249454?text=Halo%20Mas%20Otello%20Griya%20Alfath,%20saya%20ingin%20berkonsultasi%20mengenai%20katalog%20produk%20dan%20daftar%20harga%20resmi%20untuk%20kebutuhan%20proyek%20saya.%20Terima%20kasih!"
+          class="btn btn-accent btn-lg"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg class="icon-svg" viewBox="0 0 24 24"
+            ><path
+              d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9 7.41 8.74 7.69C8.47 7.96 7.74 8.64 7.74 10.05C7.74 11.45 8.77 12.81 8.91 13C9.05 13.2 10.92 16.08 13.8 17.32C14.49 17.61 15.02 17.79 15.44 17.93C16.13 18.15 16.76 18.12 17.26 18.04C17.81 17.96 18.96 17.35 19.2 16.67C19.44 16 19.44 15.41 19.37 15.3C19.3 15.19 19.11 15.12 18.82 14.98C18.53 14.84 17.11 14.14 16.85 14.05C16.59 13.95 16.4 13.91 16.21 14.2C16.02 14.5 15.48 15.12 15.31 15.3C15.15 15.5 14.99 15.52 14.7 15.37C14.41 15.23 13.49 14.93 12.4 13.96C11.55 13.2 10.98 12.27 10.82 11.98C10.65 11.7 10.8 11.54 10.95 11.4C11.08 11.27 11.24 11.06 11.39 10.89C11.53 10.72 11.58 10.6 11.68 10.4C11.77 10.2 11.72 10.03 11.65 9.89C11.58 9.74 11 8.33 10.76 7.76C10.53 7.21 10.3 7.28 10.13 7.27L9.53 7.33Z"
+            ></path></svg
+          >
+          Konsultasi Harga &amp; Ketersediaan via WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Brand Filter Script -->
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      const filterBtns = document.querySelectorAll(".brand-filter-btn");
+      const productCards = document.querySelectorAll(
+        ".products-grid .product-card",
+      );
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          const filter = btn.getAttribute("data-filter");
+
+          productCards.forEach((card) => {
+            const cardBrand = card.getAttribute("data-brand");
+            if (filter === "all" || cardBrand === filter) {
+              card.style.display = "";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+
+      // Handle URL param or hash if accessed directly (e.g. /produk/?brand=kencana or #kencana)
+      const urlParams = new URLSearchParams(window.location.search);
+      const initialBrand =
+        urlParams.get("brand") || window.location.hash.replace("#", "");
+      if (initialBrand) {
+        const matchingBtn = Array.from(filterBtns).find(
+          (b) => b.getAttribute("data-filter") === initialBrand,
+        );
+        if (matchingBtn) {
+          matchingBtn.click();
+        }
+      }
+    });
+  </script>
+</BaseLayout>
+
+<style>
+  /* Best Seller Spotlight Banner */
+  .best-seller-spotlight-section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .best-seller-banner {
+    background: linear-gradient(135deg, #0f2b48 0%, #153e68 100%);
+    border-radius: var(--radius-xl);
+    padding: 2.75rem;
+    color: #ffffff;
+    box-shadow: 0 12px 36px rgba(15, 43, 72, 0.2);
+    border: 2px solid var(--accent);
+  }
+
+  .bs-badge-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+  }
+
+  .bs-star-badge {
+    background-color: var(--accent);
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 800;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    letter-spacing: 0.04em;
+  }
+
+  .bs-brand-pill {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-full);
+  }
+
+  .bs-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .bs-title {
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    line-height: 1.25;
+  }
+
+  .bs-desc {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    line-height: 1.65;
+    margin-bottom: 1.75rem;
+  }
+
+  .bs-specs-mini {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md);
+    padding: 1.15rem 1.25rem;
+    margin-bottom: 1.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .bs-spec-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .bs-spec-label {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .bs-spec-item strong {
+    font-size: 0.875rem;
+    color: #ffffff;
+  }
+
+  .bs-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .bs-media-preview {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background-color: #000000;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .bs-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+  }
+
+  .bs-img:hover {
+    transform: scale(1.03);
+  }
+
+  /* Brand Filter Bar */
+  .brand-filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    padding: 1.25rem 1.5rem;
+    background-color: #ffffff;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .filter-label {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  .filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .brand-filter-btn {
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-full);
+    border: 1.5px solid var(--border-color);
+    background-color: var(--bg-alt);
+    color: var(--text-main);
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .brand-filter-btn:hover {
+    background-color: var(--accent-soft);
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .brand-filter-btn.active {
+    background-color: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+  }
+
+  /* Products Grid */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  /* Order Cards */
+  .order-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+  }
+
+  .order-card {
+    background-color: #ffffff;
+    padding: 2.25rem 1.75rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+  }
+
+  .order-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.85rem;
+    opacity: 0.8;
+  }
+
+  .order-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.6rem;
+  }
+
+  .order-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 992px) {
+    .bs-grid {
+      grid-template-columns: 1fr;
+    }
+    .products-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .order-features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .products-grid {
+      grid-template-columns: 1fr;
+    }
+    .bs-specs-mini {
+      grid-template-columns: 1fr;
+    }
+    .best-seller-banner {
+      padding: 1.5rem;
+    }
+  }
+</style>

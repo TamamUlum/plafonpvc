@@ -1,0 +1,1331 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+
+const breadcrumbItems = [
+  { label: 'Kalkulator Biaya', href: '/kalkulator/' }
+];
+
+const packages = [
+  {
+    id: 'pvc-standar',
+    name: 'Plafon PVC Minimalis Modern',
+    desc: 'Panel PVC glossy / doff motif polos & minimalis dengan rangka hollow galvalum anti-karat.',
+    priceMin: 145000,
+    priceMax: 165000,
+    unit: 'm²',
+    badge: 'Paling Populer',
+    features: ['Panel PVC Tebal 8mm', 'Rangka Hollow Galvalum 2x4 & 4x4', 'Tahan Air & Anti Rayap', 'Garansi Pemasangan']
+  },
+  {
+    id: 'pvc-premium',
+    name: 'Plafon PVC Premium Motif Kayu',
+    desc: 'Tekstur serat kayu natural timbul & laminasi tebal anti gores untuk nuansa mewah.',
+    priceMin: 175000,
+    priceMax: 195000,
+    unit: 'm²',
+    badge: 'Rekomendasi',
+    features: ['Panel PVC Premium Laminate', 'Pilihan Motif Serat Kayu', 'Rangka Double Hollow Kokoh', 'Garansi Pemasangan']
+  },
+  {
+    id: 'pvc-drop-ceiling',
+    name: 'Plafon PVC Model Drop Ceiling',
+    desc: 'Model trap bertingkat 3D dengan slot lampu LED strip tersembunyi (indirect lighting).',
+    priceMin: 195000,
+    priceMax: 235000,
+    unit: 'm²',
+    badge: 'Desain Eksklusif',
+    features: ['Desain Trap Bertingkat', 'Slot Hidden LED Strip', 'Pengerjaan Presisi & Rapi', 'Garansi Pemasangan']
+  },
+  {
+    id: 'gypsum',
+    name: 'Plafon Gypsum Board Rapi',
+    desc: 'Papan gypsum Jayaboard / Elephant dilapisi kompon halus siap cat finishing mulus.',
+    priceMin: 110000,
+    priceMax: 135000,
+    unit: 'm²',
+    badge: 'Ekonomis',
+    features: ['Gypsum Board SNI', 'Rangka Metal Furing / Hollow', 'Kompon Mulus Tanpa Sambungan', 'Garansi Pemasangan']
+  },
+  {
+    id: 'wpc-wall',
+    name: 'Wall Panel WPC & Kisi Dinding',
+    desc: 'Dekorasi dinding aesthetic kayu modern untuk backdrop TV, ruang tamu, atau kantor.',
+    priceMin: 210000,
+    priceMax: 260000,
+    unit: 'm²',
+    badge: 'Interior Mewah',
+    features: ['Wood Plastic Composite', 'Tahan Rayap & Lembap', 'Sistem Interlock Presisi', 'Finishing Elegan']
+  },
+  {
+    id: 'baja-ringan',
+    name: 'Kanopi & Rangka Baja Ringan',
+    desc: 'Struktur atap dan kanopi rumah kuat menggunakan baja ringan bersertifikat SNI.',
+    priceMin: 170000,
+    priceMax: 225000,
+    unit: 'm²',
+    badge: 'Konstruksi Kuat',
+    features: ['Baja Ringan SNI', 'Pilihan Atap Spandek / Pasir', 'Anti Rayap & Karat', 'Garansi Struktur']
+  }
+];
+---
+
+<BaseLayout
+  title="Kalkulator Estimasi Biaya Pasang Plafon PVC Solo Raya — Griya Alfath"
+  description="Simulasi hitung perkiraan kebutuhan material dan biaya pemasangan plafon PVC multi-ruangan secara transparan dan instan di Solo Raya oleh Griya Alfath."
+  currentPath="/kalkulator/"
+>
+  <!-- Page Banner -->
+  <section class="page-banner">
+    <video autoplay muted loop playsinline poster="/images/hero/hero-plafon-main.webp" class="banner-video-bg" aria-hidden="true">
+      <source src="/videos/banner-bg.mp4" type="video/mp4" />
+    </video>
+    <div class="banner-overlay" aria-hidden="true"></div>
+
+    <div class="container">
+      <span class="badge-sub" style="background-color: rgba(255,255,255,0.15); color: #fed7aa; margin-bottom: 0.75rem;">Simulasi Biaya Multi-Ruangan</span>
+      <h1 class="page-banner-title">Kalkulator Estimasi Biaya Plafon &amp; Interior</h1>
+      <p class="page-banner-desc">Hitung estimasi kebutuhan biaya pemasangan terima jadi untuk satu ruangan atau seluruh ruangan dalam bangunan Anda di Solo Raya secara transparan dan instan.</p>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <Breadcrumb items={breadcrumbItems} />
+
+  <!-- Calculator Section -->
+  <section class="section-py bg-white">
+    <div class="container">
+      <div class="calc-wrapper">
+        <div class="calc-grid">
+          <!-- Left Column: Input Form -->
+          <div class="calc-inputs-col">
+            <!-- Step 1: Package Selection -->
+            <div class="calc-card-block">
+              <div class="step-header">
+                <span class="step-badge">1</span>
+                <div>
+                  <h3 class="step-title">Pilih Jenis Material &amp; Layanan</h3>
+                  <p class="step-desc">Pilih paket pemasangan terima jadi sesuai kebutuhan proyek Anda.</p>
+                </div>
+              </div>
+
+              <div class="service-select-wrap">
+                <select id="calcServiceSelect" class="calc-dropdown" aria-label="Pilih Jenis Material">
+                  {packages.map(pkg => (
+                    <option value={pkg.id} data-min={pkg.priceMin} data-max={pkg.priceMax} data-name={pkg.name}>
+                      {pkg.name} — Rp {pkg.priceMin.toLocaleString('id-ID')} s/d Rp {pkg.priceMax.toLocaleString('id-ID')} /{pkg.unit}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            <!-- Step 2: Multi-Room Dimensions Input -->
+            <div class="calc-card-block">
+              <div class="step-header">
+                <span class="step-badge">2</span>
+                <div>
+                  <h3 class="step-title">Daftar Ruangan Proyek</h3>
+                  <p class="step-desc">Tambahkan seluruh ruangan dalam rumah atau bangunan Anda. Setiap ruangan dapat diberi nama dan diatur dimensinya secara individual.</p>
+                </div>
+              </div>
+
+              <!-- Datalist Suggestions for Room Names -->
+              <datalist id="roomNameSuggestions">
+                <option value="Ruang Keluarga"></option>
+                <option value="Kamar Tidur Utama"></option>
+                <option value="Kamar Tidur 1"></option>
+                <option value="Kamar Tidur 2"></option>
+                <option value="Ruang Tamu"></option>
+                <option value="Dapur"></option>
+                <option value="Kamar Mandi"></option>
+                <option value="Ruang Makan"></option>
+                <option value="Teras Depan"></option>
+                <option value="Balkon"></option>
+                <option value="Ruang Kerja / Kantor"></option>
+                <option value="Mushola"></option>
+              </datalist>
+
+              <!-- Dynamic Rooms Container -->
+              <div id="roomsListContainer" class="rooms-list-container">
+                <!-- Room rows will be rendered here by JS -->
+              </div>
+
+              <!-- Add Room Button -->
+              <div class="add-room-action-wrap">
+                <button type="button" id="addRoomBtn" class="btn btn-outline btn-add-room">
+                  <svg class="icon-svg" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                  <span>+ Tambahkan Ruangan</span>
+                </button>
+                <span class="add-room-hint">Bebas menambahkan ruangan tanpa batasan.</span>
+              </div>
+            </div>
+
+            <!-- Step 3: Addons -->
+            <div class="calc-card-block">
+              <div class="step-header">
+                <span class="step-badge">3</span>
+                <div>
+                  <h3 class="step-title">Opsi Tambahan &amp; Asesoris</h3>
+                  <p class="step-desc">Sesuaikan kebutuhan perlengkapan lis profil, downlight, dan bongkar puing plafon.</p>
+                </div>
+              </div>
+
+              <div class="addons-list">
+                <label class="addon-item">
+                  <input type="checkbox" id="addonLis" checked />
+                  <div class="addon-text">
+                    <strong>Pasang Lis Profil Tepi PVC</strong>
+                    <span>Termasuk material lis profil keliling seluruh dinding ruangan (Rp 25.000 / m')</span>
+                  </div>
+                </label>
+
+                <div class="addon-item-counter">
+                  <div class="addon-text">
+                    <strong>Titik Lampu Downlight LED</strong>
+                    <span>Lampu LED hemat energi + instalasi jalur kabel (Rp 65.000 / titik)</span>
+                  </div>
+                  <div class="counter-control">
+                    <button type="button" class="counter-btn" id="dlMinus" aria-label="Kurangi titik lampu">−</button>
+                    <span class="counter-num" id="dlCount">4</span>
+                    <button type="button" class="counter-btn" id="dlPlus" aria-label="Tambah titik lampu">+</button>
+                  </div>
+                </div>
+
+                <label class="addon-item">
+                  <input type="checkbox" id="addonBongkar" />
+                  <div class="addon-text">
+                    <strong>Jasa Bongkar Plafon Lama</strong>
+                    <span>Pembongkaran dan pembersihan puing plafon lama (Rp 25.000 / m²)</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Results & WhatsApp CTA -->
+          <div class="calc-results-col">
+            <div class="results-card">
+              <span class="results-kicker">Estimasi Biaya Proyek Keseluruhan</span>
+              <h3 class="results-headline">Total Perkiraan Biaya</h3>
+              <div class="results-selected-pkg" id="selectedPkgBadge">
+                Plafon PVC Minimalis Modern
+              </div>
+
+              <div class="results-metrics">
+                <div class="metric-cell">
+                  <span class="metric-caption">Total Luas Proyek</span>
+                  <span class="metric-num" id="resTotalArea">0.00 <small>m²</small></span>
+                </div>
+                <div class="metric-cell">
+                  <span class="metric-caption">Total Keliling Dinding</span>
+                  <span class="metric-num" id="resTotalPerimeter">0.00 <small>m</small></span>
+                </div>
+              </div>
+
+              <!-- Price Box -->
+              <div class="price-estimate-box">
+                <span class="pe-label">Perkiraan Biaya (Material + Jasa Pasang):</span>
+                <div class="pe-numbers">
+                  <span class="pe-val" id="resPriceMin">Rp 0</span>
+                  <span class="pe-sep">s/d</span>
+                  <span class="pe-val" id="resPriceMax">Rp 0</span>
+                </div>
+                <p class="pe-note">*Sudah termasuk bahan plafon, rangka hollow galvalum SNI, sekrup, dan upah tukang ahli.</p>
+              </div>
+
+              <!-- Room-by-room Breakdown -->
+              <div class="rooms-breakdown-box">
+                <div class="rbb-header">
+                  <h4>Rincian Per Ruangan (<span id="roomCountBadge">1 Ruangan</span>):</h4>
+                </div>
+                <ul class="rbb-list" id="roomsBreakdownList">
+                  <!-- Generated by JS -->
+                </ul>
+              </div>
+
+              <!-- Breakdown of Estimated Materials -->
+              <div class="material-breakdown">
+                <h4>Estimasi Kebutuhan Material Fisik Proyek:</h4>
+                <ul class="breakdown-list">
+                  <li>
+                    <span>Papan Plafon PVC (panjang 4m)</span>
+                    <strong id="mbPanels">± 0 lembar</strong>
+                  </li>
+                  <li>
+                    <span>Rangka Hollow Galvalum (4m)</span>
+                    <strong id="mbHollow">± 0 batang</strong>
+                  </li>
+                  <li>
+                    <span>Lis Dinding Profil (4m)</span>
+                    <strong id="mbLis">± 0 batang</strong>
+                  </li>
+                  <li>
+                    <span>Survei Lokasi &amp; Pengukuran</span>
+                    <strong style="color: #16a34a;">GRATIS 100%</strong>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Guarantees -->
+              <div class="calc-guarantees">
+                <div class="g-item">
+                  <svg class="icon-svg g-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Survei lokasi gratis &amp; konsultasi desain wilayah Solo Raya</span>
+                </div>
+                <div class="g-item">
+                  <svg class="icon-svg g-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Rangka hollow galvalum anti-karat bergaransi</span>
+                </div>
+                <div class="g-item">
+                  <svg class="icon-svg g-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  <span>Tukang aplikator berpengalaman &amp; pengerjaan rapi</span>
+                </div>
+              </div>
+
+              <!-- WhatsApp Action Button -->
+              <div class="calc-action-block">
+                <a
+                  id="calcWaBtn"
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  class="btn btn-whatsapp-green w-100 btn-lg"
+                >
+                  <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9 7.41 8.74 7.69C8.47 7.96 7.74 8.64 7.74 10.05C7.74 11.45 8.77 12.81 8.91 13C9.05 13.2 10.92 16.08 13.8 17.32C14.49 17.61 15.02 17.79 15.44 17.93C16.13 18.15 16.76 18.12 17.26 18.04C17.81 17.96 18.96 17.35 19.2 16.67C19.44 16 19.44 15.41 19.37 15.3C19.3 15.19 19.11 15.12 18.82 14.98C18.53 14.84 17.11 14.14 16.85 14.05C16.59 13.95 16.4 13.91 16.21 14.2C16.02 14.5 15.48 15.12 15.31 15.3C15.15 15.5 14.99 15.52 14.7 15.37C14.41 15.23 13.49 14.93 12.4 13.96C11.55 13.2 10.98 12.27 10.82 11.98C10.65 11.7 10.8 11.54 10.95 11.4C11.08 11.27 11.24 11.06 11.39 10.89C11.53 10.72 11.58 10.6 11.68 10.4C11.77 10.2 11.72 10.03 11.65 9.89C11.58 9.74 11 8.33 10.76 7.76C10.53 7.21 10.3 7.28 10.13 7.27L9.53 7.33Z"/></svg>
+                  Konsultasikan Hasil Hitungan ke WhatsApp
+                </a>
+                <span class="calc-disclaimer">*Estimasi awal bersifat transparan. Angka final dipastikan saat survei lokasi gratis.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guide Section -->
+        <div class="calc-guide-section">
+          <div class="text-center" style="margin-bottom: 2.5rem;">
+            <h3 class="section-title">Langkah Mudah Pemasangan di Griya Alfath</h3>
+            <p class="section-desc">Dari perhitungan mandiri multi-ruangan hingga hasil pemasangan rapi bergaransi di hunian Anda.</p>
+          </div>
+          <div class="guide-steps-grid">
+            <div class="guide-step-card">
+              <div class="step-icon">📐</div>
+              <h4>1. Hitung Seluruh Ruangan</h4>
+              <p>Masukkan ukuran setiap kamar, ruang keluarga, dan teras ke dalam kalkulator untuk mengetahui total luas dan perkiraan biaya.</p>
+            </div>
+            <div class="guide-step-card">
+              <div class="step-icon">📲</div>
+              <h4>2. Jadwalkan Survei Gratis</h4>
+              <p>Kirim rincian ruangan ke WhatsApp admin kami untuk menentukan jadwal survei pengukuran langsung ke lokasi bangunan Anda.</p>
+            </div>
+            <div class="guide-step-card">
+              <div class="step-icon">🤝</div>
+              <h4>3. Kunci Penawaran &amp; Pasang</h4>
+              <p>Pilih motif fisik dari sampel yang dibawa tim kami, sepakati RAB final, dan tim aplikator profesional siap memasang tepat waktu.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .calc-wrapper {
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+
+  .calc-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 0.95fr;
+    gap: 2.5rem;
+    align-items: start;
+    margin-bottom: 4rem;
+  }
+
+  .calc-card-block {
+    background-color: var(--bg-alt);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .step-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .step-badge {
+    background-color: var(--accent);
+    color: #ffffff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+  }
+
+  .step-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.2rem;
+  }
+
+  .step-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .calc-dropdown {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-main);
+    background-color: #ffffff;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .calc-dropdown:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+
+  /* Multi-Room System Styles */
+  .rooms-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  :global(.room-item-card) {
+    background-color: #ffffff;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+
+  :global(.room-item-card:hover) {
+    border-color: var(--accent);
+  }
+
+  :global(.room-card-top) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+  }
+
+  :global(.room-name-wrapper) {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-grow: 1;
+  }
+
+  :global(.room-index-pill) {
+    background-color: var(--primary);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.55rem;
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+  }
+
+  :global(.room-name-input) {
+    width: 100%;
+    padding: 0.4rem 0.65rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--primary);
+    background-color: var(--bg-alt);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+  }
+
+  :global(.room-name-input:focus) {
+    outline: none;
+    border-color: var(--accent);
+    background-color: #ffffff;
+  }
+
+  :global(.room-delete-btn) {
+    background: transparent;
+    border: 1px solid #fee2e2;
+    color: #ef4444;
+    padding: 0.35rem 0.65rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 0.78rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: var(--transition);
+  }
+
+  :global(.room-delete-btn:hover) {
+    background-color: #fee2e2;
+    color: #b91c1c;
+  }
+
+  :global(.room-dims-row) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  :global(.dim-input-col) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  :global(.dim-input-label) {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+
+  :global(.dim-input-box) {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  :global(.room-dim-field) {
+    width: 100%;
+    padding: 0.55rem 2.25rem 0.55rem 0.75rem;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--primary);
+    background-color: #ffffff;
+    transition: var(--transition);
+  }
+
+  :global(.room-dim-field:focus) {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  :global(.unit-tag) {
+    position: absolute;
+    right: 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    pointer-events: none;
+  }
+
+  :global(.room-live-pill) {
+    background-color: var(--bg-alt);
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 0.35rem 0.75rem;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  :global(.room-live-pill strong) {
+    color: var(--primary);
+  }
+
+  .add-room-action-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .btn-add-room {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    border-color: var(--accent);
+    color: var(--accent);
+    background-color: #ffffff;
+  }
+
+  .btn-add-room:hover {
+    background-color: var(--accent);
+    color: #ffffff;
+  }
+
+  .add-room-hint {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  /* Addons */
+  .addons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .addon-item {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .addon-item:hover {
+    border-color: var(--accent);
+  }
+
+  .addon-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .addon-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .addon-text strong {
+    font-size: 0.9rem;
+    color: var(--primary);
+  }
+
+  .addon-text span {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  .addon-item-counter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius-md);
+    gap: 1rem;
+  }
+
+  .counter-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--bg-alt);
+    padding: 3px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+  }
+
+  .counter-btn {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: var(--text-main);
+    transition: var(--transition);
+  }
+
+  .counter-btn:hover {
+    background-color: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
+  }
+
+  .counter-num {
+    font-size: 0.95rem;
+    font-weight: 800;
+    min-width: 24px;
+    text-align: center;
+    color: var(--primary);
+  }
+
+  /* Right Column Results */
+  .results-card {
+    background-color: #ffffff;
+    border: 2px solid var(--accent);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-lg);
+    position: sticky;
+    top: 90px;
+  }
+
+  .results-kicker {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    background-color: var(--accent-soft);
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 0.35rem;
+  }
+
+  .results-headline {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .results-selected-pkg {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--primary);
+    background-color: var(--bg-alt);
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 1.25rem;
+  }
+
+  .results-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .metric-cell {
+    background-color: var(--bg-alt);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 0.75rem 1rem;
+    text-align: center;
+  }
+
+  .metric-caption {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .metric-num {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--primary);
+  }
+
+  .metric-num small {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .price-estimate-box {
+    background-color: var(--accent-soft);
+    border: 1.5px dashed var(--accent);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    text-align: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .pe-label {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .pe-numbers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.4rem;
+  }
+
+  .pe-val {
+    font-size: 1.45rem;
+    font-weight: 900;
+    color: var(--accent);
+  }
+
+  .pe-sep {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+
+  .pe-note {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  /* Room Breakdown Box */
+  .rooms-breakdown-box {
+    background-color: var(--bg-alt);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid var(--border-color);
+  }
+
+  .rbb-header h4 {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.65rem;
+  }
+
+  .rbb-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    max-height: 180px;
+    overflow-y: auto;
+    padding-right: 0.25rem;
+  }
+
+  :global(.rbb-item) {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8125rem;
+    color: var(--text-main);
+    padding-bottom: 0.35rem;
+    border-bottom: 1px dashed var(--border-color);
+  }
+
+  :global(.rbb-item:last-child) {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  :global(.rbb-room-title) {
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  :global(.rbb-room-metrics) {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* Material Breakdown */
+  .material-breakdown {
+    background-color: var(--bg-alt);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .material-breakdown h4 {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.65rem;
+  }
+
+  .breakdown-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .breakdown-list li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8125rem;
+    color: var(--text-main);
+  }
+
+  .breakdown-list strong {
+    color: var(--primary);
+  }
+
+  .calc-guarantees {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 0;
+    border-top: 1px solid var(--border-color);
+    margin-bottom: 1.25rem;
+  }
+
+  .g-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  .g-icon {
+    width: 16px;
+    height: 16px;
+    fill: #16a34a;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+
+  .w-100 {
+    width: 100%;
+  }
+
+  .btn-lg {
+    padding: 0.9rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .calc-disclaimer {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 0.5rem;
+    line-height: 1.35;
+  }
+
+  /* Guide Steps */
+  .calc-guide-section {
+    border-top: 1px solid var(--border-color);
+    padding-top: 3.5rem;
+  }
+
+  .guide-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .guide-step-card {
+    background-color: var(--bg-alt);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .step-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .guide-step-card h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .guide-step-card p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media (max-width: 992px) {
+    .calc-grid {
+      grid-template-columns: 1fr;
+    }
+    .results-card {
+      position: static;
+    }
+    .guide-steps-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    :global(.room-dims-row) {
+      grid-template-columns: 1fr;
+    }
+    :global(.room-card-top) {
+      flex-wrap: wrap;
+    }
+  }
+</style>
+
+<!-- Multi-Room Client Calculator Script -->
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const serviceSelect = document.getElementById('calcServiceSelect');
+    const roomsListContainer = document.getElementById('roomsListContainer');
+    const addRoomBtn = document.getElementById('addRoomBtn');
+
+    const addonLis = document.getElementById('addonLis');
+    const addonBongkar = document.getElementById('addonBongkar');
+    const dlMinus = document.getElementById('dlMinus');
+    const dlPlus = document.getElementById('dlPlus');
+    const dlCount = document.getElementById('dlCount');
+
+    const selectedPkgBadge = document.getElementById('selectedPkgBadge');
+    const resTotalArea = document.getElementById('resTotalArea');
+    const resTotalPerimeter = document.getElementById('resTotalPerimeter');
+    const resPriceMin = document.getElementById('resPriceMin');
+    const resPriceMax = document.getElementById('resPriceMax');
+    const roomCountBadge = document.getElementById('roomCountBadge');
+    const roomsBreakdownList = document.getElementById('roomsBreakdownList');
+    const mbPanels = document.getElementById('mbPanels');
+    const mbHollow = document.getElementById('mbHollow');
+    const mbLis = document.getElementById('mbLis');
+    const calcWaBtn = document.getElementById('calcWaBtn');
+
+    if (!serviceSelect || !roomsListContainer || !addRoomBtn || !calcWaBtn) return;
+
+    let downlights = 4;
+    let roomIdCounter = 1;
+
+    // Room State List
+    let rooms = [
+      { id: roomIdCounter++, name: 'Ruang Keluarga', length: 4.00, width: 3.50 }
+    ];
+
+    function formatRupiah(num) {
+      return 'Rp ' + Math.round(num).toLocaleString('id-ID');
+    }
+
+    function formatDecimal(num) {
+      return num.toLocaleString('id-ID', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+    }
+
+    // Render Room Inputs in DOM
+    function renderRooms() {
+      roomsListContainer.innerHTML = '';
+
+      rooms.forEach((room, index) => {
+        const area = Math.round(room.length * room.width * 100) / 100;
+        const perimeter = Math.round(2 * (room.length + room.width) * 100) / 100;
+
+        const card = document.createElement('div');
+        card.className = 'room-item-card';
+        card.setAttribute('data-id', room.id);
+
+        card.innerHTML = `
+          <div class="room-card-top">
+            <div class="room-name-wrapper">
+              <span class="room-index-pill">#${index + 1}</span>
+              <input
+                type="text"
+                class="room-name-input"
+                list="roomNameSuggestions"
+                value="${room.name}"
+                placeholder="Nama Ruangan..."
+                aria-label="Nama Ruangan ${index + 1}"
+              />
+            </div>
+            ${rooms.length > 1 ? `
+              <button type="button" class="room-delete-btn" title="Hapus Ruangan">
+                <svg class="icon-svg" style="width:14px;height:14px" viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                <span>Hapus</span>
+              </button>
+            ` : ''}
+          </div>
+
+          <div class="room-dims-row">
+            <div class="dim-input-col">
+              <label class="dim-input-label">Panjang (meter)</label>
+              <div class="dim-input-box">
+                <input
+                  type="number"
+                  class="room-dim-field room-length-field"
+                  min="0.5"
+                  max="100"
+                  step="0.05"
+                  value="${room.length.toFixed(2)}"
+                  required
+                />
+                <span class="unit-tag">m</span>
+              </div>
+            </div>
+
+            <div class="dim-input-col">
+              <label class="dim-input-label">Lebar (meter)</label>
+              <div class="dim-input-box">
+                <input
+                  type="number"
+                  class="room-dim-field room-width-field"
+                  min="0.5"
+                  max="100"
+                  step="0.05"
+                  value="${room.width.toFixed(2)}"
+                  required
+                />
+                <span class="unit-tag">m</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="room-live-pill">
+            <span>Luas: <strong>${formatDecimal(area)} m²</strong></span>
+            <span>Keliling: <strong>${formatDecimal(perimeter)} m</strong></span>
+          </div>
+        `;
+
+        // Event Listeners for this room
+        const nameInput = card.querySelector('.room-name-input');
+        const lengthInput = card.querySelector('.room-length-field');
+        const widthInput = card.querySelector('.room-width-field');
+        const deleteBtn = card.querySelector('.room-delete-btn');
+
+        nameInput.addEventListener('input', (e) => {
+          room.name = e.target.value.trim() || `Ruangan ${index + 1}`;
+          calculateAll();
+        });
+
+        lengthInput.addEventListener('input', (e) => {
+          let val = parseFloat(e.target.value);
+          if (isNaN(val) || val <= 0) val = 0.5;
+          room.length = Math.max(0.5, Math.min(100, val));
+          updateRoomPill(card, room);
+          calculateAll();
+        });
+
+        widthInput.addEventListener('input', (e) => {
+          let val = parseFloat(e.target.value);
+          if (isNaN(val) || val <= 0) val = 0.5;
+          room.width = Math.max(0.5, Math.min(100, val));
+          updateRoomPill(card, room);
+          calculateAll();
+        });
+
+        if (deleteBtn) {
+          deleteBtn.addEventListener('click', () => {
+            if (rooms.length > 1) {
+              rooms = rooms.filter(r => r.id !== room.id);
+              renderRooms();
+              calculateAll();
+            }
+          });
+        }
+
+        roomsListContainer.appendChild(card);
+      });
+    }
+
+    function updateRoomPill(card, room) {
+      const area = Math.round(room.length * room.width * 100) / 100;
+      const perimeter = Math.round(2 * (room.length + room.width) * 100) / 100;
+      const pill = card.querySelector('.room-live-pill');
+      if (pill) {
+        pill.innerHTML = `
+          <span>Luas: <strong>${formatDecimal(area)} m²</strong></span>
+          <span>Keliling: <strong>${formatDecimal(perimeter)} m</strong></span>
+        `;
+      }
+    }
+
+    // Main Accumulator Calculation
+    function calculateAll() {
+      let totalArea = 0;
+      let totalPerimeter = 0;
+      const breakdownItems = [];
+
+      rooms.forEach((room) => {
+        const area = room.length * room.width;
+        const perimeter = 2 * (room.length + room.width);
+        totalArea += area;
+        totalPerimeter += perimeter;
+
+        breakdownItems.push({
+          name: room.name,
+          dimensions: `${formatDecimal(room.length)}m × ${formatDecimal(room.width)}m`,
+          area: `${formatDecimal(area)} m²`,
+          perimeter: `${formatDecimal(perimeter)} m`
+        });
+      });
+
+      const selectedOpt = serviceSelect.options[serviceSelect.selectedIndex];
+      const priceMin = parseFloat(selectedOpt.getAttribute('data-min') || '145000');
+      const priceMax = parseFloat(selectedOpt.getAttribute('data-max') || '165000');
+      const pkgName = selectedOpt.getAttribute('data-name') || 'Plafon PVC Minimalis Modern';
+
+      // 1. Base Material & Installation Cost
+      let baseMin = totalArea * priceMin;
+      let baseMax = totalArea * priceMax;
+
+      // 2. Addons Cost
+      let addonsCost = 0;
+      const appliedAddons = [];
+
+      // Lis Profil: Rp 25.000 / m' (based on total perimeter)
+      if (addonLis && addonLis.checked) {
+        const lisCost = totalPerimeter * 25000;
+        addonsCost += lisCost;
+        appliedAddons.push(`Lis Profil (${formatDecimal(totalPerimeter)}m)`);
+      }
+
+      // Downlight LED: Rp 65.000 / point
+      if (downlights > 0) {
+        const dlCost = downlights * 65000;
+        addonsCost += dlCost;
+        appliedAddons.push(`${downlights} Titik Downlight LED`);
+      }
+
+      // Bongkar Plafon: Rp 25.000 / m2 (based on total area)
+      if (addonBongkar && addonBongkar.checked) {
+        const bongkarCost = totalArea * 25000;
+        addonsCost += bongkarCost;
+        appliedAddons.push(`Bongkar Plafon Lama (${formatDecimal(totalArea)}m²)`);
+      }
+
+      const grandTotalMin = baseMin + addonsCost;
+      const grandTotalMax = baseMax + addonsCost;
+
+      // 3. Physical Materials Estimation (Accumulated)
+      const panelCount = Math.ceil((totalArea / 0.8) * 1.1);
+      const hollowCount = Math.ceil(totalArea * 0.85);
+      const lisBarangCount = Math.ceil(totalPerimeter / 4);
+
+      // Update DOM Metrics
+      selectedPkgBadge.textContent = pkgName;
+      resTotalArea.innerHTML = `${formatDecimal(totalArea)} <small>m²</small>`;
+      resTotalPerimeter.innerHTML = `${formatDecimal(totalPerimeter)} <small>m</small>`;
+      resPriceMin.textContent = formatRupiah(grandTotalMin);
+      resPriceMax.textContent = formatRupiah(grandTotalMax);
+
+      roomCountBadge.textContent = `${rooms.length} Ruangan`;
+
+      // Update Room Breakdown List
+      roomsBreakdownList.innerHTML = '';
+      breakdownItems.forEach(item => {
+        const li = document.createElement('li');
+        li.className = 'rbb-item';
+        li.innerHTML = `
+          <span class="rbb-room-title">${item.name} (${item.dimensions})</span>
+          <span class="rbb-room-metrics">${item.area}</span>
+        `;
+        roomsBreakdownList.appendChild(li);
+      });
+
+      // Update Physical Materials
+      if (mbPanels) mbPanels.textContent = `± ${panelCount} lembar`;
+      if (mbHollow) mbHollow.textContent = `± ${hollowCount} batang`;
+      if (mbLis) mbLis.textContent = `± ${lisBarangCount} batang`;
+
+      // Construct Custom WhatsApp Message
+      let roomsWaText = '';
+      breakdownItems.forEach((b, idx) => {
+        roomsWaText += `  ${idx + 1}. ${b.name}: ${b.dimensions} (${b.area}, keliling ${b.perimeter})\n`;
+      });
+
+      const addonText = appliedAddons.length > 0 ? `\n• Asesoris Tambahan: ${appliedAddons.join(', ')}` : '';
+
+      const waMsg =
+        `Halo Mas Otello Griya Alfath Solo Raya,\n` +
+        `Saya telah menghitung estimasi kebutuhan material melalui kalkulator website untuk ${rooms.length} ruangan proyek:\n\n` +
+        `• Paket Layanan: ${pkgName}\n` +
+        `• Rincian Ruangan:\n${roomsWaText}\n` +
+        `• Akumulasi Proyek: Total Luas ${formatDecimal(totalArea)} m², Total Keliling ${formatDecimal(totalPerimeter)} m` +
+        `${addonText}\n` +
+        `• Perkiraan Biaya Terima Jadi: ${formatRupiah(grandTotalMin)} s/d ${formatRupiah(grandTotalMax)}\n\n` +
+        `Saya ingin berkonsultasi mengenai hasil perhitungannya dan menjadwalkan survei lokasi gratis ke tempat saya. Terima kasih!`;
+
+      calcWaBtn.href = `https://wa.me/6282157249454?text=${encodeURIComponent(waMsg)}`;
+    }
+
+    // Add Room Event
+    addRoomBtn.addEventListener('click', () => {
+      const defaultNames = [
+        'Kamar Tidur Utama',
+        'Kamar Tidur 1',
+        'Kamar Tidur 2',
+        'Ruang Tamu',
+        'Dapur',
+        'Kamar Mandi',
+        'Ruang Makan',
+        'Teras',
+        'Ruang Kerja'
+      ];
+      const nextName = defaultNames[(rooms.length) % defaultNames.length] || `Ruangan ${rooms.length + 1}`;
+      rooms.push({
+        id: roomIdCounter++,
+        name: nextName,
+        length: 3.50,
+        width: 3.00
+      });
+      renderRooms();
+      calculateAll();
+    });
+
+    // Control Listeners
+    serviceSelect.addEventListener('change', calculateAll);
+    if (addonLis) addonLis.addEventListener('change', calculateAll);
+    if (addonBongkar) addonBongkar.addEventListener('change', calculateAll);
+
+    if (dlMinus) {
+      dlMinus.addEventListener('click', () => {
+        if (downlights > 0) {
+          downlights--;
+          dlCount.textContent = downlights;
+          calculateAll();
+        }
+      });
+    }
+
+    if (dlPlus) {
+      dlPlus.addEventListener('click', () => {
+        if (downlights < 50) {
+          downlights++;
+          dlCount.textContent = downlights;
+          calculateAll();
+        }
+      });
+    }
+
+    // Initial render and calculation
+    renderRooms();
+    calculateAll();
+  });
+</script>

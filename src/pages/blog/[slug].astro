@@ -1,0 +1,672 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { articles, type Article } from '../../data/articles';
+
+export function getStaticPaths() {
+  return articles.map((article, index) => {
+    const prev = index > 0 ? articles[index - 1] : null;
+    const next = index < articles.length - 1 ? articles[index + 1] : null;
+    return {
+      params: { slug: article.slug },
+      props: { article, prevArticle: prev, nextArticle: next }
+    };
+  });
+}
+
+interface Props {
+  article: Article;
+  prevArticle: Article | null;
+  nextArticle: Article | null;
+}
+
+const { article, prevArticle, nextArticle } = Astro.props;
+
+const breadcrumbItems = [
+  { label: 'Blog & Panduan', href: '/blog/' },
+  { label: article.title, href: `/blog/${article.slug}/` }
+];
+
+const waLink = `https://wa.me/6282157249454?text=${encodeURIComponent(article.whatsappMessage)}`;
+
+// Schema.org Article Structured Data
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": article.title,
+  "description": article.excerpt,
+  "image": `https://plafonpvcsolo.com${article.image}`,
+  "datePublished": "2026-01-01T08:00:00+07:00",
+  "dateModified": "2026-03-10T12:00:00+07:00",
+  "author": {
+    "@type": "Organization",
+    "name": article.author || "Plafon PVC Solo by Griya Alfath",
+    "url": "https://plafonpvcsolo.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Plafon PVC Solo by Griya Alfath",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://plafonpvcsolo.com/images/logo/logo-griya-alfath.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://plafonpvcsolo.com/blog/${article.slug}/`
+  }
+};
+---
+
+<BaseLayout
+  title={`${article.title} — Panduan Griya Alfath Solo`}
+  description={article.excerpt}
+  currentPath={`/blog/${article.slug}/`}
+  image={article.image}
+>
+  <!-- JSON-LD Article Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
+  <!-- Page Banner -->
+  <section class="page-banner">
+    <video autoplay muted loop playsinline poster="/images/hero/hero-plafon-main.webp" class="banner-video-bg" aria-hidden="true">
+      <source src="/videos/banner-bg.mp4" type="video/mp4" />
+    </video>
+    <div class="banner-overlay" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="article-heading">
+        <div class="banner-meta-row">
+          <span class="badge-sub" style="background-color: rgba(255,255,255,0.15); color: #fed7aa;">
+            {article.category}
+          </span>
+          <span class="article-banner-date">📅 {article.date}</span>
+          <span class="article-banner-read">⏱️ {article.readTime}</span>
+        </div>
+        <h1 class="page-banner-title article-title-hero">{article.title}</h1>
+        <p class="page-banner-desc article-author-desc">Oleh {article.author} &bull; Spesialis Interior &amp; Konstruksi Solo Raya</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <Breadcrumb items={breadcrumbItems} />
+
+  <!-- Article Main Layout -->
+  <article class="section-py bg-white article-page-section">
+    <div class="container">
+      <div class="article-layout-grid">
+        <!-- Main Content Column -->
+        <main class="article-content-col">
+          <!-- Featured Image -->
+          <div class="article-featured-image-box">
+            <img
+              src={article.image}
+              alt={article.title}
+              width="820"
+              height="460"
+              loading="eager"
+              class="article-featured-img"
+            />
+          </div>
+
+          <!-- Mobile Collapsible TOC Accordion -->
+          {article.toc && article.toc.length > 0 && (
+            <div class="mobile-toc-wrapper">
+              <details class="mobile-toc-details">
+                <summary class="mobile-toc-summary">
+                  <span>📑 Daftar Isi Artikel ({article.toc.length} Bagian)</span>
+                  <span class="toc-chevron">▼</span>
+                </summary>
+                <nav class="mobile-toc-nav" aria-label="Daftar Isi Artikel Mobile">
+                  <ul>
+                    {article.toc.map((item) => (
+                      <li class={`toc-level-${item.level}`}>
+                        <a href={`#${item.id}`} class="mobile-toc-link">
+                          {item.text}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              </details>
+            </div>
+          )}
+
+          <!-- Excerpt Lead Box -->
+          <div class="article-excerpt-box">
+            <p><strong>Ringkasan:</strong> {article.excerpt}</p>
+          </div>
+
+          <!-- Article Body HTML -->
+          <div class="article-body-content" id="articleBody">
+            <Fragment set:html={article.content} />
+          </div>
+
+          <!-- Contextual In-Article CTA Banner -->
+          <section class="article-cta-box" aria-labelledby="cta-title">
+            <div class="cta-inner-card">
+              <span class="cta-badge">Solusi Spesialis Solo Raya</span>
+              <h3 id="cta-title">{article.ctaTitle}</h3>
+              <p>{article.ctaDesc}</p>
+              <div class="cta-actions">
+                <a href={waLink} target="_blank" rel="noopener" class="btn btn-whatsapp-green btn-lg">
+                  <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9 7.41 8.74 7.69C8.47 7.96 7.74 8.64 7.74 10.05C7.74 11.45 8.77 12.81 8.91 13C9.05 13.2 10.92 16.08 13.8 17.32C14.49 17.61 15.02 17.79 15.44 17.93C16.13 18.15 16.76 18.12 17.26 18.04C17.81 17.96 18.96 17.35 19.2 16.67C19.44 16 19.44 15.41 19.37 15.3C19.3 15.19 19.11 15.12 18.82 14.98C18.53 14.84 17.11 14.14 16.85 14.05C16.59 13.95 16.4 13.91 16.21 14.2C16.02 14.5 15.48 15.12 15.31 15.3C15.15 15.5 14.99 15.52 14.7 15.37C14.41 15.23 13.49 14.93 12.4 13.96C11.55 13.2 10.98 12.27 10.82 11.98C10.65 11.7 10.8 11.54 10.95 11.4C11.08 11.27 11.24 11.06 11.39 10.89C11.53 10.72 11.58 10.6 11.68 10.4C11.77 10.2 11.72 10.03 11.65 9.89C11.58 9.74 11 8.33 10.76 7.76C10.53 7.21 10.3 7.28 10.13 7.27L9.53 7.33Z"/></svg>
+                  <span>{article.ctaButtonText}</span>
+                </a>
+                <a href="/kalkulator/" class="btn btn-outline">
+                  <svg class="icon-svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-6 2h5v3h-5V5zm-2 0v3H6V5h5zm-5 5h5v3H6v-3zm7 0h5v3h-5v-3zm-7 5h5v4H6v-4zm7 4v-4h5v4h-5z"/></svg>
+                  <span>Hitung Estimasi Biaya</span>
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <!-- Prev/Next Navigation -->
+          <nav class="article-navigation" aria-label="Navigasi Artikel">
+            {prevArticle ? (
+              <a href={`/blog/${prevArticle.slug}/`} class="nav-art-card prev">
+                <span class="nav-art-dir">&larr; Artikel Sebelumnya</span>
+                <span class="nav-art-title">{prevArticle.title}</span>
+              </a>
+            ) : <div />}
+
+            {nextArticle ? (
+              <a href={`/blog/${nextArticle.slug}/`} class="nav-art-card next">
+                <span class="nav-art-dir">Artikel Selanjutnya &rarr;</span>
+                <span class="nav-art-title">{nextArticle.title}</span>
+              </a>
+            ) : <div />}
+          </nav>
+        </main>
+
+        <!-- Desktop Sidebar: Sticky Table of Contents -->
+        <aside class="article-sidebar-col">
+          <div class="sticky-toc-card">
+            <div class="toc-header">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+              <h4>Daftar Isi Artikel</h4>
+            </div>
+
+            <nav class="desktop-toc-nav" aria-label="Daftar Isi Artikel Desktop">
+              <ul class="desktop-toc-list" id="desktopTocList">
+                {article.toc.map((item) => (
+                  <li class={`toc-item-level-${item.level}`}>
+                    <a href={`#${item.id}`} class="toc-link" data-target={item.id}>
+                      {item.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            <!-- Sticky Sidebar Mini CTA -->
+            <div class="sidebar-mini-cta">
+              <h5>Butuh Bantuan Material?</h5>
+              <p>Konsultasikan RAB dan jadwal survei gratis bersama tim Griya Alfath Solo Raya.</p>
+              <a href={waLink} target="_blank" rel="noopener" class="btn btn-whatsapp-green btn-sm w-100">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9 7.41 8.74 7.69C8.47 7.96 7.74 8.64 7.74 10.05C7.74 11.45 8.77 12.81 8.91 13C9.05 13.2 10.92 16.08 13.8 17.32C14.49 17.61 15.02 17.79 15.44 17.93C16.13 18.15 16.76 18.12 17.26 18.04C17.81 17.96 18.96 17.35 19.2 16.67C19.44 16 19.44 15.41 19.37 15.3C19.3 15.19 19.11 15.12 18.82 14.98C18.53 14.84 17.11 14.14 16.85 14.05C16.59 13.95 16.4 13.91 16.21 14.2C16.02 14.5 15.48 15.12 15.31 15.3C15.15 15.5 14.99 15.52 14.7 15.37C14.41 15.23 13.49 14.93 12.4 13.96C11.55 13.2 10.98 12.27 10.82 11.98C10.65 11.7 10.8 11.54 10.95 11.4C11.08 11.27 11.24 11.06 11.39 10.89C11.53 10.72 11.58 10.6 11.68 10.4C11.77 10.2 11.72 10.03 11.65 9.89C11.58 9.74 11 8.33 10.76 7.76C10.53 7.21 10.3 7.28 10.13 7.27L9.53 7.33Z"/></svg>
+                <span>Chat Mas Otello</span>
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </article>
+
+  <!-- Interactive Scrollspy Script for TOC -->
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tocLinks = document.querySelectorAll('.desktop-toc-nav .toc-link, .mobile-toc-nav .mobile-toc-link');
+      const headings = document.querySelectorAll('.article-body-content h2, .article-body-content h3');
+
+      if (!headings.length || !tocLinks.length) return;
+
+      // Smooth scroll click handler
+      tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          const targetId = link.getAttribute('href')?.replace('#', '');
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            e.preventDefault();
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            history.pushState(null, '', `#${targetId}`);
+          }
+        });
+      });
+
+      // Scrollspy using IntersectionObserver
+      const observerOptions = {
+        root: null,
+        rootMargin: '-90px 0px -70% 0px',
+        threshold: 0
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const activeId = entry.target.id;
+            tocLinks.forEach(link => {
+              const linkTarget = link.getAttribute('href')?.replace('#', '');
+              if (linkTarget === activeId) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+          }
+        });
+      }, observerOptions);
+
+      headings.forEach(heading => {
+        observer.observe(heading);
+      });
+    });
+  </script>
+</BaseLayout>
+
+<style>
+  .article-heading {
+    width: 100%;
+    max-width: 900px;
+    margin-inline: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .banner-meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.85rem;
+    font-size: 0.85rem;
+    color: #cbd5e1;
+  }
+
+  .article-title-hero {
+    font-size: clamp(1.8rem, 3.2vw, 2.75rem);
+    line-height: 1.25;
+    width: 100%;
+    max-width: 900px;
+    margin-inline: auto;
+    margin-bottom: 0.75rem;
+    text-align: center;
+  }
+
+  .article-author-desc {
+    max-width: 760px;
+    margin-inline: auto;
+    text-align: center;
+    color: #e2e8f0;
+  }
+
+  .article-page-section {
+    padding-top: 3.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .article-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3.5rem;
+    align-items: start;
+  }
+
+  /* Main Column */
+  .article-content-col {
+    min-width: 0;
+  }
+
+  .article-featured-image-box {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+    background-color: #0f172a;
+  }
+
+  .article-featured-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .article-excerpt-box {
+    background-color: var(--accent-soft);
+    border-left: 4px solid var(--accent);
+    padding: 1.25rem 1.5rem;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    margin-bottom: 2rem;
+  }
+
+  .article-excerpt-box p {
+    font-size: 1.05rem;
+    color: var(--primary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Article Body Typography */
+  .article-body-content {
+    font-size: 1.05rem;
+    color: var(--text-main);
+    line-height: 1.8;
+  }
+
+  .article-body-content :global(h2) {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-top: 2.75rem;
+    margin-bottom: 1rem;
+    line-height: 1.35;
+    scroll-margin-top: 110px;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--border-color);
+  }
+
+  .article-body-content :global(h3) {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-light);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+    scroll-margin-top: 110px;
+  }
+
+  .article-body-content :global(p) {
+    margin-bottom: 1.35rem;
+  }
+
+  .article-body-content :global(ul) {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .article-body-content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+
+  .article-body-content :global(strong) {
+    color: var(--primary);
+  }
+
+  /* Mobile TOC Accordion */
+  .mobile-toc-wrapper {
+    display: none;
+    margin-bottom: 2rem;
+  }
+
+  .mobile-toc-details {
+    background-color: var(--bg-alt);
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .mobile-toc-summary {
+    padding: 0.85rem 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--primary);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .mobile-toc-nav {
+    padding: 0.75rem 1.25rem 1.25rem;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .mobile-toc-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .mobile-toc-link {
+    font-size: 0.875rem;
+    color: var(--text-main);
+    text-decoration: none;
+    display: block;
+    padding: 0.2rem 0;
+  }
+
+  .mobile-toc-link:hover {
+    color: var(--accent);
+  }
+
+  .toc-level-3 {
+    padding-left: 1rem;
+    font-size: 0.825rem;
+  }
+
+  /* Desktop Sticky TOC */
+  .article-sidebar-col {
+    position: relative;
+  }
+
+  .sticky-toc-card {
+    position: sticky;
+    top: 96px;
+    background-color: var(--bg-alt);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .sticky-toc-card::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .sticky-toc-card::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border-radius: 4px;
+  }
+
+  .toc-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1.5px solid var(--border-color);
+  }
+
+  .toc-header svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--accent);
+  }
+
+  .toc-header h4 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin: 0;
+  }
+
+  .desktop-toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+
+  .toc-item-level-3 {
+    padding-left: 0.85rem;
+  }
+
+  .toc-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-decoration: none;
+    display: block;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+    border-left: 2px solid transparent;
+    transition: var(--transition);
+    line-height: 1.4;
+  }
+
+  .toc-link:hover {
+    color: var(--primary);
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+
+  .toc-link.active {
+    color: var(--accent);
+    background-color: var(--accent-soft);
+    border-left-color: var(--accent);
+    font-weight: 700;
+  }
+
+  .sidebar-mini-cta {
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.15rem;
+    text-align: center;
+  }
+
+  .sidebar-mini-cta h5 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.4rem;
+  }
+
+  .sidebar-mini-cta p {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+    margin-bottom: 0.85rem;
+  }
+
+  /* In-Article CTA Banner */
+  .article-cta-box {
+    margin: 3.5rem 0 2.5rem;
+    background: linear-gradient(135deg, #0f2b48 0%, #173f67 100%);
+    border-radius: var(--radius-lg);
+    padding: 2.25rem 2rem;
+    color: #ffffff;
+    border: 2px solid var(--accent);
+  }
+
+  .cta-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #fed7aa;
+    background-color: rgba(255, 255, 255, 0.12);
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-inner-card h3 {
+    font-size: 1.45rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    color: #ffffff;
+  }
+
+  .cta-inner-card p {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* Navigation between articles */
+  .article-navigation {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .nav-art-card {
+    background-color: var(--bg-alt);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    transition: var(--transition);
+  }
+
+  .nav-art-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .nav-art-dir {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+
+  .nav-art-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1.35;
+  }
+
+  .nav-art-card.next {
+    text-align: right;
+  }
+
+  @media (max-width: 992px) {
+    .article-layout-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .article-sidebar-col {
+      display: none;
+    }
+    .mobile-toc-wrapper {
+      display: block;
+    }
+    .article-navigation {
+      grid-template-columns: 1fr;
+    }
+    .nav-art-card.next {
+      text-align: left;
+    }
+  }
+</style>
+

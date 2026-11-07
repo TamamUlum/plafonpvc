@@ -1,0 +1,1367 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { galleryItems } from '../../data/gallery';
+
+const breadcrumbItems = [
+  { label: 'Galeri', href: '/galeri/' }
+];
+
+const pageTitle = "Galeri Dokumentasi & Fasilitas — Plafon PVC Solo by Griya Alfath";
+const pageDesc = "Dokumentasi nyata kesiapan gudang stok, armada pengiriman mandiri, toko fisik, dan proses pengerjaan konstruksi interior oleh tim Griya Alfath Solo Raya.";
+
+interface VideoDocItem {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  videoSrc: string;
+  thumbnail: string;
+  duration: string;
+  date: string;
+  detailUrl: string;
+  detailLabel: string;
+}
+
+const videoDocs: VideoDocItem[] = [
+  {
+    id: 'vid-drop-ceiling',
+    title: 'Pemasangan Plafon PVC Drop Ceiling Trap Bertingkat',
+    category: 'Teknik Pemasangan',
+    description: 'Dokumentasi langkah demi langkah perakitan rangka hollow galvalum dan instalasi panel plafon bertingkat dengan aksen lampu indirect LED tersembunyi.',
+    videoSrc: '/videos/pemasangan-plafon.mp4',
+    thumbnail: '/images/layanan/layanan-plafon-pvc.webp',
+    duration: '02:15',
+    date: 'Dokumentasi Lapangan',
+    detailUrl: '/galeri/pemasangan-plafon-drop-ceiling/',
+    detailLabel: 'Lihat Detail Dokumentasi'
+  },
+  {
+    id: 'vid-lamiwood',
+    title: 'Tutorial & Aplikasi Plafon UPVC Lamiwood',
+    category: 'Panduan Material',
+    description: 'Panduan teknis pengaplikasian plafon UPVC premium Lamiwood berstandar anti air, anti rayap, dan tahan rambatan api untuk interior hunian modern.',
+    videoSrc: '/videos/Lamiwood.mp4',
+    thumbnail: '/images/produk/produk-plafon-pvc-lamiwood.webp',
+    duration: '01:45',
+    date: 'Panduan Teknis',
+    detailUrl: '/produk/plafon-pvc-lamiwood/',
+    detailLabel: 'Lihat Detail Produk'
+  },
+  {
+    id: 'vid-gudang-armada',
+    title: 'Kesiapan Stok Gudang & Pengiriman Armada Mandiri',
+    category: 'Fasilitas & Logistik',
+    description: 'Melihat langsung kesiapan stok ribuan lembar papan plafon di gudang utama Tlobong Delanggu serta proses pemuatan aman ke armada pick-up toko.',
+    videoSrc: '/videos/banner-bg.mp4',
+    thumbnail: '/images/dokumentasi/dok-gudang-stok.webp',
+    duration: '01:10',
+    date: 'Fasilitas Utama',
+    detailUrl: '/galeri/gudang-stok-plafon-pvc/',
+    detailLabel: 'Lihat Detail Fasilitas'
+  }
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDesc}
+  currentPath="/galeri/"
+>
+  <!-- Page Banner -->
+  <section class="page-banner">
+    <video autoplay muted loop playsinline poster="/images/hero/hero-plafon-main.webp" class="banner-video-bg" aria-hidden="true">
+      <source src="/videos/banner-bg.mp4" type="video/mp4" />
+    </video>
+    <div class="banner-overlay" aria-hidden="true"></div>
+
+    <div class="container">
+      <span class="badge-sub" style="background-color: rgba(255,255,255,0.15); color: #fed7aa; margin-bottom: 0.75rem;">Dokumentasi &amp; Fasilitas</span>
+      <h1 class="page-banner-title">Galeri Dokumentasi Griya Alfath</h1>
+      <p class="page-banner-desc">Kesiapan stok ribuan lembar di gudang, armada logistik mandiri, showroom toko fisik, serta dokumentasi proses teknis pemasangan di lapangan.</p>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <Breadcrumb items={breadcrumbItems} />
+
+  <!-- Filter & Main Gallery Section -->
+  <section class="section-py bg-white">
+    <div class="container">
+      <div class="gallery-intro text-center">
+        <h2 class="section-title">Dokumentasi Operasional &amp; Pekerjaan</h2>
+        <p class="section-desc">Setiap dokumentasi mencerminkan komitmen transparansi, kesiapan material, dan standar profesionalisme yang kami berikan kepada mitra B2B maupun konsumen residensial.</p>
+
+        <!-- Media Filter Tabs -->
+        <div class="gallery-filter-tabs" role="tablist" aria-label="Filter Media Galeri">
+          <button class="filter-tab-btn active" data-filter="all" type="button" role="tab" aria-selected="true">
+            <svg class="icon-svg" style="width:16px;height:16px" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            Semua Dokumentasi ({galleryItems.length + videoDocs.length})
+          </button>
+          <button class="filter-tab-btn" data-filter="video" type="button" role="tab" aria-selected="false">
+            <svg class="icon-svg" style="width:16px;height:16px" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Video Lapangan ({videoDocs.length})
+          </button>
+          <button class="filter-tab-btn" data-filter="photo" type="button" role="tab" aria-selected="false">
+            <svg class="icon-svg" style="width:16px;height:16px" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            Foto Fasilitas &amp; Proyek ({galleryItems.length})
+          </button>
+        </div>
+      </div>
+
+      <!-- DEDICATED VIDEO GALLERY SECTION -->
+      <div id="video-dokumentasi-section" class="video-gallery-wrapper">
+        <div class="video-section-header">
+          <div class="video-badge-pill">
+            <svg class="icon-svg" style="width:15px;height:15px;fill:currentColor" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Dokumentasi Video Lapangan
+          </div>
+          <h3 class="video-section-title">Video Proses Pemasangan &amp; Kesiapan Fasilitas</h3>
+          <p class="video-section-desc">Tonton langsung bukti autentik pengerjaan aplikator berpengalaman, tutorial pemasangan produk berkualitas, dan ketersediaan stok fisik di gudang kami.</p>
+        </div>
+
+        <div class="video-grid">
+          {videoDocs.map(item => (
+            <article class="video-card" data-video-src={item.videoSrc} data-video-title={item.title} data-video-desc={item.description} data-detail-url={item.detailUrl} data-detail-label={item.detailLabel}>
+              <div class="video-thumb-container">
+                <img src={item.thumbnail} alt={item.title} loading="lazy" width="400" height="240" />
+                <div class="video-thumb-overlay"></div>
+                <button type="button" class="video-play-btn" aria-label={`Putar video ${item.title}`}>
+                  <svg class="icon-svg" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+                </button>
+                <span class="video-badge-category">{item.category}</span>
+                <span class="video-badge-duration">⏱️ {item.duration}</span>
+              </div>
+              <div class="video-card-body">
+                <div class="video-meta-line">
+                  <span class="meta-tag">🗓️ {item.date}</span>
+                </div>
+                <h4 class="video-card-title">{item.title}</h4>
+                <p class="video-card-desc">{item.description}</p>
+                <div class="video-card-actions">
+                  <button type="button" class="btn-play-trigger">
+                    <svg class="icon-svg" style="width:16px;height:16px" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Tonton Video
+                  </button>
+                  <a href={item.detailUrl} class="btn-video-detail">
+                    {item.detailLabel}
+                    <svg class="icon-svg" style="width:14px;height:14px" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <!-- Official YouTube Channel Banner -->
+        <div class="youtube-channel-banner">
+          <div class="yt-banner-icon">
+            <svg class="icon-svg" style="width:36px;height:36px;fill:#ef4444" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </div>
+          <div class="yt-banner-info">
+            <h4>Saluran YouTube Resmi Griya Alfath</h4>
+            <p>Ingin melihat lebih banyak tayangan pemasangan plafon PVC, tutorial lis pigura moulding, dan liputan proyek lapangan? Kunjungi saluran YouTube resmi kami <strong>@PlafonPVCAlfath</strong>.</p>
+          </div>
+          <div class="yt-banner-action">
+            <a href="https://www.youtube.com/@PlafonPVCAlfath" class="btn btn-yt-channel" target="_blank" rel="noopener">
+              Buka YouTube @PlafonPVCAlfath
+              <svg class="icon-svg" style="width:16px;height:16px" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHOTO & FACILITY GALLERY GRID -->
+      <div id="photo-gallery-section" class="photo-gallery-wrapper">
+        <div class="photo-section-header">
+          <h3 class="photo-section-title">Dokumentasi Fasilitas, Toko &amp; Tim Kerja</h3>
+          <p class="photo-section-desc">Pilihan artikel galeri lengkap yang merinci standar mutu, armada logistik, dan fasilitas showroom fisik di Solo Raya.</p>
+        </div>
+
+        <div class="gallery-grid">
+          {galleryItems.map(item => (
+            <article class="gallery-card" data-gallery-item>
+              <a href={`/galeri/${item.slug}/`} class="gallery-img-link" aria-label={`Buka detail dokumentasi ${item.title}`}>
+                <img src={item.image} alt={item.title} loading="lazy" width="400" height="260" />
+                <span class="gallery-badge-overlay">{item.category}</span>
+              </a>
+              <div class="gallery-card-body">
+                <div class="gallery-meta">
+                  {item.location && <span class="meta-item">📍 {item.location}</span>}
+                  {item.date && <span class="meta-item">🗓️ {item.date}</span>}
+                </div>
+                <h3 class="gallery-card-title">
+                  <a href={`/galeri/${item.slug}/`}>{item.title}</a>
+                </h3>
+                <p class="gallery-card-desc">{item.description}</p>
+                <div class="gallery-card-footer">
+                  <a href={`/galeri/${item.slug}/`} class="btn-detail-link">
+                    Lihat Dokumentasi Lengkap
+                    <svg class="icon-svg" style="width:16px;height:16px" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <!-- SOCIAL MEDIA SHOWCASE SECTION (FOKUS INSTAGRAM & TIKTOK) -->
+      <section class="gallery-social-section" aria-labelledby="social-gallery-heading">
+        <div class="social-section-header text-center">
+          <span class="badge-sub" style="background-color: #fce7f3; color: #be185d;">Publikasi Harian &amp; Video Real-Time</span>
+          <h3 id="social-gallery-heading" class="social-section-title">Dokumentasi Terkini di Media Sosial Kami</h3>
+          <p class="social-section-desc">
+            Untuk update video proyek lapangan setiap hari, proses pemasangan plafon bertahap, reels transformasi ruangan, dan tips seputar material, ikuti saluran media sosial resmi Griya Alfath Solo.
+          </p>
+        </div>
+
+        <div class="social-cards-grid">
+          <!-- Instagram Card -->
+          <div class="social-showcase-card card-instagram">
+            <div class="social-card-top">
+              <div class="social-icon-box ig-icon-bg">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </div>
+              <div class="social-meta">
+                <span class="social-platform-label">Instagram Resmi</span>
+                <h4 class="social-handle">@plafonpvcsolo</h4>
+              </div>
+            </div>
+            <p class="social-card-text">
+              Galeri feed foto resolusi tinggi, video reels pemasangan drop ceiling bertingkat, update katalog motif terbaru, dan dokumentasi testimoni pelanggan se-Solo Raya.
+            </p>
+            <div class="social-card-bottom">
+              <a href="https://www.instagram.com/plafonpvcsolo/" target="_blank" rel="noopener" class="btn btn-social-action btn-ig">
+                <span>Follow di Instagram</span>
+                <svg class="icon-svg" style="width:16px;height:16px" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- TikTok Card -->
+          <div class="social-showcase-card card-tiktok">
+            <div class="social-card-top">
+              <div class="social-icon-box tt-icon-bg">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z"/></svg>
+              </div>
+              <div class="social-meta">
+                <span class="social-platform-label">TikTok Resmi</span>
+                <h4 class="social-handle">@plafonpvcsolo</h4>
+              </div>
+            </div>
+            <p class="social-card-text">
+              Video tutorial teknis pemasangan rangka dan panel plafon, tes ketahanan material tahan air &amp; api, kesiapan gudang stok, serta video edukasi renovasi interior.
+            </p>
+            <div class="social-card-bottom">
+              <a href="https://www.tiktok.com/@plafonpvcsolo" target="_blank" rel="noopener" class="btn btn-social-action btn-tt">
+                <span>Follow di TikTok</span>
+                <svg class="icon-svg" style="width:16px;height:16px" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Secondary Channels Bar -->
+        <div class="social-secondary-bar">
+          <span class="sec-bar-title">Kanal Media Lainnya:</span>
+          <div class="sec-bar-links">
+            <a href="https://www.youtube.com/@PlafonPVCAlfath" target="_blank" rel="noopener" class="sec-social-pill">
+              <svg class="icon-svg icon-yt" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              <span>YouTube: @PlafonPVCAlfath</span>
+            </a>
+            <a href="https://www.threads.net/@plafonpvcsolo" target="_blank" rel="noopener" class="sec-social-pill">
+              <svg class="icon-svg icon-threads" viewBox="0 0 24 24"><path d="M12.186 24C5.467 24 0 18.533 0 11.814 0 5.095 5.467 0 12.186 0c6.719 0 12.186 5.467 12.186 11.814 0 .618-.046 1.229-.136 1.831-.223 1.488-1.573 2.507-3.048 2.293-1.488-.224-2.507-1.574-2.294-3.048.05-.333.076-.671.076-1.076 0-3.795-3.088-6.883-6.784-6.883-3.796 0-6.884 3.088-6.884 6.883 0 3.796 3.088 6.884 6.884 6.884 1.834 0 3.486-.714 4.707-1.884.978-.938 2.544-.897 3.482.081.938.978.897 2.544-.081 3.482C18.665 22.094 15.586 24 12.186 24z"/></svg>
+              <span>Threads: @plafonpvcsolo</span>
+            </a>
+            <a href="https://www.facebook.com/plafonpvcsolo/" target="_blank" rel="noopener" class="sec-social-pill">
+              <svg class="icon-svg icon-fb" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              <span>Facebook: Plafon PVC Solo</span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <div class="gallery-cta-box">
+        <div class="cta-box-content">
+          <h3>Butuh Pasokan Material Skala Besar atau Penawaran Proyek?</h3>
+          <p>Kunjungi gudang stok atau toko fisik kami di Solo Raya, atau diskusikan kebutuhan spesifikasi teknis dan RAB bersama tim konsultan kami.</p>
+        </div>
+        <div class="cta-box-action">
+          <a
+            href="https://wa.me/6282157249454?text=Halo%20Mas%20Otello%20Griya%20Alfath,%20saya%20melihat%20galeri%20dokumentasi%20di%20website%20dan%20ingin%20konsultasi%20kebutuhan%20proyek."
+            class="btn btn-accent"
+            target="_blank"
+            rel="noopener"
+          >
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9 7.41 8.74 7.69C8.47 7.96 7.74 8.64 7.74 10.05C7.74 11.45 8.77 12.81 8.91 13C9.05 13.2 10.92 16.08 13.8 17.32C14.49 17.61 15.02 17.79 15.44 17.93C16.13 18.15 16.76 18.12 17.26 18.04C17.81 17.96 18.96 17.35 19.2 16.67C19.44 16 19.44 15.41 19.37 15.3C19.3 15.19 19.11 15.12 18.82 14.98C18.53 14.84 17.11 14.14 16.85 14.05C16.59 13.95 16.4 13.91 16.21 14.2C16.02 14.5 15.48 15.12 15.31 15.3C15.15 15.5 14.99 15.52 14.7 15.37C14.41 15.23 13.49 14.93 12.4 13.96C11.55 13.2 10.98 12.27 10.82 11.98C10.65 11.7 10.8 11.54 10.95 11.4C11.08 11.27 11.24 11.06 11.39 10.89C11.53 10.72 11.58 10.6 11.68 10.4C11.77 10.2 11.72 10.03 11.65 9.89C11.58 9.74 11 8.33 10.76 7.76C10.53 7.21 10.3 7.28 10.13 7.27L9.53 7.33Z"/></svg>
+            Konsultasi via WhatsApp (Mas Otello)
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL VIDEO PLAYER -->
+  <div id="videoModalBackdrop" class="video-modal-backdrop" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalVideoTitle">
+    <div class="video-modal-container">
+      <div class="video-modal-header">
+        <h3 id="modalVideoTitle" class="video-modal-title">Judul Video Dokumentasi</h3>
+        <button id="closeVideoModalBtn" class="video-modal-close" type="button" aria-label="Tutup pemutar video">
+          <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2.2" fill="none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="video-modal-player-wrap">
+        <video id="modalVideoPlayer" controls playsinline preload="none">
+          <source id="modalVideoSource" src="" type="video/mp4" />
+          Browser Anda tidak mendukung pemutar video HTML5.
+        </video>
+      </div>
+      <div class="video-modal-footer">
+        <p id="modalVideoDesc" class="video-modal-desc"></p>
+        <div class="video-modal-actions">
+          <a id="modalDetailBtn" href="/galeri/" class="btn btn-outline btn-sm">
+            Buka Halaman Terkait
+            <svg class="icon-svg" style="width:15px;height:15px" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="https://wa.me/6282157249454?text=Halo%20Mas%20Otello%20Griya%20Alfath,%20saya%20tertarik%20dengan%20video%20dokumentasi%20di%20website%20dan%20ingin%20konsultasi%20proyek." class="btn btn-accent btn-sm" target="_blank" rel="noopener">
+            Konsultasi WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  // Filter tabs and Video Modal logic
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterTabs = document.querySelectorAll<HTMLButtonElement>('.filter-tab-btn');
+    const videoSection = document.getElementById('video-dokumentasi-section');
+    const photoSection = document.getElementById('photo-gallery-section');
+
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        filterTabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+
+        const filter = tab.dataset.filter;
+        if (filter === 'all') {
+          if (videoSection) videoSection.style.display = 'block';
+          if (photoSection) photoSection.style.display = 'block';
+        } else if (filter === 'video') {
+          if (videoSection) {
+            videoSection.style.display = 'block';
+            videoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+          if (photoSection) photoSection.style.display = 'none';
+        } else if (filter === 'photo') {
+          if (videoSection) videoSection.style.display = 'none';
+          if (photoSection) {
+            photoSection.style.display = 'block';
+            photoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    });
+
+    // Video Modal Elements
+    const backdrop = document.getElementById('videoModalBackdrop');
+    const closeBtn = document.getElementById('closeVideoModalBtn');
+    const videoPlayer = document.getElementById('modalVideoPlayer') as HTMLVideoElement | null;
+    const videoSource = document.getElementById('modalVideoSource') as HTMLSourceElement | null;
+    const modalTitle = document.getElementById('modalVideoTitle');
+    const modalDesc = document.getElementById('modalVideoDesc');
+    const modalDetailBtn = document.getElementById('modalDetailBtn') as HTMLAnchorElement | null;
+
+    function openModal(card: HTMLElement) {
+      if (!backdrop || !videoPlayer || !videoSource) return;
+
+      const videoSrc = card.dataset.videoSrc || '';
+      const title = card.dataset.videoTitle || '';
+      const desc = card.dataset.videoDesc || '';
+      const detailUrl = card.dataset.detailUrl || '/galeri/';
+      const detailLabel = card.dataset.detailLabel || 'Buka Halaman Terkait';
+
+      if (modalTitle) modalTitle.textContent = title;
+      if (modalDesc) modalDesc.textContent = desc;
+      if (modalDetailBtn) {
+        modalDetailBtn.href = detailUrl;
+        modalDetailBtn.innerHTML = `${detailLabel} <svg class="icon-svg" style="width:15px;height:15px" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>`;
+      }
+
+      videoSource.src = videoSrc;
+      videoPlayer.load();
+      backdrop.hidden = false;
+      backdrop.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+
+      // Play video with audio enabled on direct user action
+      const playPromise = videoPlayer.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Fallback if browser requires muted autoplay
+          videoPlayer.muted = true;
+          videoPlayer.play();
+        });
+      }
+    }
+
+    function closeModal() {
+      if (!backdrop || !videoPlayer || !videoSource) return;
+      videoPlayer.pause();
+      videoPlayer.currentTime = 0;
+      videoSource.src = '';
+      videoPlayer.load();
+      backdrop.hidden = true;
+      backdrop.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    // Attach click triggers to cards and play buttons
+    document.querySelectorAll<HTMLElement>('.video-card').forEach(card => {
+      const playBtn = card.querySelector('.video-play-btn');
+      const actionBtn = card.querySelector('.btn-play-trigger');
+      const thumb = card.querySelector('.video-thumb-container');
+
+      [playBtn, actionBtn, thumb].forEach(elem => {
+        elem?.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          openModal(card);
+        });
+      });
+    });
+
+    closeBtn?.addEventListener('click', closeModal);
+
+    backdrop?.addEventListener('click', (e) => {
+      if (e.target === backdrop) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && backdrop && !backdrop.hidden) {
+        closeModal();
+      }
+    });
+  });
+</script>
+
+<style>
+  .gallery-intro {
+    max-width: 780px;
+    margin: 0 auto 3rem;
+  }
+
+  /* Filter Tabs */
+  .gallery-filter-tabs {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f1f5f9;
+    padding: 0.35rem;
+    border-radius: 9999px;
+    gap: 0.35rem;
+    margin-top: 1.75rem;
+    border: 1px solid var(--border-color);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .filter-tab-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.6rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    background: transparent;
+    border: none;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .filter-tab-btn:hover {
+    color: var(--primary);
+  }
+
+  .filter-tab-btn.active {
+    background-color: var(--primary);
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(15, 43, 72, 0.2);
+  }
+
+  /* Video Gallery Wrapper */
+  .video-gallery-wrapper {
+    background: #f8fafc;
+    border-radius: var(--radius-xl);
+    padding: 2.75rem 2.25rem;
+    margin-bottom: 4rem;
+    border: 1px solid var(--border-color);
+  }
+
+  .video-section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .video-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background-color: #fee2e2;
+    color: #b91c1c;
+    font-size: 0.8rem;
+    font-weight: 800;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    margin-bottom: 0.85rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .video-section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 0.65rem;
+    line-height: 1.3;
+  }
+
+  .video-section-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 2.75rem;
+  }
+
+  .video-card {
+    background-color: #ffffff;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(230, 81, 0, 0.35);
+  }
+
+  .video-thumb-container {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #0f172a;
+  }
+
+  .video-thumb-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .video-card:hover .video-thumb-container img {
+    transform: scale(1.07);
+  }
+
+  .video-thumb-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.65) 100%);
+    transition: background 0.3s ease;
+  }
+
+  .video-card:hover .video-thumb-overlay {
+    background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.5) 100%);
+  }
+
+  .video-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 58px;
+    height: 58px;
+    background: rgba(230, 81, 0, 0.92);
+    color: #ffffff;
+    border: 3px solid rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.4);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 2;
+  }
+
+  .video-play-btn svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    margin-left: 3px;
+  }
+
+  .video-card:hover .video-play-btn {
+    transform: translate(-50%, -50%) scale(1.15);
+    background: #e65100;
+    box-shadow: 0 0 0 10px rgba(230, 81, 0, 0.25);
+  }
+
+  .video-badge-category {
+    position: absolute;
+    top: 0.85rem;
+    left: 0.85rem;
+    background: rgba(15, 43, 72, 0.9);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-sm);
+    backdrop-filter: blur(4px);
+    z-index: 2;
+  }
+
+  .video-badge-duration {
+    position: absolute;
+    bottom: 0.85rem;
+    right: 0.85rem;
+    background: rgba(0, 0, 0, 0.78);
+    color: #f8fafc;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.55rem;
+    border-radius: var(--radius-sm);
+    z-index: 2;
+  }
+
+  .video-card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .video-meta-line {
+    margin-bottom: 0.5rem;
+  }
+
+  .meta-tag {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  .video-card-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1.35;
+    margin-bottom: 0.65rem;
+  }
+
+  .video-card-desc {
+    font-size: 0.885rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
+  }
+
+  .video-card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-play-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #ffffff;
+    background-color: var(--accent);
+    border: none;
+    border-radius: var(--radius-md);
+    padding: 0.55rem 0.95rem;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .btn-play-trigger:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+  }
+
+  .btn-video-detail {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+    transition: var(--transition);
+  }
+
+  .btn-video-detail:hover {
+    color: var(--accent);
+    transform: translateX(3px);
+  }
+
+  /* YouTube Banner */
+  .youtube-channel-banner {
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    border: 1px solid #fee2e2;
+    padding: 1.75rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .yt-banner-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: #fef2f2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .yt-banner-info {
+    flex-grow: 1;
+  }
+
+  .yt-banner-info h4 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 0.35rem;
+  }
+
+  .yt-banner-info p {
+    font-size: 0.885rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .yt-banner-action {
+    flex-shrink: 0;
+  }
+
+  .btn-yt-channel {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #ef4444;
+    color: #ffffff;
+    font-size: 0.875rem;
+    font-weight: 700;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: var(--transition);
+    white-space: nowrap;
+  }
+
+  .btn-yt-channel:hover {
+    background-color: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+  }
+
+  /* Photo Section Header */
+  .photo-section-header {
+    margin-bottom: 2rem;
+  }
+
+  .photo-section-title {
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .photo-section-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+  }
+
+  /* Photo Gallery Grid */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .gallery-card {
+    background-color: #ffffff;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(230, 81, 0, 0.3);
+  }
+
+  .gallery-img-link {
+    position: relative;
+    height: 230px;
+    overflow: hidden;
+    display: block;
+    background-color: #1e293b;
+  }
+
+  .gallery-img-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .gallery-card:hover .gallery-img-link img {
+    transform: scale(1.06);
+  }
+
+  .gallery-badge-overlay {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: rgba(15, 43, 72, 0.88);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3rem 0.65rem;
+    border-radius: var(--radius-sm);
+    backdrop-filter: blur(4px);
+  }
+
+  .gallery-card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .gallery-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 0.65rem;
+    flex-wrap: wrap;
+  }
+
+  .gallery-card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.65rem;
+    line-height: 1.35;
+  }
+
+  .gallery-card-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition);
+  }
+
+  .gallery-card-title a:hover {
+    color: var(--accent);
+  }
+
+  .gallery-card-desc {
+    font-size: 0.885rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
+  }
+
+  .gallery-card-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+  }
+
+  .btn-detail-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: none;
+    transition: var(--transition);
+  }
+
+  .btn-detail-link:hover {
+    color: var(--accent-hover);
+    transform: translateX(4px);
+  }
+
+  /* CTA Box */
+  .gallery-cta-box {
+    background: linear-gradient(135deg, var(--primary) 0%, #153960 100%);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  /* Social Media Showcase Section */
+  .gallery-social-section {
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: 3rem 2.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .social-section-header {
+    max-width: 720px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .social-section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-top: 0.65rem;
+    margin-bottom: 0.65rem;
+    line-height: 1.3;
+  }
+
+  .social-section-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .social-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .social-showcase-card {
+    background-color: #ffffff;
+    border-radius: var(--radius-lg);
+    padding: 2.25rem;
+    border: 1.5px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .social-showcase-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .card-instagram:hover {
+    border-color: #e1306c;
+  }
+
+  .card-tiktok:hover {
+    border-color: #000000;
+  }
+
+  .social-card-top {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .social-icon-box {
+    width: 58px;
+    height: 58px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .social-icon-box svg {
+    width: 32px;
+    height: 32px;
+    fill: #ffffff;
+  }
+
+  .ig-icon-bg {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  }
+
+  .tt-icon-bg {
+    background: #000000;
+  }
+
+  .social-platform-label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.2rem;
+  }
+
+  .social-handle {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin: 0;
+  }
+
+  .social-card-text {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.75rem;
+    flex-grow: 1;
+  }
+
+  .btn-social-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition: var(--transition);
+  }
+
+  .btn-ig {
+    background: linear-gradient(45deg, #f09433 0%, #dc2743 50%, #bc1888 100%);
+    color: #ffffff;
+  }
+
+  .btn-ig:hover {
+    opacity: 0.92;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(220, 39, 67, 0.35);
+  }
+
+  .btn-tt {
+    background-color: #000000;
+    color: #ffffff;
+  }
+
+  .btn-tt:hover {
+    background-color: #222222;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Secondary Channels Bar */
+  .social-secondary-bar {
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .sec-bar-title {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  .sec-bar-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .sec-social-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.825rem;
+    font-weight: 600;
+    color: var(--text-main);
+    text-decoration: none;
+    background-color: var(--bg-alt);
+    padding: 0.45rem 0.85rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+  }
+
+  .sec-social-pill:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background-color: #ffffff;
+  }
+
+  .sec-social-pill .icon-svg {
+    width: 15px;
+    height: 15px;
+    fill: currentColor;
+  }
+
+  .sec-social-pill .icon-yt {
+    fill: #ef4444;
+  }
+
+  .sec-social-pill .icon-fb {
+    fill: #1877f2;
+  }
+
+  .sec-social-pill .icon-threads {
+    fill: #000000;
+  }
+
+  .cta-box-content h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-box-content p {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    max-width: 650px;
+    line-height: 1.55;
+  }
+
+  .cta-box-action {
+    flex-shrink: 0;
+  }
+
+  /* MODAL VIDEO STYLES */
+  .video-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(10, 25, 47, 0.88);
+    backdrop-filter: blur(8px);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    animation: fadeIn 0.25s ease-out;
+  }
+
+  .video-modal-backdrop[hidden] {
+    display: none !important;
+  }
+
+  .video-modal-container {
+    background-color: #ffffff;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    width: 100%;
+    max-width: 860px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .video-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.15rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    background-color: #f8fafc;
+  }
+
+  .video-modal-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .video-modal-close {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    padding: 0.35rem;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+  }
+
+  .video-modal-close:hover {
+    background-color: #e2e8f0;
+    color: #ef4444;
+  }
+
+  .video-modal-player-wrap {
+    position: relative;
+    width: 100%;
+    background-color: #000000;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .video-modal-player-wrap video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    outline: none;
+  }
+
+  .video-modal-footer {
+    padding: 1.25rem 1.5rem;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .video-modal-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .video-modal-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(20px) scale(0.97); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+  }
+
+  @media (max-width: 992px) {
+    .video-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .social-cards-grid {
+      grid-template-columns: 1fr;
+    }
+    .social-secondary-bar {
+      flex-direction: column;
+      text-align: center;
+    }
+    .youtube-channel-banner {
+      flex-direction: column;
+      text-align: center;
+    }
+    .gallery-cta-box {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .video-grid {
+      grid-template-columns: 1fr;
+    }
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+    .gallery-social-section {
+      padding: 2rem 1.25rem;
+    }
+    .social-showcase-card {
+      padding: 1.5rem;
+    }
+    .sec-bar-links {
+      flex-direction: column;
+      width: 100%;
+    }
+    .sec-social-pill {
+      width: 100%;
+      justify-content: center;
+    }
+    .video-gallery-wrapper {
+      padding: 1.75rem 1.25rem;
+    }
+    .video-card-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .btn-play-trigger, .btn-video-detail {
+      justify-content: center;
+    }
+    .video-modal-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+    .video-modal-actions .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

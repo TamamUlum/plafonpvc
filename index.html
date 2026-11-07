@@ -1,0 +1,3306 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plafon PVC Solo by Griya Alfath — Supplier Material & Jasa Pasang Plafon Solo Raya</title>
+  <meta name="description"
+    content="Distributor dan supplier material plafon PVC, gypsum, baja ringan, galvalum, serta jasa pemasangan profesional bergaransi untuk hunian dan proyek di Solo Raya.">
+  <link rel="icon" type="image/png" href="assets/images/logo/logo-griya-alfath.png">
+
+  <style>
+    /* ==========================================================================
+       CSS RESET & VARIABLES
+       ========================================================================== */
+    :root {
+      --primary: #0f2b48;
+      --primary-dark: #0a1e33;
+      --primary-light: #1e3f66;
+      --accent: #e65100;
+      --accent-hover: #f57c00;
+      --accent-soft: #fff3e0;
+      --secondary: #ffffff;
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-alt: #f1f5f9;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --text-light: #94a3b8;
+      --border-color: #e2e8f0;
+      --border-light: #f1f5f9;
+      --success: #16a34a;
+
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.07), 0 1px 2px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.09), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+
+      --transition: all 0.25s ease-in-out;
+      --container-max: 1200px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-main);
+      color: var(--text-main);
+      background-color: var(--bg-page);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img,
+    picture,
+    svg,
+    video {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    ul,
+    ol {
+      list-style: none;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+
+    /* Utilities */
+    .text-center {
+      text-align: center;
+    }
+
+    .text-accent {
+      color: var(--accent);
+    }
+
+    .text-primary {
+      color: var(--primary);
+    }
+
+    .text-muted {
+      color: var(--text-muted);
+    }
+
+    .bg-white {
+      background-color: var(--secondary);
+    }
+
+    .bg-alt {
+      background-color: var(--bg-alt);
+    }
+
+    .section-py {
+      padding-top: 4.5rem;
+      padding-bottom: 4.5rem;
+    }
+
+    /* Section Headings */
+    .section-header {
+      margin-bottom: 3rem;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .badge-sub {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.85rem;
+      background-color: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-radius: var(--radius-full);
+      margin-bottom: 0.85rem;
+    }
+
+    .badge-sub.primary-badge {
+      background-color: #e2e8f0;
+      color: var(--primary);
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 3.5vw, 2.35rem);
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.25;
+      margin-bottom: 0.85rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.75rem 1.45rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      border: 1.5px solid transparent;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-accent {
+      background-color: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(230, 81, 0, 0.25);
+    }
+
+    .btn-accent:hover {
+      background-color: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(230, 81, 0, 0.35);
+      color: #ffffff;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-light);
+      transform: translateY(-2px);
+      color: #ffffff;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-outline-white {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.8);
+      color: #ffffff;
+    }
+
+    .btn-outline-white:hover {
+      background-color: #ffffff;
+      color: var(--primary);
+    }
+
+    .btn-sm {
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+    }
+
+    .btn-whatsapp-green {
+      background-color: #25d366;
+      color: #ffffff;
+      border: none;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-whatsapp-green:hover {
+      background-color: #20ba59;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4);
+      color: #ffffff;
+    }
+
+    /* Icon Helper */
+    .icon-svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       TOP BAR
+       ========================================================================== */
+    .topbar {
+      background-color: var(--primary-dark);
+      color: #cbd5e1;
+      font-size: 0.8125rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.5rem 0;
+    }
+
+    .topbar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .topbar-info,
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .topbar-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .topbar-item a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    /* ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== */
+    .site-header {
+      background-color: #ffffff;
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-color);
+      transition: var(--transition);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 74px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .brand-logo img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+
+    .brand-subtitle {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-link {
+      font-size: 0.925rem;
+      font-weight: 600;
+      color: var(--text-main);
+      padding: 0.55rem 0.85rem;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover {
+      color: var(--accent);
+      background-color: var(--bg-alt);
+    }
+
+    .nav-link.active {
+      color: var(--accent);
+      background-color: var(--accent-soft);
+      font-weight: 700;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    /* Mobile Hamburger */
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      color: var(--primary);
+      border-radius: var(--radius-sm);
+    }
+
+    .mobile-toggle:focus {
+      outline: 2px solid var(--accent);
+    }
+
+    .hamburger-icon {
+      width: 26px;
+      height: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hamburger-icon span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background-color: var(--primary);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .mobile-toggle.active .hamburger-icon span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .mobile-toggle.active .hamburger-icon span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-toggle.active .hamburger-icon span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+    .hero-section {
+      position: relative;
+      background: linear-gradient(135deg, #091a2c 0%, #0f2b48 60%, #153960 100%);
+      color: #ffffff;
+      padding: 4.5rem 0 5rem 0;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(230, 81, 0, 0.15) 0%, rgba(230, 81, 0, 0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content {
+      max-width: 580px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: #fed7aa;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-badge span {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      box-shadow: 0 0 8px #22c55e;
+    }
+
+    .hero-headline {
+      font-size: clamp(2.1rem, 4.2vw, 3.1rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-headline .highlight {
+      color: #fb923c;
+    }
+
+    .hero-subheadline {
+      font-size: 1.1rem;
+      color: #e2e8f0;
+      line-height: 1.65;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-meta-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .meta-point {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: #cbd5e1;
+    }
+
+    .meta-point svg {
+      color: #38bdf8;
+      width: 1.1rem;
+      height: 1.1rem;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-img-container {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+      border: 3px solid rgba(255, 255, 255, 0.15);
+      background-color: #1e293b;
+    }
+
+    .hero-img-container img {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .hero-img-container:hover img {
+      transform: scale(1.02);
+    }
+
+    .hero-floating-card {
+      position: absolute;
+      bottom: -1.25rem;
+      left: -1.25rem;
+      background: #ffffff;
+      color: var(--text-main);
+      padding: 1.1rem 1.35rem;
+      border-radius: var(--radius-md);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      max-width: 290px;
+      border-left: 4px solid var(--accent);
+      z-index: 3;
+    }
+
+    .floating-card-icon {
+      background-color: var(--accent-soft);
+      color: var(--accent);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .floating-card-text strong {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--primary);
+      line-height: 1.3;
+    }
+
+    .floating-card-text span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       TRUST BAR / HIGHLIGHTS SECTION
+       ========================================================================== */
+    .trust-bar {
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      padding: 1.75rem 0;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .trust-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      background-color: var(--accent-soft);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .trust-item:nth-child(2) .trust-icon-box {
+      background-color: #e0f2fe;
+      color: #0284c7;
+    }
+
+    .trust-item:nth-child(3) .trust-icon-box {
+      background-color: #dcfce7;
+      color: #16a34a;
+    }
+
+    .trust-item:nth-child(4) .trust-icon-box {
+      background-color: #ede9fe;
+      color: #7c3aed;
+    }
+
+    .trust-info h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.2rem;
+    }
+
+    .trust-info p {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* ==========================================================================
+       ABOUT TEASER SECTION
+       ========================================================================== */
+    .about-preview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-visual-main {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-color);
+    }
+
+    .about-visual-main img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+    }
+
+    .about-badge-card {
+      position: absolute;
+      bottom: -1.5rem;
+      right: 1.5rem;
+      background-color: var(--primary);
+      color: #ffffff;
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-xl);
+      max-width: 260px;
+    }
+
+    .about-badge-card h5 {
+      font-size: 1.1rem;
+      color: #fb923c;
+      margin-bottom: 0.35rem;
+    }
+
+    .about-badge-card p {
+      font-size: 0.8125rem;
+      color: #e2e8f0;
+      line-height: 1.4;
+    }
+
+    .about-text h3 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.3;
+      margin-bottom: 1.25rem;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .market-target-boxes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0 2rem 0;
+    }
+
+    .target-box {
+      background-color: var(--bg-alt);
+      padding: 1rem 1.2rem;
+      border-radius: var(--radius-md);
+      border-left: 3px solid var(--accent);
+    }
+
+    .target-box strong {
+      display: block;
+      color: var(--primary);
+      font-size: 0.925rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .target-box span {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      display: block;
+    }
+
+    /* ==========================================================================
+       KEUNGGULAN SECTION
+       ========================================================================== */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+
+    .feature-card {
+      background-color: #ffffff;
+      padding: 2rem 1.75rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: #cbd5e1;
+    }
+
+    .feature-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-md);
+      background-color: var(--accent-soft);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .feature-card:nth-child(2) .feature-icon {
+      background-color: #e0f2fe;
+      color: #0284c7;
+    }
+
+    .feature-card:nth-child(3) .feature-icon {
+      background-color: #dcfce7;
+      color: #16a34a;
+    }
+
+    .feature-card:nth-child(4) .feature-icon {
+      background-color: #fef3c7;
+      color: #d97706;
+    }
+
+    .feature-card:nth-child(5) .feature-icon {
+      background-color: #ede9fe;
+      color: #7c3aed;
+    }
+
+    .feature-card:nth-child(6) .feature-icon {
+      background-color: #ffe4e6;
+      color: #e11d48;
+    }
+
+    .feature-card h4 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+      line-height: 1.35;
+    }
+
+    .feature-card p {
+      font-size: 0.925rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       KATEGORI PRODUK SECTION
+       ========================================================================== */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+
+    .product-card {
+      background-color: #ffffff;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: #cbd5e1;
+    }
+
+    .product-card-img {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+      background-color: #f1f5f9;
+    }
+
+    .product-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover .product-card-img img {
+      transform: scale(1.05);
+    }
+
+    .product-badge-cat {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background-color: rgba(15, 43, 72, 0.9);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      backdrop-filter: blur(4px);
+    }
+
+    .product-card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-brands-tag {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .product-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.6rem;
+      line-height: 1.35;
+    }
+
+    .product-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    .product-actions {
+      display: flex;
+      gap: 0.6rem;
+      margin-top: auto;
+    }
+
+    .product-actions .btn {
+      flex: 1;
+    }
+
+    /* ==========================================================================
+       BRAND MITRA SECTION
+       ========================================================================== */
+    .brand-section-inner {
+      background-color: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 3rem 2.5rem;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brands-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .brand-card {
+      background-color: var(--bg-alt);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.25rem;
+      border: 1px solid var(--border-color);
+      text-align: center;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-card:hover {
+      background-color: #ffffff;
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .brand-thumb {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      border: 2px solid #e2e8f0;
+    }
+
+    .brand-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-thumb-placeholder {
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--primary);
+    }
+
+    .brand-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .brand-category-badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* ==========================================================================
+       LAYANAN PEMASANGAN SECTION
+       ========================================================================== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .service-card {
+      background-color: #ffffff;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      transition: var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: #cbd5e1;
+    }
+
+    .service-img {
+      position: relative;
+      height: 100%;
+      min-height: 220px;
+    }
+
+    .service-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .service-body {
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+
+    .service-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .service-steps {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+
+    .step-pill {
+      font-size: 0.75rem;
+      font-weight: 600;
+      background-color: var(--bg-alt);
+      color: var(--primary);
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+    }
+
+    .service-footer {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* ==========================================================================
+       PORTOFOLIO PROYEK SECTION
+       ========================================================================== */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .portfolio-card {
+      background-color: #ffffff;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .portfolio-img-wrapper {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+      background-color: #1e293b;
+    }
+
+    .portfolio-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .portfolio-card:hover .portfolio-img-wrapper img {
+      transform: scale(1.06);
+    }
+
+    .portfolio-tag {
+      position: absolute;
+      bottom: 0.75rem;
+      left: 0.75rem;
+      background-color: rgba(15, 43, 72, 0.85);
+      backdrop-filter: blur(4px);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-sm);
+    }
+
+    .portfolio-info {
+      padding: 1.15rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .portfolio-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.35rem;
+      line-height: 1.35;
+    }
+
+    .portfolio-desc {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       DOKUMENTASI PERUSAHAAN SECTION
+       ========================================================================== */
+    .doc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .doc-item {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      height: 240px;
+      border: 1px solid var(--border-color);
+    }
+
+    .doc-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .doc-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .doc-caption {
+      position: absolute;
+      inset: auto 0 0 0;
+      background: linear-gradient(to top, rgba(10, 30, 51, 0.95) 0%, rgba(10, 30, 51, 0.6) 70%, transparent 100%);
+      color: #ffffff;
+      padding: 1.5rem 1rem 0.85rem 1rem;
+    }
+
+    .doc-caption strong {
+      display: block;
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .doc-caption span {
+      font-size: 0.775rem;
+      color: #cbd5e1;
+    }
+
+    /* ==========================================================================
+       ALUR KERJA B2B SECTION
+       ========================================================================== */
+    .workflow-container {
+      background: linear-gradient(135deg, #0f2b48 0%, #17385c 100%);
+      color: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 4rem 2.5rem;
+      box-shadow: var(--shadow-xl);
+    }
+
+    .workflow-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 3.5rem auto;
+    }
+
+    .workflow-header h3 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+    }
+
+    .workflow-header p {
+      color: #cbd5e1;
+      font-size: 1rem;
+    }
+
+    .workflow-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.75rem;
+      position: relative;
+    }
+
+    .workflow-step {
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-md);
+      padding: 2rem 1.5rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .step-number {
+      width: 44px;
+      height: 44px;
+      background-color: var(--accent);
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.15rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 4px 10px rgba(230, 81, 0, 0.4);
+    }
+
+    .workflow-step h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.6rem;
+      line-height: 1.35;
+    }
+
+    .workflow-step p {
+      font-size: 0.875rem;
+      color: #cbd5e1;
+      line-height: 1.55;
+    }
+
+    .workflow-cta {
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    /* ==========================================================================
+       ARTIKEL TERBARU SECTION
+       ========================================================================== */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+
+    .article-card {
+      background-color: #ffffff;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .article-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .article-thumb {
+      height: 200px;
+      overflow: hidden;
+      background-color: #f1f5f9;
+    }
+
+    .article-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .article-card:hover .article-thumb img {
+      transform: scale(1.05);
+    }
+
+    .article-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-bottom: 0.6rem;
+    }
+
+    .article-cat {
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .article-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .article-excerpt {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    .article-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .article-link:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
+    /* ==========================================================================
+       FAQ ACCORDION SECTION
+       ========================================================================== */
+    .faq-container {
+      max-width: 840px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      margin-bottom: 1rem;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .faq-header {
+      width: 100%;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .faq-header:hover {
+      background-color: var(--bg-alt);
+    }
+
+    .faq-icon-cross {
+      width: 22px;
+      height: 22px;
+      position: relative;
+      flex-shrink: 0;
+      margin-left: 1rem;
+    }
+
+    .faq-icon-cross::before,
+    .faq-icon-cross::after {
+      content: "";
+      position: absolute;
+      background-color: var(--accent);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .faq-icon-cross::before {
+      top: 10px;
+      left: 2px;
+      width: 18px;
+      height: 2px;
+    }
+
+    .faq-icon-cross::after {
+      top: 2px;
+      left: 10px;
+      width: 2px;
+      height: 18px;
+    }
+
+    .faq-item.active .faq-icon-cross::after {
+      transform: rotate(90deg);
+      opacity: 0;
+    }
+
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+      background-color: #ffffff;
+    }
+
+    .faq-item.active .faq-body {
+      max-height: 400px;
+      padding: 0 1.5rem 1.5rem 1.5rem;
+    }
+
+    .faq-body p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ==========================================================================
+       CONVERSION CTA BANNER
+       ========================================================================== */
+    .cta-banner {
+      background: linear-gradient(135deg, #091a2c 0%, #0f2b48 70%, #153960 100%);
+      color: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 4rem 3rem;
+      text-align: center;
+      box-shadow: var(--shadow-xl);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-banner::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -20%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(230, 81, 0, 0.2) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .cta-banner-content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .cta-banner h3 {
+      font-size: clamp(1.85rem, 3.8vw, 2.45rem);
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+
+    .cta-banner p {
+      font-size: 1.1rem;
+      color: #cbd5e1;
+      line-height: 1.6;
+      margin-bottom: 2.25rem;
+    }
+
+    .cta-banner-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--primary-dark);
+      color: #94a3b8;
+      padding-top: 4.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.925rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      gap: 3rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .footer-col h5 {
+      color: #ffffff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 1.35rem;
+      letter-spacing: -0.01em;
+      position: relative;
+    }
+
+    .footer-col h5::after {
+      content: "";
+      display: block;
+      width: 32px;
+      height: 3px;
+      background-color: var(--accent);
+      margin-top: 0.5rem;
+      border-radius: 2px;
+    }
+
+    .footer-about p {
+      margin-top: 1rem;
+      line-height: 1.65;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.65rem;
+    }
+
+    .footer-links a {
+      color: #cbd5e1;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: #fb923c;
+      transform: translateX(4px);
+    }
+
+    .store-location-item {
+      margin-bottom: 1rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .store-location-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .store-location-item strong {
+      color: #ffffff;
+      display: block;
+      font-size: 0.875rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .store-location-item span {
+      font-size: 0.8125rem;
+      color: #94a3b8;
+      line-height: 1.4;
+      display: block;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.65rem;
+      margin-top: 1.25rem;
+    }
+
+    .social-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .social-btn:hover {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 1.5rem 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    .footer-bottom-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* ==========================================================================
+       FLOATING ACTIONS (WHATSAPP & BACK TO TOP)
+       ========================================================================== */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 1.75rem;
+      right: 1.75rem;
+      background-color: #25d366;
+      color: #ffffff;
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+      z-index: 999;
+      font-weight: 700;
+      font-size: 0.925rem;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .floating-whatsapp:hover {
+      background-color: #20ba59;
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 12px 28px rgba(37, 211, 102, 0.5);
+      color: #ffffff;
+    }
+
+    .floating-whatsapp svg {
+      width: 1.4rem;
+      height: 1.4rem;
+      fill: currentColor;
+    }
+
+    .btn-back-to-top {
+      position: fixed;
+      bottom: 5.5rem;
+      right: 1.75rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      z-index: 998;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .btn-back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .btn-back-to-top:hover {
+      background-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    /* ==========================================================================
+       RESPONSIVE DESIGN (MEDIA QUERIES)
+       ========================================================================== */
+    @media (max-width: 1100px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .workflow-steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .hero-content {
+        max-width: 100%;
+        text-align: center;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-meta-points {
+        justify-content: center;
+      }
+
+      .hero-floating-card {
+        bottom: -1rem;
+        left: 1rem;
+      }
+
+      .about-preview-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .brands-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .doc-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .articles-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
+
+      .nav-menu {
+        position: fixed;
+        top: 74px;
+        left: 0;
+        right: 0;
+        background-color: #ffffff;
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 0.5rem;
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: var(--shadow-lg);
+        max-height: calc(100vh - 74px);
+        overflow-y: auto;
+        transform: translateY(-120%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+
+      .nav-menu.open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .nav-link {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .topbar-info {
+        display: none;
+      }
+
+      .topbar-content {
+        justify-content: center;
+      }
+
+      .section-py {
+        padding-top: 3.5rem;
+        padding-bottom: 3.5rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .workflow-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .doc-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        grid-template-columns: 1fr;
+      }
+
+      .service-img {
+        height: 180px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .cta-banner {
+        padding: 3rem 1.5rem;
+      }
+
+      .brand-section-inner {
+        padding: 2rem 1.25rem;
+      }
+
+      .floating-whatsapp span {
+        display: none;
+      }
+
+      .floating-whatsapp {
+        padding: 0.85rem;
+        border-radius: 50%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .trust-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .market-target-boxes {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==========================================================================
+       TOP BAR
+       ========================================================================== -->
+  <div class="topbar">
+    <div class="container topbar-content">
+      <div class="topbar-info">
+        <span class="topbar-item">
+          <svg class="icon-svg" style="width:14px;height:14px" viewBox="0 0 24 24">
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+          </svg>
+          Solo Raya &amp; Sekitarnya (Klaten, Sukoharjo, Wonogiri)
+        </span>
+        <span class="topbar-item">
+          <svg class="icon-svg" style="width:14px;height:14px" viewBox="0 0 24 24">
+            <path
+              d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+          </svg>
+          Layanan Material &amp; Jasa Pemasangan Profesional
+        </span>
+      </div>
+      <div class="topbar-actions">
+        <span class="topbar-item">
+          <strong>Office:</strong> <a href="https://wa.me/6281228303338" target="_blank" rel="noopener">081228303338</a>
+        </span>
+        <span class="topbar-item">
+          <strong>Admin:</strong> <a href="https://wa.me/6282134516288" target="_blank" rel="noopener">082134516288</a>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-logo" aria-label="Beranda Plafon PVC Solo by Griya Alfath">
+        <img src="assets/images/logo/logo-griya-alfath.png" alt="Logo Griya Alfath Plafon PVC Solo" width="48"
+          height="48">
+        <div class="brand-text">
+          <span class="brand-title">Plafon PVC Solo</span>
+          <span class="brand-subtitle">by Griya Alfath</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="nav-menu" id="navMenu" aria-label="Navigasi Utama">
+        <a href="index.html" class="nav-link active">Beranda</a>
+        <a href="tentang-kami.html" class="nav-link">Tentang Kami</a>
+        <a href="produk.html" class="nav-link">Produk</a>
+        <a href="kalkulator.html" class="nav-link">Estimasi Biaya</a>
+        <a href="layanan.html" class="nav-link">Layanan</a>
+        <a href="proyek.html" class="nav-link">Proyek</a>
+        <a href="galeri.html" class="nav-link">Galeri</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="kontak.html" class="nav-link">Kontak</a>
+      </nav>
+
+      <!-- Desktop Header CTA -->
+      <div class="nav-cta">
+        <a href="https://wa.me/6281228303338?text=Halo%20Griya%20Alfath,%20saya%20ingin%20konsultasi%20kebutuhan%20plafon"
+          class="btn btn-sm btn-accent" target="_blank" rel="noopener">
+          <svg class="icon-svg" viewBox="0 0 24 24">
+            <path
+              d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9 7.41 8.74 7.69C8.47 7.96 7.74 8.64 7.74 10.05C7.74 11.45 8.77 12.81 8.91 13C9.05 13.2 10.92 16.08 13.8 17.32C14.49 17.61 15.02 17.79 15.44 17.93C16.13 18.15 16.76 18.12 17.26 18.04C17.81 17.96 18.96 17.35 19.2 16.67C19.44 16 19.44 15.41 19.37 15.3C19.3 15.19 19.11 15.12 18.82 14.98C18.53 14.84 17.11 14.14 16.85 14.05C16.59 13.95 16.4 13.91 16.21 14.2C16.02 14.5 15.48 15.12 15.31 15.3C15.15 15.5 14.99 15.52 14.7 15.37C14.41 15.23 13.49 14.93 12.4 13.96C11.55 13.2 10.98 12.27 10.82 11.98C10.65 11.7 10.8 11.54 10.95 11.4C11.08 11.27 11.24 11.06 11.39 10.89C11.53 10.72 11.58 10.6 11.68 10.4C11.77 10.2 11.72 10.03 11.65 9.89C11.58 9.74 11 8.33 10.76 7.76C10.53 7.21 10.3 7.28 10.13 7.27L9.53 7.33Z" />
+          </svg>
+          Konsultasi
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Buka menu navigasi" aria-expanded="false">
+        <div class="hamburger-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       HERO SECTION
+       ========================================================================== -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span></span> Distributor &amp; Aplikator Interior Terpercaya
+          </div>
+          <h1 class="hero-headline">
+            Solusi Plafon dan Material Konstruksi untuk <span class="highlight">Hunian &amp; Proyek Anda</span>
+          </h1>
+          <p class="hero-subheadline">
+            Supplier material plafon PVC, gypsum, baja ringan, galvalum pasir, dan layanan pemasangan profesional untuk
+            kebutuhan rumah tinggal, renovasi, kontraktor, serta pengadaan proyek di Solo Raya.
+          </p>
+          <div class="hero-actions">
+            <a href="https://wa.me/6281228303338?text=Halo%20Plafon%20PVC%20Solo%20by%20Griya%20Alfath,%20saya%20ingin%20konsultasi%20kebutuhan%20plafon"
+              class="btn btn-accent" target="_blank" rel="noopener">
+              <svg class="icon-svg" viewBox="0 0 24 24">
+                <path
+                  d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9 7.41 8.74 7.69C8.47 7.96 7.74 8.64 7.74 10.05C7.74 11.45 8.77 12.81 8.91 13C9.05 13.2 10.92 16.08 13.8 17.32C14.49 17.61 15.02 17.79 15.44 17.93C16.13 18.15 16.76 18.12 17.26 18.04C17.81 17.96 18.96 17.35 19.2 16.67C19.44 16 19.44 15.41 19.37 15.3C19.3 15.19 19.11 15.12 18.82 14.98C18.53 14.84 17.11 14.14 16.85 14.05C16.59 13.95 16.4 13.91 16.21 14.2C16.02 14.5 15.48 15.12 15.31 15.3C15.15 15.5 14.99 15.52 14.7 15.37C14.41 15.23 13.49 14.93 12.4 13.96C11.55 13.2 10.98 12.27 10.82 11.98C10.65 11.7 10.8 11.54 10.95 11.4C11.08 11.27 11.24 11.06 11.39 10.89C11.53 10.72 11.58 10.6 11.68 10.4C11.77 10.2 11.72 10.03 11.65 9.89C11.58 9.74 11 8.33 10.76 7.76C10.53 7.21 10.3 7.28 10.13 7.27L9.53 7.33Z" />
+              </svg>
+              Konsultasi via WhatsApp
+            </a>
+            <a href="produk.html" class="btn btn-outline-white">
+              Lihat Katalog Produk
+            </a>
+          </div>
+          <div class="hero-meta-points">
+            <div class="meta-point">
+              <svg viewBox="0 0 24 24">
+                <path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+              </svg>
+              Material SNI &amp; Resmi
+            </div>
+            <div class="meta-point">
+              <svg viewBox="0 0 24 24">
+                <path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+              </svg>
+              Garansi Hasil Pemasangan
+            </div>
+            <div class="meta-point">
+              <svg viewBox="0 0 24 24">
+                <path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+              </svg>
+              Melayani B2B &amp; B2C
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-img-container">
+            <img src="assets/images/hero/hero-plafon-main.jpg"
+              alt="Hasil Pemasangan Plafon PVC Modern Solo by Griya Alfath" width="580" height="440">
+          </div>
+          <div class="hero-floating-card">
+            <div class="floating-card-icon">
+              <svg class="icon-svg" viewBox="0 0 24 24">
+                <path
+                  d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
+              </svg>
+            </div>
+            <div class="floating-card-text">
+              <strong>Motif Lengkap &amp; Bergaransi</strong>
+              <span>Pilihan brand ALFAFON, BATIK, INDOKING &amp; GOLDEN</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       TRUST BAR / HIGHLIGHTS SECTION
+       ========================================================================== -->
+  <section class="trust-bar">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon-box">
+            <svg class="icon-svg" viewBox="0 0 24 24">
+              <path
+                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z" />
+            </svg>
+          </div>
+          <div class="trust-info">
+            <h4>Material Teruji</h4>
+            <p>Plafon PVC tahan air, anti rayap, tidak merambatkan api.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon-box">
+            <svg class="icon-svg" viewBox="0 0 24 24">
+              <path
+                d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z" />
+            </svg>
+          </div>
+          <div class="trust-info">
+            <h4>Aplikator Berpengalaman</h4>
+            <p>Pengerjaan rapi, presisi, dan sesuai jadwal kesepakatan.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon-box">
+            <svg class="icon-svg" viewBox="0 0 24 24">
+              <path
+                d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
+            </svg>
+          </div>
+          <div class="trust-info">
+            <h4>Garansi Pemasangan</h4>
+            <p>Setiap pemasangan didukung garansi pekerjaan resmi.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon-box">
+            <svg class="icon-svg" viewBox="0 0 24 24">
+              <path
+                d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 3s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+            </svg>
+          </div>
+          <div class="trust-info">
+            <h4>Retail &amp; Proyek B2B</h4>
+            <p>Melayani eceran rumah tinggal hingga pengadaan skala besar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       RINGKASAN PROFIL PERUSAHAAN
+       ========================================================================== -->
+  <section class="section-py bg-white">
+    <div class="container">
+      <div class="about-preview-grid">
+        <div class="about-visual">
+          <div class="about-visual-main">
+            <img src="assets/images/dokumentasi/dok-survei-lokasi.jpg"
+              alt="Tim Griya Alfath saat survei dan instalasi plafon" width="560" height="380">
+          </div>
+          <div class="about-badge-card">
+            <h5>Griya Alfath</h5>
+            <p>Distributor material &amp; kontraktor interior terpercaya di Solo Raya.</p>
+          </div>
+        </div>
+
+        <div class="about-text">
+          <span class="badge-sub">Tentang Perusahaan</span>
+          <h2 class="section-title">Mitra Terpercaya Kebutuhan Plafon &amp; Konstruksi Interior</h2>
+          <p>
+            <strong>Plafon PVC Solo by Griya Alfath</strong> bergerak di bidang distributor, supplier, penyedia material
+            plafon berkualitas, dan jasa pemasangan konstruksi interior. Kami hadir memberikan solusi plafon yang awet,
+            estetik, dan ekonomis untuk beragam kebutuhan bangunan Anda.
+          </p>
+          <p>
+            Dengan jaringan layanan yang mencakup wilayah Solo Raya (Solo, Sukoharjo, Klaten, Karanganyar, Wonogiri,
+            Boyolali, dan Sragen), kami siap melayani pelanggan individu hingga pengadaan proyek skala besar.
+          </p>
+
+          <div class="market-target-boxes">
+            <div class="target-box">
+              <strong>Kebutuhan Retail (B2C)</strong>
+              <span>Pemilik rumah tinggal, renovasi ruangan, dan bangunan komersial yang membutuhkan material &amp; jasa
+                pasang rapi.</span>
+            </div>
+            <div class="target-box">
+              <strong>Kebutuhan Proyek (B2B)</strong>
+              <span>Kontraktor, developer perumahan, toko bangunan, serta pengadaan material instansi swasta dan
+                pemerintah.</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+            <a href="tentang-kami.html" class="btn btn-primary">
+              Pelajari Profil Lengkap
+              <svg class="icon-svg" style="width:16px;height:16px;" viewBox="0 0 24 24">
+                <path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z" />
+              </svg>
+            </a>
+            <a href="https://wa.me/6281228303338" class="btn btn-outline" target="_blank" rel="noopener">
+              Hubungi Tim Kami
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       KEUNGGULAN PERUSAHAAN
+       ========================================================================== */
+  -->
+  <section class="section-py bg-alt">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge-sub">Mengapa Memilih Kami</span>
+        <h2 class="section-title">Keunggulan Layanan Plafon PVC Solo by Griya Alfath</h2>
+        <p class="section-desc">
+          Komitmen kami menghadirkan material pilihan berkualitas tinggi dengan pengerjaan yang teliti dan transparan.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg class="icon-svg" viewBox="0 0 24 24">
+              <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
+            </svg>
+          </div>
+          <h4>Pilihan Motif &amp; Material Lengkap</h4>
+          <p>Tersedia aneka motif kayu, marmer, garis minimalis, hingga variasi lis pigura dan wall panel untuk
+            mempercantik ruangan.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg class="icon-svg" viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+            </svg>
+          </div>
+          <h4>Garansi Pekerjaan Pemasangan</h4>
+          <p>Seluruh jasa instalasi plafon dan rangka baja ringan yang kami kerjakan didukung garansi pekerjaan agar
+            Anda merasa tenang dan puas.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg class="icon-svg" viewBox="0 0 24 24">
+              <path
+                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+            </svg>
+          </div>
+          <h4>Estimasi RAB Transparan</h4>
+          <p>Konsultasi perhitungan kebutuhan volume material dan rencana anggaran biaya (RAB) yang terperinci tanpa
+            biaya tersembunyi.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg class="icon-svg" viewBox="0 0 24 24">
+              <path
+                d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
+            </svg>
+          </div>
+          <h4>Stok Terjaga &amp; Pengiriman Siap</h4>
+          <p>Ketersediaan stok di gudang dan armada pengiriman mandiri memastikan suplai material ke lokasi proyek
+            berjalan lancar tepat waktu.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg class="icon-svg" viewBox="0 0 24 24">
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+            </svg>
+          </div>
+          <h4>Jangkauan Luas Seluruh Solo Raya</h4>
+          <p>Melayani survei dan pekerjaan pemasangan di Surakarta, Sukoharjo, Klaten, Karanganyar, Wonogiri, Boyolali,
+            hingga Sragen.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg class="icon-svg" viewBox="0 0 24 24">
+              <path
+                d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z" />
+            </svg>
+          </div>
+          <h4>Konsultasi Cepat via WhatsApp</h4>
+          <p>Kemudahan berdiskusi langsung dengan tim teknis dan admin kami melalui WhatsApp untuk respon cepat atas
+            setiap pertanyaan Anda.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       KATEGORI PRODUK
+       ========================================================================== -->
+  <section class="section-py bg-white" id="kategori-produk">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge-sub">Katalog Unggulan</span>
+        <h2 class="section-title">Kategori Produk Material Konstruksi</h2>
+        <p class="section-desc">
+          Kami menyediakan berbagai jenis material plafon dan konstruksi interior berkualitas untuk kebutuhan hunian
+          pribadi maupun proyek komersial.
+        </p>
+      </div>
+
+      <div class="products-grid">
+        <!-- Card 1: Plafon PVC -->
+        <article class="product-card">
+          <div class="product-card-img">
+            <img src="assets/images/produk/produk-plafon-pvc-alfafon.png" alt="Plafon PVC seri motif kayu dan marmer"
+              width="380" height="220" loading="lazy">
+            <span class="product-badge-cat">Plafon PVC</span>
+          </div>
+          <div class="product-card-body">
+            <span class="product-brands-tag">ALFAFON &bull; BATIK &bull; INDOKING &bull; GOLDEN</span>
+            <h3 class="product-title">Plafon PVC Premium</h3>
+            <p class="product-desc">Plafon PVC modern tahan air, anti rayap, mudah dibersihkan, dan tidak merambatkan
+              api dengan variasi motif serat kayu, marmer, dan glossy.</p>
+            <div class="product-actions">
+              <a href="produk.html" class="btn btn-sm btn-outline">Lihat Detail</a>
+              <a href="https://wa.me/6281228303338?text=Halo%20Griya%20Alfath,%20saya%20ingin%20tanya%20produk%20Plafon%20PVC"
+                class="btn btn-sm btn-accent" target="_blank" rel="noopener">Konsultasi WA</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2: Gypsum -->
+        <article class="product-card">
+          <div class="product-card-img">
+            <img src="assets/images/produk/produk-gypsum-jayaboard.webp" alt="Papan Gypsum Jayaboard dan Knoff"
+              width="380" height="220" loading="lazy">
+            <span class="product-badge-cat">Gypsum</span>
+          </div>
+          <div class="product-card-body">
+            <span class="product-brands-tag">JAYA BOARD &bull; KNOFF &bull; STAR</span>
+            <h3 class="product-title">Papan Gypsum &amp; Partisi</h3>
+            <p class="product-desc">Papan gypsum berkualitas untuk plafon flat mulus tanpa sambungan serta partisi
+              ruangan dengan kerataan permukaan yang presisi.</p>
+            <div class="product-actions">
+              <a href="produk.html" class="btn btn-sm btn-outline">Lihat Detail</a>
+              <a href="https://wa.me/6281228303338?text=Halo%20Griya%20Alfath,%20saya%20ingin%20tanya%20produk%20Gypsum"
+                class="btn btn-sm btn-accent" target="_blank" rel="noopener">Konsultasi WA</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3: Baja Ringan -->
+        <article class="product-card">
+          <div class="product-card-img">
+            <img src="assets/images/produk/produk-baja-ringan-kencana.webp"
+              alt="Rangka Baja Ringan Kencana berstandar SNI" width="380" height="220" loading="lazy">
+            <span class="product-badge-cat">Baja Ringan</span>
+          </div>
+          <div class="product-card-body">
+            <span class="product-brands-tag">KENCANA &bull; BUKIT TRUSS</span>
+            <h3 class="product-title">Rangka Baja Ringan SNI</h3>
+            <p class="product-desc">Kanal C dan reng baja ringan bersertifikasi SNI untuk struktur rangka atap bangunan
+              yang kuat, tahan karat, dan presisi tinggi.</p>
+            <div class="product-actions">
+              <a href="produk.html" class="btn btn-sm btn-outline">Lihat Detail</a>
+              <a href="https://wa.me/6281228303338?text=Halo%20Griya%20Alfath,%20saya%20ingin%20tanya%20produk%20Baja%20Ringan"
+                class="btn btn-sm btn-accent" target="_blank" rel="noopener">Konsultasi WA</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4: Hollow -->
+        <article class="product-card">
+          <div class="product-card-img">
+            <img src="assets/images/produk/produk-hollow.png" alt="Besi Hollow Galvanis & Galvalum untuk Rangka Plafon"
+              width="380" height="220" loading="lazy">
+            <span class="product-badge-cat">Hollow</span>
+          </div>
+          <div class="product-card-body">
+            <span class="product-brands-tag">HOLLOW GALVALUM &bull; KISI-KISI</span>
+            <h3 class="product-title">Hollow Baja Ringan</h3>
+            <p class="product-desc">Besi hollow galvalum dan galvanis berkualitas untuk rangka gantung plafon PVC,
+              gypsum, serta rangka kisi-kisi partisi dekoratif.</p>
+            <div class="product-actions">
+              <a href="produk.html" class="btn btn-sm btn-outline">Lihat Detail</a>
+              <a href="https://wa.me/6281228303338?text=Halo%20Griya%20Alfath,%20saya%20ingin%20tanya%20produk%20Hollow"
+                class="btn btn-sm btn-accent" target="_blank" rel="noopener">Konsultasi WA</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5: Galvalum Pasir -->
+        <article class="product-card">
+          <div class="product-card-img">
+            <img src="assets/images/produk/produk-galvalum.webp" alt="Atap Galvalum Pasir dan Spandek" width="380"
+              height="220" loading="lazy">
+            <span class="product-badge-cat">Galvalum</span>
+          </div>
+          <div class="product-card-body">
+            <span class="product-brands-tag">GALVALUM PASIR &bull; BENING</span>
+            <h3 class="product-title">Galvalum Pasir &amp; Dek</h3>
+            <p class="product-desc">Atap galvalum pasir peredam panas dan suara hujan, serta galvalum bening untuk
+              pencahayaan alami atap rumah dan kanopi.</p>
+            <div class="product-actions">
+              <a href="produk.html" class="btn btn-sm btn-outline">Lihat Detail</a>
+              <a href="https://wa.me/6281228303338?text=Halo%20Griya%20Alfath,%20saya%20ingin%20tanya%20produk%20Galvalum"
+                class="btn btn-sm btn-accent" target="_blank" rel="noopener">Konsultasi WA</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 6: Material Lainnya -->
+        <article class="product-card">
+          <div class="product-card-img">
+            <img src="assets/images/produk/produk-wallboard.png" alt="Wallboard, WPC Panel, dan Lis PVC" width="380"
+              height="220" loading="lazy">
+            <span class="product-badge-cat">Interior Panel</span>
+          </div>
+          <div class="product-card-body">
+            <span class="product-brands-tag">WALLBOARD &bull; PVC BOARD &bull; LIS PIGURA</span>
+            <h3 class="product-title">Wall Panel &amp; PVC Board</h3>
+            <p class="product-desc">Panel dinding PVC, wallboard marmer, WPC interior, dan lis pigura dekoratif untuk
+              sentuhan interior mewah tanpa renovasi rumit.</p>
+            <div class="product-actions">
+              <a href="produk.html" class="btn btn-sm btn-outline">Lihat Detail</a>
+              <a href="https://wa.me/6281228303338?text=Halo%20Griya%20Alfath,%20saya%20ingin%20tanya%20produk%20Wallboard"
+                class="btn btn-sm btn-accent" target="_blank" rel="noopener">Konsultasi WA</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="text-center" style="margin-top: 2.75rem;">
+        <a href="produk.html" class="btn btn-primary">
+          Buka Katalog Produk Selengkapnya
+          <svg class="icon-svg" style="width:16px;height:16px;" viewBox="0 0 24 24">
+            <path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       BRAND MITRA
+       ========================================================================== -->
+  <section class="section-py bg-alt">
+    <div class="container">
+      <div class="brand-section-inner">
+        <div class="section-header text-center" style="margin-bottom: 2.5rem;">
+          <span class="badge-sub">Brand Pilihan</span>
+          <h2 class="section-title">Brand Produk Resmi yang Kami Sediakan</h2>
+          <p class="section-desc">
+            Kami bermitra dengan produsen dan brand plafon serta konstruksi ternama yang telah teruji mutunya.
+          </p>
+        </div>
+
+        <div class="brands-grid">
+          <!-- Brand 1: ALFAFON -->
+          <div class="brand-card">
+            <div class="brand-thumb">
+              <img src="assets/images/brand/brand-alfafon.jpg" alt="Brand Plafon PVC ALFAFON" loading="lazy">
+            </div>
+            <h3 class="brand-name">ALFAFON</h3>
+            <span class="brand-category-badge">Plafon PVC</span>
+          </div>
+
+          <!-- Brand 2: BATIK -->
+          <div class="brand-card">
+            <div class="brand-thumb">
+              <img src="assets/images/brand/brand-batik.jpg" alt="Brand Plafon PVC BATIK" loading="lazy">
+            </div>
+            <h3 class="brand-name">BATIK</h3>
+            <span class="brand-category-badge">Plafon PVC</span>
+          </div>
+
+          <!-- Brand 3: INDOKING -->
+          <div class="brand-card">
+            <div class="brand-thumb">
+              <img src="assets/images/brand/brand-indoking.jpg" alt="Brand Plafon PVC INDOKING" loading="lazy">
+            </div>
+            <h3 class="brand-name">INDOKING</h3>
+            <span class="brand-category-badge">Plafon PVC</span>
+          </div>
+
+          <!-- Brand 4: GOLDEN -->
+          <div class="brand-card">
+            <div class="brand-thumb">
+              <img src="assets/images/brand/brand-golden.jpg" alt="Brand Plafon PVC GOLDEN" loading="lazy">
+            </div>
+            <h3 class="brand-name">GOLDEN</h3>
+            <span class="brand-category-badge">Plafon PVC</span>
+          </div>
+
+          <!-- Brand 5: STAR -->
+          <div class="brand-card">
+            <div class="brand-thumb">
+              <span class="brand-thumb-placeholder">ST</span>
+            </div>
+            <h3 class="brand-name">STAR</h3>
+            <span class="brand-category-badge">Gypsum Board</span>
+          </div>
+
+          <!-- Brand 6: KNOFF -->
+          <div class="brand-card">
+            <div class="brand-thumb">
+              <span class="brand-thumb-placeholder">KN</span>
+            </div>
+            <h3 class="brand-name">KNOFF</h3>
+            <span class="brand-category-badge">Gypsum Board</span>
+          </div>
+
+          <!-- Brand 7: JAYA BOARD -->
+          <div class="brand-card">
+            <div class="brand-thumb">
+              <img src="assets/images/brand/brand-jayaboard.webp" alt="Brand Gypsum JAYA BOARD" loading="lazy">
+            </div>
+            <h3 class="brand-name">JAYA BOARD</h3>
+            <span class="brand-category-badge">Gypsum Board</span>
+          </div>
+
+          <!-- Brand 8: KENCANA -->
+          <div class="brand-card">
+            <div class="brand-thumb">
+              <img src="assets/images/brand/brand-kencana.webp" alt="Brand Baja Ringan KENCANA SNI" loading="lazy">
+            </div>
+            <h3 class="brand-name">KENCANA</h3>
+            <span class="brand-category-badge">Baja Ringan SNI</span>
+          </div>
+        </div>
+
+        <div class="text-center" style="margin-top: 2rem;">
+          <a href="brand.html" class="btn btn-outline">
+            Lihat Informasi Lengkap Seluruh Brand
+            <svg class="icon-svg" style="width:16px;height:16px;" viewBox="0 0 24 24">
+              <path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       LAYANAN PEMASANGAN
+       ========================================================================== -->
+  <section class="section-py bg-white">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge-sub">Jasa Pemasangan</span>
+        <h2 class="section-title">Layanan Konstruksi Interior Profesional</h2>
+        <p class="section-desc">
+          Selain penyediaan material, kami menyediakan tim aplikator berpengalaman untuk pemasangan dengan hasil presisi
+          dan bergaransi.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-card">
+          <div class="service-img">
+            <img src="assets/images/layanan/layanan-plafon-pvc.jpg" alt="Pemasangan Plafon PVC Solo" loading="lazy">
+          </div>
+          <div class="service-body">
+            <h3 class="service-title">Pemasangan Plafon PVC</h3>
+            <p class="service-desc">Instalasi plafon PVC datar maupun drop ceiling bertingkat dengan variasi permainan
+              lampu LED strip untuk tampilan ruangan modern, tahan air, dan bebas rayap.</p>
+            <div class="service-steps">
+              <span class="step-pill">1. Survei &amp; Ukur</span>
+              <span class="step-pill">2. Rangka Hollow</span>
+              <span class="step-pill">3. Pasang Panel</span>
+              <span class="step-pill">4. Finishing Lis</span>
+            </div>
+            <div class="service-footer">
+              <a href="https://wa.me/6281228303338?text=Halo%20Griya%20Alfath,%20saya%20butuh%20jasa%20pasang%20plafon%20PVC"
+                class="btn btn-sm btn-accent" target="_blank" rel="noopener">Konsultasi Pasang</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card">
+          <div class="service-img">
+            <img src="assets/images/layanan/layanan-gypsum.png" alt="Pemasangan Plafon Gypsum Solo" loading="lazy">
+          </div>
+          <div class="service-body">
+            <h3 class="service-title">Pemasangan Plafon Gypsum</h3>
+            <p class="service-desc">Pemasangan plafon dan partisi gypsum dengan hasil akhir permukaan mulus flat
+              sempurna, fleksibel untuk profil list klasik maupun minimalis modern.</p>
+            <div class="service-steps">
+              <span class="step-pill">1. Pengukuran</span>
+              <span class="step-pill">2. Rangka Presisi</span>
+              <span class="step-pill">3. Sekrup Papan</span>
+              <span class="step-pill">4. Kompon Rapi</span>
+            </div>
+            <div class="service-footer">
+              <a href="https://wa.me/6281228303338?text=Halo%20Griya%20Alfath,%20saya%20butuh%20jasa%20pasang%20plafon%20Gypsum"
+                class="btn btn-sm btn-accent" target="_blank" rel="noopener">Konsultasi Pasang</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card">
+          <div class="service-img">
+            <img src="assets/images/layanan/layanan-baja-ringan.jpg" alt="Pemasangan Rangka Atap Baja Ringan Solo"
+              loading="lazy">
+          </div>
+          <div class="service-body">
+            <h3 class="service-title">Pemasangan Rangka Baja Ringan</h3>
+            <p class="service-desc">Perakitan struktur kuda-kuda atap dan kanopi baja ringan dengan perhitungan beban
+              struktur yang cermat menggunakan material SNI tahan karat.</p>
+            <div class="service-steps">
+              <span class="step-pill">1. Analisa Beban</span>
+              <span class="step-pill">2. Kuda-Kuda C</span>
+              <span class="step-pill">3. Pemasangan Reng</span>
+              <span class="step-pill">4. Penutup Atap</span>
+            </div>
+            <div class="service-footer">
+              <a href="https://wa.me/6281228303338?text=Halo%20Griya%20Alfath,%20saya%20butuh%20jasa%20pasang%20Baja%20Ringan"
+                class="btn btn-sm btn-accent" target="_blank" rel="noopener">Konsultasi Pasang</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-card">
+          <div class="service-img">
+            <img src="assets/images/layanan/layanan-wall-moulding.jpg"
+              alt="Pemasangan Wall Moulding & Panel Dinding Solo" loading="lazy">
+          </div>
+          <div class="service-body">
+            <h3 class="service-title">Pemasangan Wall Moulding</h3>
+            <p class="service-desc">Pembuatan aksen panel dinding dekoratif (wall moulding) dan kisi-kisi WPC interior
+              yang mempercantik ruang tamu, kamar tidur, serta backdrop TV.</p>
+            <div class="service-steps">
+              <span class="step-pill">1. Desain Pola</span>
+              <span class="step-pill">2. Marking Dinding</span>
+              <span class="step-pill">3. Rekat &amp; Paku</span>
+              <span class="step-pill">4. Finishing Cat</span>
+            </div>
+            <div class="service-footer">
+              <a href="https://wa.me/6281228303338?text=Halo%20Griya%20Alfath,%20saya%20butuh%20jasa%20Wall%20Moulding"
+                class="btn btn-sm btn-accent" target="_blank" rel="noopener">Konsultasi Pasang</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top: 2.75rem;">
+        <a href="layanan.html" class="btn btn-primary">
+          Buka Rincian Seluruh Layanan Kami
+          <svg class="icon-svg" style="width:16px;height:16px;" viewBox="0 0 24 24">
+            <path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PORTOFOLIO PROYEK
+       ========================================================================== -->
+  <section class="section-py bg-alt">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge-sub">Portofolio Kami</span>
+        <h2 class="section-title">Dokumentasi Proyek Pemasangan Riil</h2>
+        <p class="section-desc">
+          Contoh hasil pengerjaan pemasangan plafon PVC dan interior yang telah selesai dikerjakan oleh tim Griya
+          Alfath.
+        </p>
+      </div>
+
+      <div class="portfolio-grid">
+        <!-- Project 1 -->
+        <div class="portfolio-card">
+          <div class="portfolio-img-wrapper">
+            <img src="assets/images/proyek/proyek-showroom-motor.jpg" alt="Proyek Plafon PVC Showroom Iwan Motor"
+              loading="lazy">
+            <span class="portfolio-tag">Komersial</span>
+          </div>
+          <div class="portfolio-info">
+            <h4 class="portfolio-name">Showroom Iwan Motor</h4>
+            <p class="portfolio-desc">Pemasangan plafon PVC area showroom komersial dengan kombinasi motif modern dan
+              pencahayaan terang.</p>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="portfolio-card">
+          <div class="portfolio-img-wrapper">
+            <img src="assets/images/proyek/proyek-gereja.jpg" alt="Proyek Plafon Gedung Ibadah Gereja" loading="lazy">
+            <span class="portfolio-tag">Fasilitas Publik</span>
+          </div>
+          <div class="portfolio-info">
+            <h4 class="portfolio-name">Plafon Gedung Ibadah</h4>
+            <p class="portfolio-desc">Pengerjaan bentang lebar plafon PVC dengan rangka kokoh untuk kenyamanan dan
+              akustik ruangan yang sejuk.</p>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="portfolio-card">
+          <div class="portfolio-img-wrapper">
+            <img src="assets/images/proyek/proyek-rumah-tawangsari.jpg"
+              alt="Proyek Plafon PVC Rumah Tinggal Desa Lorog Tawangsari" loading="lazy">
+            <span class="portfolio-tag">Rumah Tinggal</span>
+          </div>
+          <div class="portfolio-info">
+            <h4 class="portfolio-name">Rumah Tinggal Tawangsari</h4>
+            <p class="portfolio-desc">Plafon PVC ruang keluarga dengan motif serat kayu hangat dan drop ceiling
+              minimalis elegan.</p>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="portfolio-card">
+          <div class="portfolio-img-wrapper">
+            <img src="assets/images/proyek/proyek-interior-solo-2.jpg" alt="Proyek Plafon PVC Drop Ceiling Solo Raya"
+              loading="lazy">
+            <span class="portfolio-tag">Interior Modern</span>
+          </div>
+          <div class="portfolio-info">
+            <h4 class="portfolio-name">Drop Ceiling Ruang Tamu</h4>
+            <p class="portfolio-desc">Desain plafon bertingkat dengan lampu sembunyi (hidden lamp) yang memberikan aksen
+              mewah.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top: 2.75rem;">
+        <a href="proyek.html" class="btn btn-outline">
+          Lihat Galeri Proyek Selengkapnya
+          <svg class="icon-svg" style="width:16px;height:16px;" viewBox="0 0 24 24">
+            <path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       DOKUMENTASI PERUSAHAAN
+       ========================================================================== -->
+  <section class="section-py bg-white">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge-sub">Aktivitas &amp; Fasilitas</span>
+        <h2 class="section-title">Dokumentasi Gudang &amp; Operasional</h2>
+        <p class="section-desc">
+          Kesiapan stok material, armada pengiriman, dan tim survei teknis yang siap mendukung kebutuhan Anda.
+        </p>
+      </div>
+
+      <div class="doc-grid">
+        <div class="doc-item">
+          <img src="assets/images/dokumentasi/dok-gudang-stok.jpg" alt="Gudang Stok Material Plafon PVC Griya Alfath"
+            loading="lazy">
+          <div class="doc-caption">
+            <strong>Gudang Stok Material</strong>
+            <span>Ketersediaan stok plafon PVC dan rangka siap kirim kapan pun.</span>
+          </div>
+        </div>
+
+        <div class="doc-item">
+          <img src="assets/images/dokumentasi/dok-pengiriman-material.jpg" alt="Pengiriman Material ke Lokasi Proyek"
+            loading="lazy">
+          <div class="doc-caption">
+            <strong>Pengiriman Armada Mandiri</strong>
+            <span>Pengantaran material langsung ke alamat konsumen dan lokasi proyek.</span>
+          </div>
+        </div>
+
+        <div class="doc-item">
+          <img src="assets/images/dokumentasi/dok-toko-kartasura.jpg" alt="Store dan Showroom Griya Alfath Kartasura"
+            loading="lazy">
+          <div class="doc-caption">
+            <strong>Store &amp; Showroom Sample</strong>
+            <span>Konsumen dapat melihat langsung sampel fisik motif dan ketebalan plafon.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top: 2rem;">
+        <a href="dokumentasi.html" class="btn btn-primary">
+          Buka Halaman Dokumentasi
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       ALUR KERJA B2B (PENGADAAN & PROYEK)
+       ========================================================================== -->
+  <section class="section-py bg-alt">
+    <div class="container">
+      <div class="workflow-container">
+        <div class="workflow-header">
+          <span class="badge-sub" style="background-color: rgba(255,255,255,0.15); color: #fed7aa;">Alur Kerja B2B &amp;
+            Proyek</span>
+          <h3>Prosedur Pengadaan &amp; Kerja Sama Proyek</h3>
+          <p>Langkah kerja terstruktur untuk memudahkan kontraktor, developer properti, dan instansi dalam pengadaan
+            material dan jasa pemasangan.</p>
+        </div>
+
+        <div class="workflow-steps">
+          <!-- Step 1 -->
+          <div class="workflow-step">
+            <div class="step-number">1</div>
+            <h4>Konsultasi &amp; Kirim BOQ</h4>
+            <p>Diskusikan spesifikasi material, kirimkan daftar kebutuhan volume (BOQ) atau denah ruangan kepada tim
+              kami.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="workflow-step">
+            <div class="step-number">2</div>
+            <h4>Survei &amp; RAB</h4>
+            <p>Tim kami melakukan survei lokasi (jika diperlukan) dan menyusun penawaran harga serta estimasi RAB yang
+              transparan.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="workflow-step">
+            <div class="step-number">3</div>
+            <h4>Suplai &amp; Instalasi</h4>
+            <p>Pengiriman material sesuai jadwal dan pengerjaan pemasangan oleh aplikator berpengalaman sesuai SOP
+              teknis.</p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="workflow-step">
+            <div class="step-number">4</div>
+            <h4>Serah Terima &amp; Garansi</h4>
+            <p>Pemeriksaan hasil akhir bersama (joint inspection), serah terima pekerjaan, dan penerbitan garansi
+              pemasangan.</p>
+          </div>
+        </div>
+
+        <div class="workflow-cta">
+          <a href="https://wa.me/6281228303338?text=Halo%20Griya%20Alfath,%20saya%20ingin%20konsultasi%20pengadaan%20material%20proyek%20B2B"
+            class="btn btn-accent" target="_blank" rel="noopener">
+            <svg class="icon-svg" viewBox="0 0 24 24">
+              <path
+                d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9 7.41 8.74 7.69C8.47 7.96 7.74 8.64 7.74 10.05C7.74 11.45 8.77 12.81 8.91 13C9.05 13.2 10.92 16.08 13.8 17.32C14.49 17.61 15.02 17.79 15.44 17.93C16.13 18.15 16.76 18.12 17.26 18.04C17.81 17.96 18.96 17.35 19.2 16.67C19.44 16 19.44 15.41 19.37 15.3C19.3 15.19 19.11 15.12 18.82 14.98C18.53 14.84 17.11 14.14 16.85 14.05C16.59 13.95 16.4 13.91 16.21 14.2C16.02 14.5 15.48 15.12 15.31 15.3C15.15 15.5 14.99 15.52 14.7 15.37C14.41 15.23 13.49 14.93 12.4 13.96C11.55 13.2 10.98 12.27 10.82 11.98C10.65 11.7 10.8 11.54 10.95 11.4C11.08 11.27 11.24 11.06 11.39 10.89C11.53 10.72 11.58 10.6 11.68 10.4C11.77 10.2 11.72 10.03 11.65 9.89C11.58 9.74 11 8.33 10.76 7.76C10.53 7.21 10.3 7.28 10.13 7.27L9.53 7.33Z" />
+            </svg>
+            Hubungi Tim Proyek B2B
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       ARTIKEL TERBARU
+       ========================================================================== -->
+  <section class="section-py bg-white">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge-sub">Edukasi &amp; Inspirasi</span>
+        <h2 class="section-title">Artikel &amp; Panduan Material Plafon</h2>
+        <p class="section-desc">
+          Pelajari tips memilih material yang tepat dan inspirasi desain interior untuk kenyamanan hunian Anda.
+        </p>
+      </div>
+
+      <div class="articles-grid">
+        <!-- Article 1 -->
+        <article class="article-card">
+          <div class="article-thumb">
+            <img src="assets/images/blog/blog-tips-plafon-modern.png"
+              alt="Tips Memilih Plafon PVC Berkualitas untuk Rumah Tropis" loading="lazy">
+          </div>
+          <div class="article-body">
+            <div class="article-meta">
+              <span class="article-cat">Panduan</span>
+              <span>&bull;</span>
+              <time datetime="2026-03-10">Maret 2026</time>
+            </div>
+            <h3 class="article-title">Tips Memilih Plafon PVC Berkualitas untuk Rumah Tropis</h3>
+            <p class="article-excerpt">Plafon PVC kini menjadi primadona hunian di Solo Raya. Simak panduan memilih
+              ketebalan, motif, dan ketahanan terhadap kelembapan.</p>
+            <a href="blog.html" class="article-link">
+              Baca Selengkapnya
+              <svg class="icon-svg" style="width:14px;height:14px;" viewBox="0 0 24 24">
+                <path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="article-card">
+          <div class="article-thumb">
+            <img src="assets/images/blog/blog-perbedaan-pvc-gypsum.png" alt="Perbedaan Plafon PVC vs Gypsum"
+              loading="lazy">
+          </div>
+          <div class="article-body">
+            <div class="article-meta">
+              <span class="article-cat">Perbandingan</span>
+              <span>&bull;</span>
+              <time datetime="2026-02-24">Februari 2026</time>
+            </div>
+            <h3 class="article-title">Plafon PVC vs Gypsum: Mana yang Paling Cocok untuk Anda?</h3>
+            <p class="article-excerpt">Ketahui perbandingan daya tahan air, kemudahan perawatan, biaya perawatan, dan
+              estetika visual antara kedua jenis material ini.</p>
+            <a href="blog.html" class="article-link">
+              Baca Selengkapnya
+              <svg class="icon-svg" style="width:14px;height:14px;" viewBox="0 0 24 24">
+                <path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="article-card">
+          <div class="article-thumb">
+            <img src="assets/images/blog/blog-inspirasi-plafon-interior.png"
+              alt="Inspirasi Drop Ceiling dan Permainan Cahaya Lampu" loading="lazy">
+          </div>
+          <div class="article-body">
+            <div class="article-meta">
+              <span class="article-cat">Inspirasi Desain</span>
+              <span>&bull;</span>
+              <time datetime="2026-01-18">Januari 2026</time>
+            </div>
+            <h3 class="article-title">Inspirasi Desain Drop Ceiling dengan Lampu Sembunyi Modern</h3>
+            <p class="article-excerpt">Eksplorasi ide tata cahaya hangat menggunakan indirect lighting dan drop ceiling
+              PVC untuk menciptakan atmosfer ruang tamu mewah.</p>
+            <a href="blog.html" class="article-link">
+              Baca Selengkapnya
+              <svg class="icon-svg" style="width:14px;height:14px;" viewBox="0 0 24 24">
+                <path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z" />
+              </svg>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <div class="text-center" style="margin-top: 2.75rem;">
+        <a href="blog.html" class="btn btn-outline">
+          Kunjungi Halaman Blog
+          <svg class="icon-svg" style="width:16px;height:16px;" viewBox="0 0 24 24">
+            <path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FAQ (ACCORDION INTERAKTIF)
+       ========================================================================== -->
+  <section class="section-py bg-alt">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge-sub">Tanya Jawab</span>
+        <h2 class="section-title">Pertanyaan Umum (FAQ)</h2>
+        <p class="section-desc">
+          Jawaban atas pertanyaan yang sering diajukan pelanggan seputar produk dan jasa pemasangan.
+        </p>
+      </div>
+
+      <div class="faq-container">
+        <!-- FAQ 1 -->
+        <div class="faq-item active">
+          <button class="faq-header" type="button" aria-expanded="true">
+            <span>Apa keunggulan plafon PVC dibandingkan material lainnya?</span>
+            <span class="faq-icon-cross"></span>
+          </button>
+          <div class="faq-body">
+            <p>Plafon PVC memiliki ketahanan tinggi terhadap air dan kelembapan, tidak lapuk saat terkena tetesan bocor
+              atap, anti rayap, tidak merambatkan api, dan sangat mudah dibersihkan tanpa perlu dicat ulang secara
+              berkala.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button class="faq-header" type="button" aria-expanded="false">
+            <span>Apakah Griya Alfath melayani pembelian material saja tanpa pasang?</span>
+            <span class="faq-icon-cross"></span>
+          </button>
+          <div class="faq-body">
+            <p>Ya, kami melayani penjualan material saja (eceran dan grosir) untuk pemilik rumah, tukang, toko bangunan,
+              maupun kontraktor, serta menyediakan layanan lengkap material plus pemasangan siap jadi.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button class="faq-header" type="button" aria-expanded="false">
+            <span>Bagaimana cara mendapatkan estimasi biaya pemasangan plafon?</span>
+            <span class="faq-icon-cross"></span>
+          </button>
+          <div class="faq-body">
+            <p>Anda cukup mengirimkan ukuran luas ruangan (panjang x lebar) dan motif yang diinginkan melalui WhatsApp
+              kami. Tim kami akan memberikan simulasi perhitungan kebutuhan material dan estimasi biaya secara
+              transparan.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button class="faq-header" type="button" aria-expanded="false">
+            <span>Apakah pengerjaan pemasangan memiliki garansi?</span>
+            <span class="faq-icon-cross"></span>
+          </button>
+          <div class="faq-body">
+            <p>Tentu. Setiap pekerjaan pemasangan plafon dan baja ringan yang dikerjakan oleh tim aplikator kami
+              didukung garansi pekerjaan untuk menjamin kualitas sambungan, kerapian, dan kekuatan struktur rangka.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <button class="faq-header" type="button" aria-expanded="false">
+            <span>Wilayah mana saja yang dijangkau oleh Plafon PVC Solo by Griya Alfath?</span>
+            <span class="faq-icon-cross"></span>
+          </button>
+          <div class="faq-body">
+            <p>Kami melayani pengiriman material dan jasa pemasangan di seluruh wilayah Solo Raya meliputi Kota
+              Surakarta, Kabupaten Sukoharjo, Klaten, Karanganyar, Wonogiri, Boyolali, hingga Sragen.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item">
+          <button class="faq-header" type="button" aria-expanded="false">
+            <span>Bagaimana prosedur kerja sama pengadaan material untuk kontraktor (B2B)?</span>
+            <span class="faq-icon-cross"></span>
+          </button>
+          <div class="faq-body">
+            <p>Kontraktor atau penanggung jawab proyek dapat mengirimkan daftar Bill of Quantities (BOQ) atau rincian
+              spesifikasi melalui kontak WhatsApp kami. Kami akan menyiapkan surat penawaran harga resmi (SPH) dengan
+              terms pengiriman yang disepakati.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONVERSION CTA BANNER
+       ========================================================================== -->
+  <section class="section-py bg-white">
+    <div class="container">
+      <div class="cta-banner">
+        <div class="cta-banner-content">
+          <span class="badge-sub"
+            style="background-color: rgba(255,255,255,0.12); color: #fed7aa; margin-bottom: 1rem;">Konsultasi Cepat
+            &amp; Gratis</span>
+          <h3>Siap Mewujudkan Plafon Idaman &amp; Kebutuhan Material Proyek Anda?</h3>
+          <p>
+            Diskusikan rencana ruangan, kebutuhan material konstruksi, atau jadwal survei lokasi bersama tim Plafon PVC
+            Solo by Griya Alfath sekarang juga.
+          </p>
+          <div class="cta-banner-buttons">
+            <a href="https://wa.me/6281228303338?text=Halo%20Griya%20Alfath,%20saya%20ingin%20konsultasi%20via%20WhatsApp%20Office"
+              class="btn btn-accent" target="_blank" rel="noopener">
+              <svg class="icon-svg" viewBox="0 0 24 24">
+                <path
+                  d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9 7.41 8.74 7.69C8.47 7.96 7.74 8.64 7.74 10.05C7.74 11.45 8.77 12.81 8.91 13C9.05 13.2 10.92 16.08 13.8 17.32C14.49 17.61 15.02 17.79 15.44 17.93C16.13 18.15 16.76 18.12 17.26 18.04C17.81 17.96 18.96 17.35 19.2 16.67C19.44 16 19.44 15.41 19.37 15.3C19.3 15.19 19.11 15.12 18.82 14.98C18.53 14.84 17.11 14.14 16.85 14.05C16.59 13.95 16.4 13.91 16.21 14.2C16.02 14.5 15.48 15.12 15.31 15.3C15.15 15.5 14.99 15.52 14.7 15.37C14.41 15.23 13.49 14.93 12.4 13.96C11.55 13.2 10.98 12.27 10.82 11.98C10.65 11.7 10.8 11.54 10.95 11.4C11.08 11.27 11.24 11.06 11.39 10.89C11.53 10.72 11.58 10.6 11.68 10.4C11.77 10.2 11.72 10.03 11.65 9.89C11.58 9.74 11 8.33 10.76 7.76C10.53 7.21 10.3 7.28 10.13 7.27L9.53 7.33Z" />
+              </svg>
+              WhatsApp Office (081228303338)
+            </a>
+            <a href="https://wa.me/6282134516288?text=Halo%20Griya%20Alfath,%20saya%20ingin%20konsultasi%20via%20WhatsApp%20Admin"
+              class="btn btn-whatsapp-green" target="_blank" rel="noopener">
+              <svg class="icon-svg" viewBox="0 0 24 24">
+                <path
+                  d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9 7.41 8.74 7.69C8.47 7.96 7.74 8.64 7.74 10.05C7.74 11.45 8.77 12.81 8.91 13C9.05 13.2 10.92 16.08 13.8 17.32C14.49 17.61 15.02 17.79 15.44 17.93C16.13 18.15 16.76 18.12 17.26 18.04C17.81 17.96 18.96 17.35 19.2 16.67C19.44 16 19.44 15.41 19.37 15.3C19.3 15.19 19.11 15.12 18.82 14.98C18.53 14.84 17.11 14.14 16.85 14.05C16.59 13.95 16.4 13.91 16.21 14.2C16.02 14.5 15.48 15.12 15.31 15.3C15.15 15.5 14.99 15.52 14.7 15.37C14.41 15.23 13.49 14.93 12.4 13.96C11.55 13.2 10.98 12.27 10.82 11.98C10.65 11.7 10.8 11.54 10.95 11.4C11.08 11.27 11.24 11.06 11.39 10.89C11.53 10.72 11.58 10.6 11.68 10.4C11.77 10.2 11.72 10.03 11.65 9.89C11.58 9.74 11 8.33 10.76 7.76C10.53 7.21 10.3 7.28 10.13 7.27L9.53 7.33Z" />
+              </svg>
+              WhatsApp Admin (082134516288)
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand Info -->
+        <div class="footer-col footer-about">
+          <div class="brand-logo" style="margin-bottom: 0.5rem;">
+            <img src="assets/images/logo/logo-griya-alfath.png" alt="Logo Griya Alfath" width="44" height="44">
+            <div class="brand-text">
+              <span class="brand-title" style="color: #ffffff;">Plafon PVC Solo</span>
+              <span class="brand-subtitle">by Griya Alfath</span>
+            </div>
+          </div>
+          <p>
+            Distributor, supplier material plafon PVC, gypsum, baja ringan, dan jasa pemasangan konstruksi interior
+            bergaransi di Solo Raya.
+          </p>
+          <div class="social-links">
+            <a href="https://instagram.com/plafonpvcsolo" class="social-btn" target="_blank" rel="noopener"
+              aria-label="Instagram @plafonpvcsolo">
+              <svg class="icon-svg" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+            <a href="https://facebook.com/plafonpvcsolo" class="social-btn" target="_blank" rel="noopener"
+              aria-label="Facebook @plafonpvcsolo">
+              <svg class="icon-svg" viewBox="0 0 24 24">
+                <path
+                  d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
+              </svg>
+            </a>
+            <a href="https://tiktok.com/@plafonpvcsolo" class="social-btn" target="_blank" rel="noopener"
+              aria-label="TikTok @plafonpvcsolo">
+              <svg class="icon-svg" viewBox="0 0 24 24">
+                <path
+                  d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+              </svg>
+            </a>
+            <a href="https://youtube.com/@plafonpvcsolo" class="social-btn" target="_blank" rel="noopener"
+              aria-label="YouTube @plafonpvcsolo">
+              <svg class="icon-svg" viewBox="0 0 24 24">
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Nav Links -->
+        <div class="footer-col">
+          <h5>Halaman Website</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="tentang-kami.html">Tentang Kami</a></li>
+            <li><a href="produk.html">Katalog Produk</a></li>
+            <li><a href="brand.html">Brand Pilihan</a></li>
+            <li><a href="layanan.html">Jasa Pemasangan</a></li>
+            <li><a href="proyek.html">Portofolio Proyek</a></li>
+            <li><a href="dokumentasi.html">Dokumentasi</a></li>
+            <li><a href="blog.html">Blog &amp; Panduan</a></li>
+            <li><a href="kontak.html">Hubungi Kami</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Produk & Layanan -->
+        <div class="footer-col">
+          <h5>Produk &amp; Layanan</h5>
+          <ul class="footer-links">
+            <li><a href="produk.html">Plafon PVC (ALFAFON, BATIK)</a></li>
+            <li><a href="produk.html">Plafon PVC (INDOKING, GOLDEN)</a></li>
+            <li><a href="produk.html">Gypsum (JAYA BOARD, KNOFF)</a></li>
+            <li><a href="produk.html">Baja Ringan KENCANA SNI</a></li>
+            <li><a href="produk.html">Hollow Baja Ringan &amp; Galvalum</a></li>
+            <li><a href="layanan.html">Pasang Plafon PVC Solo</a></li>
+            <li><a href="layanan.html">Pasang Plafon Gypsum</a></li>
+            <li><a href="layanan.html">Pasang Rangka Baja Ringan</a></li>
+            <li><a href="layanan.html">Pasang Wall Moulding</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Store & Kontak -->
+        <div class="footer-col">
+          <h5>Lokasi Store &amp; Kontak</h5>
+
+          <div class="store-location-item">
+            <strong>Store 1 — Delanggu</strong>
+            <span>Jl. Solo-Jogja Karang Delanggu (sebelah Koramil Delanggu), Klaten</span>
+          </div>
+
+          <div class="store-location-item">
+            <strong>Store 2 — Kartasura</strong>
+            <span>Jl. A. Yani, Kartasura, Sukoharjo</span>
+          </div>
+
+          <div class="store-location-item">
+            <strong>Store 3 — Wonogiri</strong>
+            <span>Jl. Wonogiri - Ponorogo, Bulusulur, Wonogiri</span>
+          </div>
+
+          <div style="margin-top: 1rem;">
+            <p style="color: #cbd5e1; font-size: 0.85rem; margin-bottom: 0.35rem;">
+              <strong>Office WhatsApp:</strong> <a href="https://wa.me/6281228303338" style="color: #fb923c;"
+                target="_blank" rel="noopener">081228303338</a>
+            </p>
+            <p style="color: #cbd5e1; font-size: 0.85rem;">
+              <strong>Admin WhatsApp:</strong> <a href="https://wa.me/6282134516288" style="color: #fb923c;"
+                target="_blank" rel="noopener">082134516288</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-inner">
+          <p>&copy; 2026 Plafon PVC Solo by Griya Alfath. Hak Cipta Dilindungi.</p>
+          <p style="font-size: 0.8rem; color: #64748b;">Dummy Website Frontend &bull; HTML5 &amp; CSS Murni &bull; Tanpa
+            Framework Eksternal</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       FLOATING ACTIONS (WHATSAPP & BACK TO TOP)
+       ========================================================================== -->
+  <a href="https://wa.me/6281228303338?text=Halo%20Plafon%20PVC%20Solo%20by%20Griya%20Alfath,%20saya%20ingin%20konsultasi%20mengenai%20produk%20dan%20layanan"
+    class="floating-whatsapp" target="_blank" rel="noopener" aria-label="Konsultasi WhatsApp Griya Alfath">
+    <svg viewBox="0 0 24 24">
+      <path
+        d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9 7.41 8.74 7.69C8.47 7.96 7.74 8.64 7.74 10.05C7.74 11.45 8.77 12.81 8.91 13C9.05 13.2 10.92 16.08 13.8 17.32C14.49 17.61 15.02 17.79 15.44 17.93C16.13 18.15 16.76 18.12 17.26 18.04C17.81 17.96 18.96 17.35 19.2 16.67C19.44 16 19.44 15.41 19.37 15.3C19.3 15.19 19.11 15.12 18.82 14.98C18.53 14.84 17.11 14.14 16.85 14.05C16.59 13.95 16.4 13.91 16.21 14.2C16.02 14.5 15.48 15.12 15.31 15.3C15.15 15.5 14.99 15.52 14.7 15.37C14.41 15.23 13.49 14.93 12.4 13.96C11.55 13.2 10.98 12.27 10.82 11.98C10.65 11.7 10.8 11.54 10.95 11.4C11.08 11.27 11.24 11.06 11.39 10.89C11.53 10.72 11.58 10.6 11.68 10.4C11.77 10.2 11.72 10.03 11.65 9.89C11.58 9.74 11 8.33 10.76 7.76C10.53 7.21 10.3 7.28 10.13 7.27L9.53 7.33Z" />
+    </svg>
+    <span>Chat WhatsApp</span>
+  </a>
+
+  <button class="btn-back-to-top" id="backToTop" aria-label="Kembali ke atas">
+    <svg class="icon-svg" viewBox="0 0 24 24">
+      <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+    </svg>
+  </button>
+
+  <!-- ==========================================================================
+       VANILLA JAVASCRIPT
+       ========================================================================== -->
+  <script>
+    // 1. Mobile Menu Toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    if (mobileToggle && navMenu) {
+      mobileToggle.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('open');
+        mobileToggle.classList.toggle('active', isOpen);
+        mobileToggle.setAttribute('aria-expanded', isOpen);
+      });
+
+      // Close menu when clicking outside or clicking link
+      document.addEventListener('click', (e) => {
+        if (!mobileToggle.contains(e.target) && !navMenu.contains(e.target)) {
+          navMenu.classList.remove('open');
+          mobileToggle.classList.remove('active');
+          mobileToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      const navLinks = navMenu.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('open');
+          mobileToggle.classList.remove('active');
+          mobileToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    // 2. FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const header = item.querySelector('.faq-header');
+      header.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        // Close others
+        faqItems.forEach(otherItem => {
+          otherItem.classList.remove('active');
+          otherItem.querySelector('.faq-header').setAttribute('aria-expanded', 'false');
+        });
+        // Toggle current
+        if (!isActive) {
+          item.classList.add('active');
+          header.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // 3. Back to Top Button
+    const backToTopBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,453 @@
+---
+// Multi-Admin Floating WhatsApp Widget & Back-to-Top Button
+interface Props {
+  defaultMessage?: string;
+}
+
+const {
+  defaultMessage = 'Halo Plafon PVC Solo by Griya Alfath, saya tertarik untuk konsultasi mengenai produk dan layanan pemasangan plafon.'
+} = Astro.props;
+
+const otelloMsg = encodeURIComponent(
+  'Halo Mas Otello (Griya Alfath), saya ingin konsultasi kebutuhan material dan jasa pemasangan plafon untuk hunian/proyek saya.'
+);
+const evitaMsg = encodeURIComponent(
+  'Halo Mbak Evita (Griya Alfath), saya ingin menanyakan informasi harga material, stok barang, atau jadwal survei lokasi.'
+);
+
+const otelloUrl = `https://wa.me/6282157249454?text=${otelloMsg}`;
+const evitaUrl = `https://wa.me/6282134516288?text=${evitaMsg}`;
+---
+
+<!-- Multi-Admin WhatsApp Widget Container -->
+<div class="wa-widget-container" id="waWidgetContainer">
+  <!-- Expanded Card Popup -->
+  <div class="wa-popup-card" id="waPopupCard" aria-hidden="true" role="dialog" aria-labelledby="waPopupTitle">
+    <div class="wa-popup-header">
+      <div class="wa-header-brand">
+        <div class="wa-avatar-badge">
+          <svg viewBox="0 0 24 24"><path fill="#ffffff" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9 7.41 8.74 7.69C8.47 7.96 7.74 8.64 7.74 10.05C7.74 11.45 8.77 12.81 8.91 13C9.05 13.2 10.92 16.08 13.8 17.32C14.49 17.61 15.02 17.79 15.44 17.93C16.13 18.15 16.76 18.12 17.26 18.04C17.81 17.96 18.96 17.35 19.2 16.67C19.44 16 19.44 15.41 19.37 15.3C19.3 15.19 19.11 15.12 18.82 14.98C18.53 14.84 17.11 14.14 16.85 14.05C16.59 13.95 16.4 13.91 16.21 14.2C16.02 14.5 15.48 15.12 15.31 15.3C15.15 15.5 14.99 15.52 14.7 15.37C14.41 15.23 13.49 14.93 12.4 13.96C11.55 13.2 10.98 12.27 10.82 11.98C10.65 11.7 10.8 11.54 10.95 11.4C11.08 11.27 11.24 11.06 11.39 10.89C11.53 10.72 11.58 10.6 11.68 10.4C11.77 10.2 11.72 10.03 11.65 9.89C11.58 9.74 11 8.33 10.76 7.76C10.53 7.21 10.3 7.28 10.13 7.27L9.53 7.33Z"/></svg>
+        </div>
+        <div>
+          <h4 id="waPopupTitle" class="wa-header-title">Konsultasi WhatsApp</h4>
+          <span class="wa-header-subtitle">Plafon PVC Solo by Griya Alfath</span>
+        </div>
+      </div>
+      <button class="wa-close-btn" id="waCloseBtn" aria-label="Tutup jendela chat">&times;</button>
+    </div>
+
+    <div class="wa-popup-body">
+      <p class="wa-body-hint">Silakan pilih admin untuk terhubung langsung:</p>
+
+      <div class="wa-admin-list">
+        <!-- Admin 1: Mas Otello -->
+        <a href={otelloUrl} target="_blank" rel="noopener" class="wa-admin-card">
+          <div class="wa-admin-avatar">
+            <span>MO</span>
+            <span class="wa-status-dot" aria-label="Online"></span>
+          </div>
+          <div class="wa-admin-info">
+            <span class="wa-admin-name">Mas Otello</span>
+            <span class="wa-admin-role">Konsultasi Teknis &amp; Proyek B2B</span>
+            <span class="wa-admin-phone">0821-5724-9454</span>
+          </div>
+          <div class="wa-admin-arrow">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+          </div>
+        </a>
+
+        <!-- Admin 2: Mbak Evita -->
+        <a href={evitaUrl} target="_blank" rel="noopener" class="wa-admin-card">
+          <div class="wa-admin-avatar">
+            <span>ME</span>
+            <span class="wa-status-dot" aria-label="Online"></span>
+          </div>
+          <div class="wa-admin-info">
+            <span class="wa-admin-name">Mbak Evita</span>
+            <span class="wa-admin-role">Administrasi, Harga &amp; Survei</span>
+            <span class="wa-admin-phone">0821-3451-6288</span>
+          </div>
+          <div class="wa-admin-arrow">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+          </div>
+        </a>
+      </div>
+
+      <div class="wa-popup-footer">
+        <span>Respon cepat hari kerja • Survei lokasi gratis</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Floating Toggle Button -->
+  <button
+    class="floating-whatsapp-btn"
+    id="waToggleBtn"
+    aria-label="Buka pilihan konsultasi WhatsApp"
+    aria-expanded="false"
+  >
+    <svg viewBox="0 0 24 24" class="wa-btn-icon"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9 7.41 8.74 7.69C8.47 7.96 7.74 8.64 7.74 10.05C7.74 11.45 8.77 12.81 8.91 13C9.05 13.2 10.92 16.08 13.8 17.32C14.49 17.61 15.02 17.79 15.44 17.93C16.13 18.15 16.76 18.12 17.26 18.04C17.81 17.96 18.96 17.35 19.2 16.67C19.44 16 19.44 15.41 19.37 15.3C19.3 15.19 19.11 15.12 18.82 14.98C18.53 14.84 17.11 14.14 16.85 14.05C16.59 13.95 16.4 13.91 16.21 14.2C16.02 14.5 15.48 15.12 15.31 15.3C15.15 15.5 14.99 15.52 14.7 15.37C14.41 15.23 13.49 14.93 12.4 13.96C11.55 13.2 10.98 12.27 10.82 11.98C10.65 11.7 10.8 11.54 10.95 11.4C11.08 11.27 11.24 11.06 11.39 10.89C11.53 10.72 11.58 10.6 11.68 10.4C11.77 10.2 11.72 10.03 11.65 9.89C11.58 9.74 11 8.33 10.76 7.76C10.53 7.21 10.3 7.28 10.13 7.27L9.53 7.33Z"/></svg>
+    <span class="wa-btn-text">Konsultasi WhatsApp</span>
+    <span class="wa-pulse-ring" aria-hidden="true"></span>
+  </button>
+</div>
+
+<!-- Back to Top Button -->
+<button class="btn-back-to-top" id="backToTop" aria-label="Kembali ke atas">
+  <svg class="icon-svg" viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+</button>
+
+<style>
+  .wa-widget-container {
+    position: fixed;
+    bottom: 1.75rem;
+    right: 1.75rem;
+    z-index: 999;
+  }
+
+  /* Floating Trigger Button */
+  .floating-whatsapp-btn {
+    background-color: #25d366;
+    color: #ffffff;
+    border: none;
+    padding: 0.8rem 1.35rem;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+    font-weight: 700;
+    font-size: 0.925rem;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+  }
+
+  .floating-whatsapp-btn:hover {
+    background-color: #20ba59;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 28px rgba(37, 211, 102, 0.5);
+  }
+
+  .wa-btn-icon {
+    width: 1.4rem;
+    height: 1.4rem;
+    fill: currentColor;
+    flex-shrink: 0;
+  }
+
+  .wa-pulse-ring {
+    position: absolute;
+    inset: -4px;
+    border-radius: var(--radius-full);
+    border: 2px solid rgba(37, 211, 102, 0.6);
+    animation: pulseRing 2.5s infinite;
+    pointer-events: none;
+  }
+
+  @keyframes pulseRing {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    50% { transform: scale(1.15); opacity: 0; }
+    100% { transform: scale(0.95); opacity: 0; }
+  }
+
+  /* Popup Card */
+  .wa-popup-card {
+    position: absolute;
+    bottom: calc(100% + 1rem);
+    right: 0;
+    width: 320px;
+    background-color: #ffffff;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 16px 36px rgba(15, 43, 72, 0.18);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px) scale(0.96);
+    transform-origin: bottom right;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .wa-popup-card.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+
+  .wa-popup-header {
+    background: linear-gradient(135deg, #091e33 0%, #0f2b48 100%);
+    color: #ffffff;
+    padding: 1.15rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .wa-header-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .wa-avatar-badge {
+    width: 36px;
+    height: 36px;
+    background-color: #25d366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .wa-avatar-badge svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .wa-header-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+    color: #ffffff;
+  }
+
+  .wa-header-subtitle {
+    font-size: 0.72rem;
+    color: #cbd5e1;
+  }
+
+  .wa-close-btn {
+    background: none;
+    border: none;
+    color: #cbd5e1;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0.25rem;
+    transition: var(--transition);
+  }
+
+  .wa-close-btn:hover {
+    color: #ffffff;
+  }
+
+  .wa-popup-body {
+    padding: 1rem 1.15rem 1.15rem;
+    background-color: #f8fafc;
+  }
+
+  .wa-body-hint {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .wa-admin-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .wa-admin-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 0.75rem 0.85rem;
+    text-decoration: none;
+    transition: var(--transition);
+  }
+
+  .wa-admin-card:hover {
+    border-color: #25d366;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.15);
+    transform: translateX(3px);
+  }
+
+  .wa-admin-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .wa-status-dot {
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+    width: 10px;
+    height: 10px;
+    background-color: #25d366;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+  }
+
+  .wa-admin-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .wa-admin-name {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1.2;
+  }
+
+  .wa-admin-role {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin: 0.1rem 0;
+  }
+
+  .wa-admin-phone {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #16a34a;
+  }
+
+  .wa-admin-arrow {
+    color: var(--text-light);
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  .wa-admin-card:hover .wa-admin-arrow {
+    color: #25d366;
+  }
+
+  .wa-popup-footer {
+    margin-top: 0.85rem;
+    padding-top: 0.65rem;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+  }
+
+  /* Back to Top */
+  .btn-back-to-top {
+    position: fixed;
+    bottom: 5.5rem;
+    right: 1.75rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+  }
+
+  :global(.btn-back-to-top.show) {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .btn-back-to-top:hover {
+    background-color: var(--accent);
+    transform: translateY(-3px);
+  }
+
+  @media (max-width: 768px) {
+    .wa-widget-container {
+      bottom: 1.25rem;
+      right: 1.25rem;
+    }
+
+    .floating-whatsapp-btn {
+      padding: 0.85rem;
+      border-radius: 50%;
+    }
+
+    .wa-btn-text {
+      display: none;
+    }
+
+    .wa-popup-card {
+      width: calc(100vw - 2.5rem);
+      max-width: 320px;
+      right: 0;
+    }
+
+    .btn-back-to-top {
+      bottom: 5rem;
+      right: 1.25rem;
+    }
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById('waToggleBtn');
+    const popupCard = document.getElementById('waPopupCard');
+    const closeBtn = document.getElementById('waCloseBtn');
+
+    if (!toggleBtn || !popupCard) return;
+
+    function openPopup() {
+      popupCard.classList.add('open');
+      popupCard.setAttribute('aria-hidden', 'false');
+      toggleBtn.setAttribute('aria-expanded', 'true');
+    }
+
+    function closePopup() {
+      popupCard.classList.remove('open');
+      popupCard.setAttribute('aria-hidden', 'true');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (popupCard.classList.contains('open')) {
+        closePopup();
+      } else {
+        openPopup();
+      }
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closePopup();
+      });
+    }
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!popupCard.contains(e.target) && !toggleBtn.contains(e.target)) {
+        closePopup();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && popupCard.classList.contains('open')) {
+        closePopup();
+      }
+    });
+  });
+</script>

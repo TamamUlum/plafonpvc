@@ -1,0 +1,575 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import MediaGallery from '../../components/MediaGallery.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { products, type Product } from '../../data/products';
+
+export function getStaticPaths() {
+  return products.map((product) => {
+    const related = products.filter((p) => product.relatedSlugs?.includes(p.slug) || p.categorySlug === product.categorySlug && p.id !== product.id);
+    return {
+      params: { slug: product.slug },
+      props: { product, relatedProducts: related.slice(0, 3) }
+    };
+  });
+}
+
+interface Props {
+  product: Product;
+  relatedProducts: Product[];
+}
+
+const { product, relatedProducts } = Astro.props;
+
+const breadcrumbItems = [
+  { label: 'Produk', href: '/produk/' },
+  { label: product.name, href: `/produk/${product.slug}/` }
+];
+
+const waMessage = encodeURIComponent(
+  `Halo Mas Otello Griya Alfath,\nSaya ingin meminta informasi dan penawaran produk "${product.name}" (${product.brand}) untuk kebutuhan proyek.\nMohon informasi spesifikasi teknis, ketersediaan stok, dan penawaran harga terbaiknya. Terima kasih!`
+);
+const waLink = `https://wa.me/6282157249454?text=${waMessage}`;
+
+const evitaProductMsg = encodeURIComponent(
+  `Halo Mbak Evita Griya Alfath, saya ingin menanyakan informasi stok produk "${product.name}" (${product.brand}) dan harga eceran toko. Terima kasih!`
+);
+const evitaLink = `https://wa.me/6282134516288?text=${evitaProductMsg}`;
+---
+
+<BaseLayout
+  title={`${product.name} — Spesifikasi & Penawaran Griya Alfath Solo`}
+  description={product.description}
+  currentPath={`/produk/${product.slug}/`}
+  image={product.image}
+>
+  <!-- Page Banner -->
+  <section class="page-banner">
+    <video autoplay muted loop playsinline poster="/images/hero/hero-plafon-main.webp" class="banner-video-bg" aria-hidden="true">
+      <source src="/videos/banner-bg.mp4" type="video/mp4" />
+    </video>
+    <div class="banner-overlay" aria-hidden="true"></div>
+    <div class="container">
+      <div class="banner-badge-wrap">
+        {product.isBestSeller && (
+          <span class="badge-sub best-seller-pill">★ Produk Unggulan • Best Seller</span>
+        )}
+        <span class="badge-sub" style="background-color: rgba(255,255,255,0.15); color: #fed7aa;">
+          {product.category}
+        </span>
+      </div>
+      <h1 class="page-banner-title">{product.name}</h1>
+      <p class="page-banner-desc">{product.brand}</p>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <Breadcrumb items={breadcrumbItems} />
+
+  <!-- Main Product Detail Section -->
+  <section class="section-py bg-white">
+    <div class="container product-detail-container">
+      <div class="product-detail-grid">
+        <!-- Left Column: Media Gallery & Full Description -->
+        <div class="product-main-col">
+          <!-- Marketplace-style Interactive Media Gallery -->
+          <div class="product-gallery-box">
+            <MediaGallery media={product.media} id={`prod-${product.id}`} />
+          </div>
+
+          <!-- Product Narrative -->
+          <div class="product-narrative-section">
+            <h2>Deskripsi Lengkap &amp; Karakteristik Material</h2>
+            <p class="lead-text">{product.description}</p>
+            <p>{product.fullDescription}</p>
+
+            <!-- Features Checklist -->
+            {product.features && product.features.length > 0 && (
+              <div class="product-features-box">
+                <h3>Keunggulan Utama Produk:</h3>
+                <ul class="features-grid">
+                  {product.features.map(f => (
+                    <li>
+                      <svg class="icon-svg check-icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            <!-- Technical Specifications Table -->
+            {product.specifications && product.specifications.length > 0 && (
+              <div class="specs-table-wrapper" id="spesifikasi">
+                <h3>Spesifikasi Teknis Material</h3>
+                <div class="specs-table">
+                  {product.specifications.map((spec, idx) => (
+                    <div class={`specs-row ${idx % 2 === 0 ? 'even' : 'odd'}`}>
+                      <div class="specs-label">{spec.label}</div>
+                      <div class="specs-val">{spec.value}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        <!-- Right Column: Sticky Commercial & CTA Sidebar -->
+        <aside class="product-sidebar-col">
+          <div class="product-sticky-card">
+            {product.isBestSeller && (
+              <span class="sidebar-best-seller-tag">★ Produk Terlaris (Best Seller)</span>
+            )}
+            <span class="product-cat-kicker">{product.category}</span>
+            <h2 class="sidebar-prod-title">{product.name}</h2>
+            <div class="sidebar-brand-line">
+              <strong>Merek Resmi:</strong> <span>{product.brand}</span>
+            </div>
+
+            <!-- B2B Value Badges -->
+            <div class="b2b-guarantee-pills">
+              <span class="pill-badge">Stok Gudang Siap Kirim</span>
+              <span class="pill-badge">Material Bersertifikasi</span>
+              <span class="pill-badge">Layanan Aplikator Ahli</span>
+            </div>
+
+            <p class="sidebar-intro">
+              Griya Alfath melayani pengadaan material grosir untuk kontraktor proyek maupun paket pemasangan terima jadi bergaransi di wilayah Solo Raya.
+            </p>
+
+            <!-- B2B Action Buttons Stack -->
+            <div class="sidebar-actions-stack">
+              <!-- Primary CTA: WhatsApp Mas Otello -->
+              <a href={waLink} target="_blank" rel="noopener" class="btn btn-whatsapp-green w-100 btn-action-lg">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9 7.41 8.74 7.69C8.47 7.96 7.74 8.64 7.74 10.05C7.74 11.45 8.77 12.81 8.91 13C9.05 13.2 10.92 16.08 13.8 17.32C14.49 17.61 15.02 17.79 15.44 17.93C16.13 18.15 16.76 18.12 17.26 18.04C17.81 17.96 18.96 17.35 19.2 16.67C19.44 16 19.44 15.41 19.37 15.3C19.3 15.19 19.11 15.12 18.82 14.98C18.53 14.84 17.11 14.14 16.85 14.05C16.59 13.95 16.4 13.91 16.21 14.2C16.02 14.5 15.48 15.12 15.31 15.3C15.15 15.5 14.99 15.52 14.7 15.37C14.41 15.23 13.49 14.93 12.4 13.96C11.55 13.2 10.98 12.27 10.82 11.98C10.65 11.7 10.8 11.54 10.95 11.4C11.08 11.27 11.24 11.06 11.39 10.89C11.53 10.72 11.58 10.6 11.68 10.4C11.77 10.2 11.72 10.03 11.65 9.89C11.58 9.74 11 8.33 10.76 7.76C10.53 7.21 10.3 7.28 10.13 7.27L9.53 7.33Z"/></svg>
+                <span>Minta Penawaran Harga (Mas Otello)</span>
+              </a>
+
+              <!-- Secondary Row: Lihat Detail & Unduh E-Katalog (Sejajar) -->
+              <div class="sidebar-btn-row">
+                <a href="#spesifikasi" class="btn btn-outline btn-sub-action">
+                  <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                  <span>Lihat Detail</span>
+                </a>
+
+                {product.pdfCatalog && (
+                  <a href={product.pdfCatalog} target="_blank" rel="noopener" class="btn btn-primary btn-sub-action" download>
+                    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                    <span>Unduh E-Katalog</span>
+                  </a>
+                )}
+              </div>
+
+              <!-- Secondary CTA: Kalkulator -->
+              <a href="/kalkulator/" class="btn btn-outline-primary w-100 btn-calc">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-6 2h5v3h-5V5zm-2 0v3H6V5h5zm-5 5h5v3H6v-3zm7 0h5v3h-5v-3zm-7 5h5v4H6v-4zm7 4v-4h5v4h-5z"/></svg>
+                <span>Simulasi Biaya di Kalkulator &rarr;</span>
+              </a>
+            </div>
+
+            <!-- Contacts Reference -->
+            <div class="sidebar-contact-box">
+              <span class="sc-title">Saluran Penjualan Resmi:</span>
+              <div class="sc-item">
+                <span>Mas Otello (Proyek/B2B):</span>
+                <a href={waLink} target="_blank" rel="noopener">0821-5724-9454 &rarr;</a>
+              </div>
+              <div class="sc-item">
+                <span>Mbak Evita (Admin Toko):</span>
+                <a href={evitaLink} target="_blank" rel="noopener">0821-3451-6288 &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Related Products Section -->
+      {relatedProducts && relatedProducts.length > 0 && (
+        <div class="related-products-section">
+          <div class="section-header text-center">
+            <span class="badge-sub">Koleksi Terkait</span>
+            <h3 class="section-title">Produk Terkait &amp; Material Pelengkap</h3>
+            <p class="section-desc">Pilihan material berkualitas lain untuk melengkapi kebutuhan proyek konstruksi dan interior Anda.</p>
+          </div>
+
+          <div class="related-grid">
+            {relatedProducts.map((rel) => (
+              <ProductCard product={rel} />
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .banner-badge-wrap {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .best-seller-pill {
+    background: linear-gradient(135deg, #e65100 0%, #f57c00 100%) !important;
+    color: #ffffff !important;
+    font-weight: 800;
+  }
+
+  .product-detail-container {
+    max-width: 1180px;
+  }
+
+  .product-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 3rem;
+    align-items: start;
+    margin-bottom: 4rem;
+  }
+
+  .product-gallery-box {
+    margin-bottom: 2.5rem;
+  }
+
+  .product-narrative-section h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  .lead-text {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-main);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .product-narrative-section p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Features Box */
+  .product-features-box {
+    background-color: var(--bg-alt);
+    border-left: 4px solid var(--accent);
+    padding: 1.75rem;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    margin: 2rem 0;
+  }
+
+  .product-features-box h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  .features-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .features-grid li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    line-height: 1.45;
+  }
+
+  .check-icon {
+    width: 20px;
+    height: 20px;
+    fill: var(--accent);
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  /* Specs Table */
+  .specs-table-wrapper {
+    margin: 2.5rem 0;
+  }
+
+  .specs-table-wrapper {
+    scroll-margin-top: 100px;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .specs-table-wrapper h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  .specs-table {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .specs-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    padding: 0.85rem 1.25rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .specs-row:last-child {
+    border-bottom: none;
+  }
+
+  .specs-row.even {
+    background-color: #ffffff;
+  }
+
+  .specs-row.odd {
+    background-color: var(--bg-alt);
+  }
+
+  .specs-label {
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  .specs-val {
+    color: var(--text-muted);
+  }
+
+  /* Sidebar Sticky */
+  .product-sidebar-col {
+    position: relative;
+  }
+
+  .product-sticky-card {
+    background-color: var(--bg-alt);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.85rem;
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 96px;
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .product-sticky-card::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .product-sticky-card::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border-radius: 4px;
+  }
+
+  .sidebar-best-seller-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: linear-gradient(135deg, #e65100 0%, #f57c00 100%);
+    color: #ffffff;
+    padding: 0.3rem 0.75rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 0.65rem;
+  }
+
+  .product-cat-kicker {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    margin-bottom: 0.35rem;
+  }
+
+  .sidebar-prod-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .sidebar-brand-line {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .sidebar-brand-line strong {
+    color: var(--primary);
+  }
+
+  .b2b-guarantee-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .pill-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    background-color: #ffffff;
+    color: var(--primary);
+    border: 1px solid var(--border-color);
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-full);
+  }
+
+  .sidebar-intro {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+    margin-bottom: 1.5rem;
+  }
+
+  .sidebar-actions-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .sidebar-btn-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    width: 100%;
+  }
+
+  .sidebar-btn-row:has(> :only-child) {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-sub-action {
+    padding: 0.65rem 0.65rem;
+    font-size: 0.825rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    white-space: nowrap;
+    height: 42px;
+  }
+
+  .btn-calc {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+  }
+
+  .btn-outline-primary {
+    background-color: transparent;
+    color: var(--primary);
+    border: 1.5px solid var(--primary);
+    transition: var(--transition);
+  }
+
+  .btn-outline-primary:hover {
+    background-color: var(--primary);
+    color: #ffffff;
+  }
+
+  .btn-action-lg {
+    padding: 0.9rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .w-100 {
+    width: 100%;
+  }
+
+  .sidebar-contact-box {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .sc-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+  }
+
+  .sc-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8125rem;
+  }
+
+  .sc-item span {
+    color: var(--text-muted);
+  }
+
+  .sc-item a {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .sc-item a:hover {
+    text-decoration: underline;
+  }
+
+  /* Related Products Section */
+  .related-products-section {
+    border-top: 1px solid var(--border-color);
+    padding-top: 3.5rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  @media (max-width: 992px) {
+    .product-detail-grid {
+      grid-template-columns: 1fr;
+    }
+    .product-sticky-card {
+      position: static;
+      max-height: none;
+      overflow-y: visible;
+    }
+    .related-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .specs-row {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+    }
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+    .sidebar-btn-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+

@@ -1,0 +1,200 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  currentPath?: string;
+  image?: string;
+}
+
+const {
+  title,
+  description = 'Distributor dan supplier material plafon PVC, gypsum, baja ringan, galvalum, serta jasa pemasangan profesional bergaransi untuk hunian dan proyek di Solo Raya.',
+  currentPath = Astro.url.pathname,
+  image = '/images/hero/hero-plafon-main.webp'
+} = Astro.props;
+
+const siteUrl = 'https://plafonpvcsolo.com';
+const canonicalUrl = new URL(currentPath, siteUrl).href;
+const ogImageUrl = new URL(image, siteUrl).href;
+
+// Structured data Schema.org for LocalBusiness and HomeAndConstructionBusiness
+const schemaLocalBusiness = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Plafon PVC Solo by Griya Alfath",
+  "image": ogImageUrl,
+  "url": siteUrl,
+  "telephone": "+6282157249454",
+  "priceRange": "$$",
+  "address": [
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "Jl. Raya Delanggu Utara, Jl. Mondokaki No. 330, Dusun Kendon, Desa Karang (Sebelah Koramil Delanggu)",
+      "addressLocality": "Klaten",
+      "addressRegion": "Jawa Tengah",
+      "postalCode": "57471",
+      "addressCountry": "ID"
+    },
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "Jl. A. Yani No. 158, Dusun III, Kartasura",
+      "addressLocality": "Sukoharjo",
+      "addressRegion": "Jawa Tengah",
+      "postalCode": "57169",
+      "addressCountry": "ID"
+    },
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "Jl. Raya Wonogiri – Ponorogo, Bulusulur",
+      "addressLocality": "Wonogiri",
+      "addressRegion": "Jawa Tengah",
+      "postalCode": "57615",
+      "addressCountry": "ID"
+    },
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "Dusun 1, Tlobong, Kec. Delanggu",
+      "addressLocality": "Klaten",
+      "addressRegion": "Jawa Tengah",
+      "postalCode": "57471",
+      "addressCountry": "ID"
+    }
+  ],
+  "areaServed": [
+    "Surakarta", "Sukoharjo", "Klaten", "Karanganyar", "Wonogiri", "Boyolali", "Sragen"
+  ],
+  "sameAs": [
+    "https://www.instagram.com/plafonpvcsolo/",
+    "https://www.facebook.com/plafonpvcsolo/",
+    "https://www.threads.net/@plafonpvcsolo",
+    "https://www.tiktok.com/@plafonpvcsolo",
+    "https://www.youtube.com/@PlafonPVCAlfath"
+  ]
+};
+---
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImageUrl} />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageUrl} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/images/logo/logo-griya-alfath.png" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify(schemaLocalBusiness)} />
+</head>
+<body>
+  <!-- Header -->
+  <Header currentPath={currentPath} />
+
+  <!-- Main Page Content -->
+  <main id="main-content">
+    <slot />
+  </main>
+
+  <!-- Footer -->
+  <Footer />
+
+  <!-- Floating WhatsApp Widget & Back to Top -->
+  <WhatsAppButton />
+
+  <!-- Lightbox Modal Container -->
+  <div class="lightbox-modal" id="lightboxModal" aria-hidden="true" role="dialog">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Tutup gambar">&times;</button>
+      <img id="lightboxImg" src="" alt="Pratinjau Gambar Proyek" />
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+  </div>
+
+  <style is:global>
+    /* Lightbox Modal */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(10, 25, 45, 0.92);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .lightbox-modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .lightbox-content img {
+      max-height: 80vh;
+      max-width: 100%;
+      margin: 0 auto;
+      border-radius: var(--radius-md);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      border: 2px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .lightbox-caption {
+      color: #ffffff;
+      margin-top: 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -2.5rem;
+      right: 0;
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 2.25rem;
+      line-height: 1;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .lightbox-close:hover {
+      color: var(--accent);
+      transform: scale(1.1);
+    }
+  </style>
+
+  <!-- Client-side script -->
+  <script src="../scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,583 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+
+const breadcrumbItems = [
+  { label: 'Tentang Kami', href: '/tentang-kami/' }
+];
+---
+
+<BaseLayout
+  title="Tentang Kami — Plafon PVC Solo by Griya Alfath"
+  description="Profil perusahaan Plafon PVC Solo by Griya Alfath: Distributor, supplier material plafon, dan jasa pemasangan konstruksi interior terpercaya di Solo Raya."
+  currentPath="/tentang-kami/"
+>
+  <!-- Page Banner -->
+  <section class="page-banner">
+  <video autoplay muted loop playsinline poster="/images/hero/hero-plafon-main.webp" class="banner-video-bg" aria-hidden="true">
+    <source src="/videos/banner-bg.mp4" type="video/mp4" />
+  </video>
+  <div class="banner-overlay" aria-hidden="true"></div>
+
+    <div class="container">
+      <span class="badge-sub" style="background-color: rgba(255,255,255,0.15); color: #fed7aa; margin-bottom: 0.75rem;">Profil Perusahaan</span>
+      <h1 class="page-banner-title">Tentang Plafon PVC Solo by Griya Alfath</h1>
+      <p class="page-banner-desc">Distributor, supplier material plafon, dan jasa pemasangan konstruksi interior bergaransi di wilayah Solo Raya.</p>
+    </div>
+  </section>
+
+  <!-- Breadcrumbs -->
+  <Breadcrumb items={breadcrumbItems} />
+
+  <!-- About Detail Section -->
+  <section class="section-py bg-white">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content">
+          <span class="badge-sub">Mengenal Kami</span>
+          <h2 class="section-title">Dedikasi untuk Keindahan &amp; Kekuatan Interior Anda</h2>
+          <p>
+            <strong>Plafon PVC Solo by Griya Alfath</strong> adalah unit usaha yang berfokus pada penyediaan material plafon bermutu tinggi dan jasa pemasangan konstruksi interior. Kami beroperasi sebagai distributor, supplier, dan aplikator resmi untuk beragam produk plafon PVC, gypsum, rangka baja ringan, galvalum, serta dekorasi dinding.
+          </p>
+          <p>
+            Kami memahami bahwa plafon bukan sekadar penutup atap, melainkan elemen kunci dalam kenyamanan suhu, estetika ruangan, dan perlindungan jangka panjang terhadap rembesan air dan gangguan hama rayap.
+          </p>
+
+          <div class="vision-mission-grid">
+            <div class="vm-card">
+              <div class="vm-icon">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+              </div>
+              <h4>Visi Kami</h4>
+              <p>Menjadi mitra utama distributor material dan aplikator plafon interior terpercaya di Solo Raya dengan reputasi kualitas, kecepatan pengiriman, dan hasil pemasangan presisi.</p>
+            </div>
+            <div class="vm-card">
+              <div class="vm-icon" style="background-color: #e0f2fe; color: #0284c7;">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>
+              </div>
+              <h4>Misi Kami</h4>
+              <p>Menyediakan material berstandar SNI dengan stok terjaga, melatih aplikator terampil berstandar operasional rapi, serta memberikan garansi pekerjaan transparan bagi kepuasan pelanggan.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-image-column">
+          <div class="about-image-card">
+            <img src="/images/dokumentasi/dok-tim-alfath.webp" alt="Tim Griya Alfath Plafon PVC Solo" />
+            <div class="image-caption-box">
+              <strong>Tim Kerja Griya Alfath</strong>
+              <span>Kekompakan tim manajemen, logistik, dan aplikator lapangan dalam melayani pelanggan.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Market Target & Services Coverage -->
+  <section class="section-py bg-alt">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge-sub">Jangkauan Layanan</span>
+        <h2 class="section-title">Segmen Pelanggan yang Kami Layani</h2>
+        <p class="section-desc">Kami melayani fleksibilitas pesanan, mulai dari eceran retail untuk rumah tinggal hingga pengadaan proyek skala besar.</p>
+      </div>
+
+      <div class="market-segment-grid">
+        <div class="segment-card">
+          <div class="segment-icon">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          </div>
+          <h3>Segmen Retail &amp; Hunian (B2C)</h3>
+          <p>Dikhususkan bagi pemilik hunian pribadi, renovasi kamar tidur, ruang tamu, dapur, maupun bangunan ruko yang membutuhkan solusi plafon anti bocor dan awet.</p>
+          <ul class="segment-list">
+            <li>Konsultasi motif &amp; perhitungan volume ruangan gratis</li>
+            <li>Paket material komplit beserta lis pigura &amp; sekrup</li>
+            <li>Jasa pasang rapi bergaransi pekerjaan</li>
+            <li>Pengantaran langsung ke depan pintu rumah</li>
+          </ul>
+        </div>
+
+        <div class="segment-card">
+          <div class="segment-icon" style="background-color: #ede9fe; color: #7c3aed;">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
+          </div>
+          <h3>Segmen Proyek &amp; Kontraktor (B2B)</h3>
+          <p>Mendukung pengadaan material untuk kontraktor bangunan, developer perumahan, toko bahan bangunan, instansi pemerintah, dan gedung komersial.</p>
+          <ul class="segment-list">
+            <li>Surat Penawaran Harga (SPH) resmi &amp; faktur jelas</li>
+            <li>Stok material skala besar dengan kestabilan seri motif</li>
+            <li>Armada logistik mandiri untuk suplai berkala tepat waktu</li>
+            <li>Fleksibilitas kerja sama aplikator sub-kontraktor</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Store Physical Locations -->
+  <section class="section-py bg-white">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge-sub">Jaringan Cabang</span>
+        <h2 class="section-title">Lokasi Toko &amp; Showroom Fisik</h2>
+        <p class="section-desc">Kunjungi showroom kami untuk melihat langsung sampel fisik motif, ketebalan bahan, dan konsultasi tatap muka.</p>
+      </div>
+
+      <div class="stores-grid">
+        <!-- Lokasi 1: Kantor Pusat & Showroom Delanggu -->
+        <div class="store-card">
+          <div class="store-badge-wrap">
+            <span class="store-badge badge-primary">Kantor Pusat &amp; Showroom</span>
+          </div>
+          <h3>Plafon PVC Solo (Griya Alfath) — Delanggu</h3>
+          <p class="store-address">Jl. Raya Delanggu Utara, Jl. Mondokaki No. 330, Dusun Kendon, Desa Karang, Kec. Delanggu, Kabupaten Klaten, Jawa Tengah 57471 (Sebelah Koramil Delanggu).</p>
+          <div class="store-info-row">
+            <span class="store-meta-tag">🕒 Senin – Sabtu: 08.00 – 17.00 WIB</span>
+            <span class="store-meta-tag">📞 Mas Otello: 0821-5724-9454</span>
+          </div>
+          <div class="store-features">
+            <span>Showroom Motif Lengkap</span>
+            <span>Konsultasi Teknis &amp; RAB</span>
+            <span>Area Parkir Armada</span>
+          </div>
+          <div class="store-action-row">
+            <a href="https://maps.app.goo.gl/uRkv4X3MwrDUag7W8" target="_blank" rel="noopener" class="btn btn-sm btn-outline">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              <span>Buka Google Maps &rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Lokasi 2: Toko Cabang Kartasura -->
+        <div class="store-card">
+          <div class="store-badge-wrap">
+            <span class="store-badge">Toko Cabang Sukoharjo</span>
+          </div>
+          <h3>PLAFON PVC SOLO ALFATH — Kartasura</h3>
+          <p class="store-address">Jl. A. Yani No. 158, Dusun III, Kartasura, Kec. Kartasura, Kabupaten Sukoharjo, Jawa Tengah 57169.</p>
+          <div class="store-info-row">
+            <span class="store-meta-tag">🕒 Senin – Sabtu: 08.00 – 17.00 WIB</span>
+            <span class="store-meta-tag">📞 Mbak Evita: 0821-3451-6288</span>
+          </div>
+          <div class="store-features">
+            <span>Showroom Plafon PVC</span>
+            <span>Sampel Fisik Gypsum</span>
+            <span>Distribusi Solo Barat</span>
+          </div>
+          <div class="store-action-row">
+            <a href="https://maps.app.goo.gl/v3GVgPaTmMLbCjaV7" target="_blank" rel="noopener" class="btn btn-sm btn-outline">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              <span>Buka Google Maps &rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Lokasi 3: Toko Cabang Bulusulur -->
+        <div class="store-card">
+          <div class="store-badge-wrap">
+            <span class="store-badge">Toko Cabang Wonogiri</span>
+          </div>
+          <h3>Plafon Wonogiri AL FATEH PVC &amp; Gypsum</h3>
+          <p class="store-address">Jl. Raya Wonogiri – Ponorogo, Bulusulur, Kec. Wonogiri, Kabupaten Wonogiri, Jawa Tengah 57615.</p>
+          <div class="store-info-row">
+            <span class="store-meta-tag">🕒 Senin – Sabtu: 08.00 – 16.30 WIB</span>
+            <span class="store-meta-tag">📞 Admin: 0821-3451-6288</span>
+          </div>
+          <div class="store-features">
+            <span>Material Plafon &amp; Gypsum</span>
+            <span>Rangka Baja Ringan</span>
+            <span>Layanan Wonogiri Raya</span>
+          </div>
+          <div class="store-action-row">
+            <a href="https://maps.app.goo.gl/BLHNnbD1sd66i9PY8" target="_blank" rel="noopener" class="btn btn-sm btn-outline">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              <span>Buka Google Maps &rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Lokasi 4: Gudang Distribusi Utama Tlobong -->
+        <div class="store-card">
+          <div class="store-badge-wrap">
+            <span class="store-badge badge-warning">Gudang Distribusi Utama</span>
+          </div>
+          <h3>PLAFON PVC SOLO GRIYA ALFATH 88 — Tlobong</h3>
+          <p class="store-address">Dusun 1, Tlobong, Kec. Delanggu, Kabupaten Klaten, Jawa Tengah 57471 (Pusat Stok &amp; Logistik Armada).</p>
+          <div class="store-info-row">
+            <span class="store-meta-tag">🕒 Senin – Sabtu: 08.00 – 17.00 WIB</span>
+            <span class="store-meta-tag">📞 Logistik Proyek Solo Raya</span>
+          </div>
+          <div class="store-features">
+            <span>Gudang Stok Skala Besar</span>
+            <span>Armada Pengiriman Proyek</span>
+            <span>Pengadaan Kontraktor B2B</span>
+          </div>
+          <div class="store-action-row">
+            <a href="https://maps.app.goo.gl/CfB2fCVS16XmKAmm9" target="_blank" rel="noopener" class="btn btn-sm btn-outline">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              <span>Buka Google Maps &rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="section-py bg-alt">
+    <div class="container">
+      <div class="cta-banner">
+        <div class="cta-banner-content">
+          <span class="badge-sub" style="background-color: rgba(255,255,255,0.12); color: #fed7aa; margin-bottom: 1rem;">Konsultasi Gratis</span>
+          <h3>Ingin Berdiskusi Langsung dengan Tim Kami?</h3>
+          <p>Hubungi nomor WhatsApp resmi Griya Alfath untuk menanyakan ketersediaan motif, jadwal survei lokasi, atau penawaran harga pengadaan proyek.</p>
+          <div class="cta-banner-buttons">
+            <a href="https://wa.me/6282157249454?text=Halo%20Griya%20Alfath,%20saya%20ingin%20konsultasi%20mengenai%20layanan%20dan%20material%20plafon%20PVC" class="btn btn-accent" target="_blank" rel="noopener">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9 7.41 8.74 7.69C8.47 7.96 7.74 8.64 7.74 10.05C7.74 11.45 8.77 12.81 8.91 13C9.05 13.2 10.92 16.08 13.8 17.32C14.49 17.61 15.02 17.79 15.44 17.93C16.13 18.15 16.76 18.12 17.26 18.04C17.81 17.96 18.96 17.35 19.2 16.67C19.44 16 19.44 15.41 19.37 15.3C19.3 15.19 19.11 15.12 18.82 14.98C18.53 14.84 17.11 14.14 16.85 14.05C16.59 13.95 16.4 13.91 16.21 14.2C16.02 14.5 15.48 15.12 15.31 15.3C15.15 15.5 14.99 15.52 14.7 15.37C14.41 15.23 13.49 14.93 12.4 13.96C11.55 13.2 10.98 12.27 10.82 11.98C10.65 11.7 10.8 11.54 10.95 11.4C11.08 11.27 11.24 11.06 11.39 10.89C11.53 10.72 11.58 10.6 11.68 10.4C11.77 10.2 11.72 10.03 11.65 9.89C11.58 9.74 11 8.33 10.76 7.76C10.53 7.21 10.3 7.28 10.13 7.27L9.53 7.33Z"/></svg>
+              Hubungi WhatsApp Office
+            </a>
+            <a href="https://wa.me/6282134516288?text=Halo%20Griya%20Alfath,%20saya%20ingin%20konsultasi%20mengenai%20layanan%20dan%20material%20plafon%20PVC" class="btn btn-whatsapp-green" target="_blank" rel="noopener">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9 7.41 8.74 7.69C8.47 7.96 7.74 8.64 7.74 10.05C7.74 11.45 8.77 12.81 8.91 13C9.05 13.2 10.92 16.08 13.8 17.32C14.49 17.61 15.02 17.79 15.44 17.93C16.13 18.15 16.76 18.12 17.26 18.04C17.81 17.96 18.96 17.35 19.2 16.67C19.44 16 19.44 15.41 19.37 15.3C19.3 15.19 19.11 15.12 18.82 14.98C18.53 14.84 17.11 14.14 16.85 14.05C16.59 13.95 16.4 13.91 16.21 14.2C16.02 14.5 15.48 15.12 15.31 15.3C15.15 15.5 14.99 15.52 14.7 15.37C14.41 15.23 13.49 14.93 12.4 13.96C11.55 13.2 10.98 12.27 10.82 11.98C10.65 11.7 10.8 11.54 10.95 11.4C11.08 11.27 11.24 11.06 11.39 10.89C11.53 10.72 11.58 10.6 11.68 10.4C11.77 10.2 11.72 10.03 11.65 9.89C11.58 9.74 11 8.33 10.76 7.76C10.53 7.21 10.3 7.28 10.13 7.27L9.53 7.33Z"/></svg>
+              Hubungi WhatsApp Admin
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+
+  .about-content p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+
+  .vision-mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .vm-card {
+    background-color: var(--bg-alt);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+  }
+
+  .vm-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background-color: var(--accent-soft);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .vm-card h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .vm-card p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+    margin-bottom: 0;
+  }
+
+  .about-image-card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--border-color);
+  }
+
+  .about-image-card img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+  }
+
+  .image-caption-box {
+    padding: 1.25rem;
+    background-color: #ffffff;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .image-caption-box strong {
+    display: block;
+    color: var(--primary);
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .image-caption-box span {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    display: block;
+  }
+
+  /* Market Segment */
+  .market-segment-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .segment-card {
+    background-color: #ffffff;
+    border-radius: var(--radius-lg);
+    padding: 2.5rem 2rem;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .segment-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-md);
+    background-color: var(--accent-soft);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .segment-card h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .segment-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .segment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .segment-list li {
+    font-size: 0.9rem;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .segment-list li::before {
+    content: "✓";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #dcfce7;
+    color: var(--success);
+    font-size: 0.75rem;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  /* Stores Grid */
+  .stores-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .store-card {
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2.25rem 2rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .store-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent);
+  }
+
+  .store-badge-wrap {
+    margin-bottom: 1rem;
+  }
+
+  .store-badge {
+    display: inline-block;
+    padding: 0.3rem 0.75rem;
+    border-radius: var(--radius-full);
+    background-color: var(--bg-alt);
+    color: var(--primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border: 1px solid var(--border-color);
+  }
+
+  .store-badge.badge-primary {
+    background-color: #e0f2fe;
+    color: #0369a1;
+    border-color: #bae6fd;
+  }
+
+  .store-badge.badge-warning {
+    background-color: #fef3c7;
+    color: #92400e;
+    border-color: #fde68a;
+  }
+
+  .store-card h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 0.65rem;
+    line-height: 1.35;
+  }
+
+  .store-address {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+
+  .store-info-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    background-color: var(--bg-alt);
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 1.25rem;
+    border-left: 3px solid var(--accent);
+  }
+
+  .store-meta-tag {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  .store-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .store-features span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    background-color: #f8fafc;
+    color: var(--text-main);
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+  }
+
+  .store-action-row {
+    margin-top: auto;
+    padding-top: 0.5rem;
+  }
+
+  /* CTA Banner & Buttons */
+  .cta-banner {
+    background: linear-gradient(135deg, #091a2c 0%, #0f2b48 70%, #153960 100%);
+    color: #ffffff;
+    border-radius: var(--radius-lg);
+    padding: 3.5rem 2.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-banner-content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .cta-banner h3 {
+    font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    color: #ffffff;
+  }
+
+  .cta-banner p {
+    font-size: 1.05rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .cta-banner-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .cta-banner-buttons .btn {
+    padding: 0.85rem 1.75rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    transition: var(--transition);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .market-segment-grid { grid-template-columns: 1fr; }
+    .stores-grid { grid-template-columns: 1fr; }
+    .cta-banner { padding: 2.5rem 1.5rem; }
+    .cta-banner-buttons { flex-direction: column; width: 100%; gap: 0.75rem; }
+    .cta-banner-buttons .btn { width: 100%; }
+  }
+
+  @media (max-width: 600px) {
+    .vision-mission-grid { grid-template-columns: 1fr; }
+  }
+</style>
+

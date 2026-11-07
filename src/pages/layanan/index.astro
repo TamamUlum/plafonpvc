@@ -1,0 +1,282 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { services } from '../../data/services';
+
+const breadcrumbItems = [
+  { label: 'Jasa Pemasangan', href: '/layanan/' }
+];
+---
+
+<BaseLayout
+  title="Jasa Pemasangan Plafon PVC, Gypsum & Baja Ringan — Plafon PVC Solo by Griya Alfath"
+  description="Layanan jasa pemasangan plafon PVC, plafon gypsum, rangka baja ringan, dan wall moulding profesional bergaransi di seluruh Solo Raya."
+  currentPath="/layanan/"
+>
+  <!-- Page Banner -->
+  <section class="page-banner">
+  <video autoplay muted loop playsinline poster="/images/hero/hero-plafon-main.webp" class="banner-video-bg" aria-hidden="true">
+    <source src="/videos/banner-bg.mp4" type="video/mp4" />
+  </video>
+  <div class="banner-overlay" aria-hidden="true"></div>
+
+    <div class="container">
+      <span class="badge-sub" style="background-color: rgba(255,255,255,0.15); color: #fed7aa; margin-bottom: 0.75rem;">Jasa Pemasangan</span>
+      <h1 class="page-banner-title">Layanan Pemasangan Konstruksi Interior Bergaransi</h1>
+      <p class="page-banner-desc">Dikerjakan oleh aplikator terampil dengan standar instalasi rapi, pengukuran presisi, dan komitmen jadwal yang tepat.</p>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <Breadcrumb items={breadcrumbItems} />
+
+  <!-- Services Detailed Section -->
+  <section class="section-py bg-white">
+    <div class="container">
+      <div class="services-full-list">
+        {services.map((s, idx) => (
+          <div class={`service-detail-item ${idx % 2 === 1 ? 'reverse' : ''}`} id={s.id}>
+            <div class="service-detail-img">
+              <img src={s.image} alt={s.title} loading="lazy" />
+            </div>
+            <div class="service-detail-content">
+              <span class="badge-sub">Layanan #{idx + 1}</span>
+              <h2 class="service-detail-title">{s.title}</h2>
+              <p class="service-detail-lead">{s.shortDesc}</p>
+              <p class="service-detail-text">{s.description}</p>
+
+              <h4 class="subhead-small">Keunggulan Layanan:</h4>
+              <ul class="features-checklist">
+                {s.features.map(f => (
+                  <li>
+                    <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+
+              <h4 class="subhead-small">Tahapan Pengerjaan:</h4>
+              <div class="work-step-pills">
+                {s.steps.map(step => (
+                  <span class="work-pill">{step}</span>
+                ))}
+              </div>
+
+              <div class="service-action-row">
+                <a
+                  href={`https://wa.me/6282157249454?text=${encodeURIComponent(s.whatsappMessage)}`}
+                  class="btn btn-accent"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9 7.41 8.74 7.69C8.47 7.96 7.74 8.64 7.74 10.05C7.74 11.45 8.77 12.81 8.91 13C9.05 13.2 10.92 16.08 13.8 17.32C14.49 17.61 15.02 17.79 15.44 17.93C16.13 18.15 16.76 18.12 17.26 18.04C17.81 17.96 18.96 17.35 19.2 16.67C19.44 16 19.44 15.41 19.37 15.3C19.3 15.19 19.11 15.12 18.82 14.98C18.53 14.84 17.11 14.14 16.85 14.05C16.59 13.95 16.4 13.91 16.21 14.2C16.02 14.5 15.48 15.12 15.31 15.3C15.15 15.5 14.99 15.52 14.7 15.37C14.41 15.23 13.49 14.93 12.4 13.96C11.55 13.2 10.98 12.27 10.82 11.98C10.65 11.7 10.8 11.54 10.95 11.4C11.08 11.27 11.24 11.06 11.39 10.89C11.53 10.72 11.58 10.6 11.68 10.4C11.77 10.2 11.72 10.03 11.65 9.89C11.58 9.74 11 8.33 10.76 7.76C10.53 7.21 10.3 7.28 10.13 7.27L9.53 7.33Z"/></svg>
+                  Konsultasi Layanan Ini
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Standards & Quality Banner -->
+  <section class="section-py bg-alt">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge-sub">Standar Pengerjaan</span>
+        <h2 class="section-title">Prinsip Kerja Aplikator Griya Alfath</h2>
+        <p class="section-desc">Kualitas dan kepuasan pelanggan adalah prioritas dalam setiap proyek yang kami tangani.</p>
+      </div>
+
+      <div class="standards-grid">
+        <div class="standard-card">
+          <h4>1. Rangka Kokoh Sesuai Beban</h4>
+          <p>Pemasangan rangka hollow galvalum atau baja ringan menggunakan jarak gantung terstandar agar tidak melandai atau renggang di kemudian hari.</p>
+        </div>
+        <div class="standard-card">
+          <h4>2. Sambungan Interlocking Presisi</h4>
+          <p>Plafon PVC dipasang dengan lidah sambungan rapat tanpa celah, menghasilkan visual garis lurus yang rapi dan tahan kebocoran air.</p>
+        </div>
+        <div class="standard-card">
+          <h4>3. Area Kerja Bersih &amp; Rapi</h4>
+          <p>Setelah pengerjaan selesai, tim aplikator membersihkan sisa potongan material sehingga ruangan langsung siap digunakan oleh konsumen.</p>
+        </div>
+        <div class="standard-card">
+          <h4>4. Garansi Pengerjaan</h4>
+          <p>Kami memberikan garansi pekerjaan untuk memastikan Anda memperoleh kenyamanan optimal tanpa rasa khawatir pasca-pemasangan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .services-full-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4.5rem;
+  }
+
+  .service-detail-item {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+
+  .service-detail-item.reverse {
+    grid-template-columns: 1.15fr 1fr;
+  }
+
+  .service-detail-item.reverse .service-detail-img {
+    order: 2;
+  }
+
+  .service-detail-img {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--border-color);
+  }
+
+  .service-detail-img img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .service-detail-img:hover img {
+    transform: scale(1.03);
+  }
+
+  .service-detail-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+    line-height: 1.25;
+  }
+
+  .service-detail-lead {
+    font-size: 1.05rem;
+    color: var(--text-main);
+    line-height: 1.6;
+    margin-bottom: 0.85rem;
+    font-weight: 500;
+  }
+
+  .service-detail-text {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+  }
+
+  .subhead-small {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.65rem;
+  }
+
+  .features-checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .features-checklist li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-main);
+  }
+
+  .check-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--success);
+    flex-shrink: 0;
+  }
+
+  .work-step-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .work-pill {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    background-color: var(--bg-alt);
+    color: var(--primary);
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+  }
+
+  .service-action-row {
+    margin-top: 1.5rem;
+  }
+
+  /* Standards Grid */
+  .standards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .standard-card {
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.75rem 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .standard-card h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .standard-card p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  @media (max-width: 900px) {
+    .service-detail-item,
+    .service-detail-item.reverse {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .service-detail-item.reverse .service-detail-img {
+      order: 0;
+    }
+    .service-detail-img img {
+      height: 280px;
+    }
+    .standards-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .standards-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+

@@ -1,0 +1,249 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { brands } from '../../data/brands';
+
+const breadcrumbItems = [
+  { label: 'Brand Pilihan', href: '/brand/' }
+];
+
+const pvcBrands = brands.filter(b => b.categoryType === 'pvc');
+const gypsumBrands = brands.filter(b => b.categoryType === 'gypsum');
+const bajaBrands = brands.filter(b => b.categoryType === 'baja-ringan');
+---
+
+<BaseLayout
+  title="Brand Resmi Material Plafon & Konstruksi — Plafon PVC Solo by Griya Alfath"
+  description="Daftar brand resmi mitra Plafon PVC Solo by Griya Alfath: ALFAFON, BATIK, INDOKING, GOLDEN, JAYA BOARD, KNOFF, STAR, dan KENCANA SNI."
+  currentPath="/brand/"
+>
+  <!-- Page Banner -->
+  <section class="page-banner">
+  <video autoplay muted loop playsinline poster="/images/hero/hero-plafon-main.webp" class="banner-video-bg" aria-hidden="true">
+    <source src="/videos/banner-bg.mp4" type="video/mp4" />
+  </video>
+  <div class="banner-overlay" aria-hidden="true"></div>
+
+    <div class="container">
+      <span class="badge-sub" style="background-color: rgba(255,255,255,0.15); color: #fed7aa; margin-bottom: 0.75rem;">Brand Resmi Mitra</span>
+      <h1 class="page-banner-title">Brand Pilihan Berkualitas Terpercaya</h1>
+      <p class="page-banner-desc">Kami bermitra dengan produsen material ternama yang telah teruji mutunya dalam industri plafon dan konstruksi bangunan.</p>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <Breadcrumb items={breadcrumbItems} />
+
+  <!-- PVC Brands -->
+  <section class="section-py bg-white">
+    <div class="container">
+      <div class="category-block-header">
+        <span class="badge-sub">Kategori 1</span>
+        <h2 class="section-title">Brand Plafon PVC Unggulan</h2>
+        <p class="section-desc">Plafon PVC dengan pilihan motif serat kayu alami, marmer glossy, dan varian list elegan tahan air.</p>
+      </div>
+
+      <div class="brands-detail-grid">
+        {pvcBrands.map(b => (
+          <div class="brand-detail-card">
+            <div class="brand-detail-img">
+              {b.image ? (
+                <img src={b.image} alt={`Brand Plafon PVC ${b.name}`} loading="lazy" />
+              ) : (
+                <div class="brand-initials">{b.initials}</div>
+              )}
+            </div>
+            <div class="brand-detail-body">
+              <span class="brand-cat-tag">{b.category}</span>
+              <h3 class="brand-detail-name">{b.name}</h3>
+              <p class="brand-detail-desc">{b.description}</p>
+              <a
+                href={`https://wa.me/6282157249454?text=${encodeURIComponent(`Halo Griya Alfath, saya ingin tanya katalog motif brand ${b.name}`)}`}
+                class="btn btn-sm btn-outline"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9 7.41 8.74 7.69C8.47 7.96 7.74 8.64 7.74 10.05C7.74 11.45 8.77 12.81 8.91 13C9.05 13.2 10.92 16.08 13.8 17.32C14.49 17.61 15.02 17.79 15.44 17.93C16.13 18.15 16.76 18.12 17.26 18.04C17.81 17.96 18.96 17.35 19.2 16.67C19.44 16 19.44 15.41 19.37 15.3C19.3 15.19 19.11 15.12 18.82 14.98C18.53 14.84 17.11 14.14 16.85 14.05C16.59 13.95 16.4 13.91 16.21 14.2C16.02 14.5 15.48 15.12 15.31 15.3C15.15 15.5 14.99 15.52 14.7 15.37C14.41 15.23 13.49 14.93 12.4 13.96C11.55 13.2 10.98 12.27 10.82 11.98C10.65 11.7 10.8 11.54 10.95 11.4C11.08 11.27 11.24 11.06 11.39 10.89C11.53 10.72 11.58 10.6 11.68 10.4C11.77 10.2 11.72 10.03 11.65 9.89C11.58 9.74 11 8.33 10.76 7.76C10.53 7.21 10.3 7.28 10.13 7.27L9.53 7.33Z"/></svg>
+                Tanya Katalog {b.name}
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Gypsum Brands -->
+  <section class="section-py bg-alt">
+    <div class="container">
+      <div class="category-block-header">
+        <span class="badge-sub">Kategori 2</span>
+        <h2 class="section-title">Brand Papan Gypsum Terkemuka</h2>
+        <p class="section-desc">Papan gypsum standar proyek untuk hasil plafon flat mulus dan dinding partisi berkualitas.</p>
+      </div>
+
+      <div class="brands-detail-grid">
+        {gypsumBrands.map(b => (
+          <div class="brand-detail-card">
+            <div class="brand-detail-img">
+              {b.image ? (
+                <img src={b.image} alt={`Brand Gypsum ${b.name}`} loading="lazy" />
+              ) : (
+                <div class="brand-initials">{b.initials}</div>
+              )}
+            </div>
+            <div class="brand-detail-body">
+              <span class="brand-cat-tag">{b.category}</span>
+              <h3 class="brand-detail-name">{b.name}</h3>
+              <p class="brand-detail-desc">{b.description}</p>
+              <a
+                href={`https://wa.me/6282157249454?text=${encodeURIComponent(`Halo Griya Alfath, saya ingin tanya produk gypsum ${b.name}`)}`}
+                class="btn btn-sm btn-outline"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9 7.41 8.74 7.69C8.47 7.96 7.74 8.64 7.74 10.05C7.74 11.45 8.77 12.81 8.91 13C9.05 13.2 10.92 16.08 13.8 17.32C14.49 17.61 15.02 17.79 15.44 17.93C16.13 18.15 16.76 18.12 17.26 18.04C17.81 17.96 18.96 17.35 19.2 16.67C19.44 16 19.44 15.41 19.37 15.3C19.3 15.19 19.11 15.12 18.82 14.98C18.53 14.84 17.11 14.14 16.85 14.05C16.59 13.95 16.4 13.91 16.21 14.2C16.02 14.5 15.48 15.12 15.31 15.3C15.15 15.5 14.99 15.52 14.7 15.37C14.41 15.23 13.49 14.93 12.4 13.96C11.55 13.2 10.98 12.27 10.82 11.98C10.65 11.7 10.8 11.54 10.95 11.4C11.08 11.27 11.24 11.06 11.39 10.89C11.53 10.72 11.58 10.6 11.68 10.4C11.77 10.2 11.72 10.03 11.65 9.89C11.58 9.74 11 8.33 10.76 7.76C10.53 7.21 10.3 7.28 10.13 7.27L9.53 7.33Z"/></svg>
+                Tanya Produk {b.name}
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Baja Ringan Brands -->
+  <section class="section-py bg-white">
+    <div class="container">
+      <div class="category-block-header">
+        <span class="badge-sub">Kategori 3</span>
+        <h2 class="section-title">Brand Baja Ringan Bersertifikasi SNI</h2>
+        <p class="section-desc">Rangka konstruksi atap dan hollow plafon berkualitas tinggi untuk ketahanan struktural maksimal.</p>
+      </div>
+
+      <div class="brands-detail-grid" style="grid-template-columns: repeat(2, 1fr);">
+        {bajaBrands.map(b => (
+          <div class="brand-detail-card">
+            <div class="brand-detail-img">
+              {b.image ? (
+                <img src={b.image} alt={`Brand Baja Ringan ${b.name}`} loading="lazy" />
+              ) : (
+                <div class="brand-initials">{b.initials}</div>
+              )}
+            </div>
+            <div class="brand-detail-body">
+              <span class="brand-cat-tag">{b.category}</span>
+              <h3 class="brand-detail-name">{b.name}</h3>
+              <p class="brand-detail-desc">{b.description}</p>
+              <a
+                href={`https://wa.me/6282157249454?text=${encodeURIComponent(`Halo Griya Alfath, saya ingin tanya baja ringan brand ${b.name}`)}`}
+                class="btn btn-sm btn-accent"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9 7.41 8.74 7.69C8.47 7.96 7.74 8.64 7.74 10.05C7.74 11.45 8.77 12.81 8.91 13C9.05 13.2 10.92 16.08 13.8 17.32C14.49 17.61 15.02 17.79 15.44 17.93C16.13 18.15 16.76 18.12 17.26 18.04C17.81 17.96 18.96 17.35 19.2 16.67C19.44 16 19.44 15.41 19.37 15.3C19.3 15.19 19.11 15.12 18.82 14.98C18.53 14.84 17.11 14.14 16.85 14.05C16.59 13.95 16.4 13.91 16.21 14.2C16.02 14.5 15.48 15.12 15.31 15.3C15.15 15.5 14.99 15.52 14.7 15.37C14.41 15.23 13.49 14.93 12.4 13.96C11.55 13.2 10.98 12.27 10.82 11.98C10.65 11.7 10.8 11.54 10.95 11.4C11.08 11.27 11.24 11.06 11.39 10.89C11.53 10.72 11.58 10.6 11.68 10.4C11.77 10.2 11.72 10.03 11.65 9.89C11.58 9.74 11 8.33 10.76 7.76C10.53 7.21 10.3 7.28 10.13 7.27L9.53 7.33Z"/></svg>
+                Konsultasi Spesifikasi {b.name}
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .category-block-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .brands-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .brand-detail-card {
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    overflow: hidden;
+    transition: var(--transition);
+  }
+
+  .brand-detail-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent);
+  }
+
+  .brand-detail-img {
+    background-color: var(--bg-alt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 1rem;
+    border-right: 1px solid var(--border-color);
+  }
+
+  .brand-detail-img img {
+    max-height: 120px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .brand-initials {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--primary);
+  }
+
+  .brand-detail-body {
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .brand-cat-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.35rem;
+  }
+
+  .brand-detail-name {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .brand-detail-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
+  }
+
+  @media (max-width: 768px) {
+    .brands-detail-grid {
+      grid-template-columns: 1fr !important;
+    }
+    .brand-detail-card {
+      grid-template-columns: 1fr;
+    }
+    .brand-detail-img {
+      border-right: none;
+      border-bottom: 1px solid var(--border-color);
+      height: 140px;
+    }
+  }
+</style>
+
